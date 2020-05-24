@@ -2,6 +2,9 @@ package com.tommyhasselman.termsconditions.model;
 
 import java.util.Random;
 
+/**
+ *
+ */
 public class BasicItem extends OrderItem {
 
     String size;
