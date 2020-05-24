@@ -2,6 +2,11 @@ package com.tommyhasselman.termsconditions.model;
 
 import java.io.File;
 
+/**
+ * the GameObject super class defines the common methods and variables shared
+ * by all GameObject's
+ */
+
 public abstract class GameObject {
     private int posX;
     private int posY;
@@ -46,6 +51,17 @@ public abstract class GameObject {
     }
 
     public void move(int x, int y){
-        
+        this.setPosX(x);
+        this.setPosX(y);
+    }
+
+    /**
+     * will often be overwritten with a more complex to string in order to
+     * compare differnt but similar irems
+     *
+     * @return a string reresentation of the object
+     */
+    public String toString(){
+        return name;
     }
 }
