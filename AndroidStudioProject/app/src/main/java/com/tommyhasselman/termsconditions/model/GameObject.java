@@ -14,6 +14,11 @@ public abstract class GameObject {
     private File sprite;
     private String name;
 
+    /**
+     *
+     * a method to be overridden such taht all objects know how to draw
+     * themselves in whatever bespoke way they require
+     */
     public void draw(){
     //to be overridden
     }
@@ -55,12 +60,21 @@ public abstract class GameObject {
         this.setPosX(y);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     /**
      * will often be overwritten with a more complex to string in order to
      * compare differnt but similar irems
      *
      * @return a string reresentation of the object
      */
+    @Override
     public String toString(){
         return name;
     }
