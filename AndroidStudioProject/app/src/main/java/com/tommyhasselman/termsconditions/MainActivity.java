@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         item = new BasicItem();
         testTextView.setText(item.toString());
 
+        /**
+         * When testButton is clicked, a new BasicItem instance is generated.
+         * testTextView's text is then updated with the new item.
+         */
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
