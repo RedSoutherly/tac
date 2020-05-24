@@ -8,12 +8,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.tommyhasselman.termsconditions.model.BasicItem;
+import com.tommyhasselman.termsconditions.model.Box;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView testTextView;
-    Button testButton;
+    TextView orderTextView;
+    TextView boxTextView;
+    Button generateButton;
     OrderItem item;
 
     @Override
@@ -21,22 +23,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        testTextView = (TextView) findViewById(R.id.testTextView);
-        testButton = (Button) findViewById(R.id.testButton);
-        item = new BasicItem();
-        testTextView.setText(item.toString());
+        orderTextView = (TextView) findViewById(R.id.orderContents);
+        boxTextView = (TextView) findViewById(R.id.boxContents);
+        generateButton = (Button) findViewById(R.id.generateButton);
 
         /**
          * When testButton is clicked, a new BasicItem instance is generated.
          * testTextView's text is then updated with the new item.
          */
-        testButton.setOnClickListener(new View.OnClickListener() {
+        generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item = new BasicItem();
-                testTextView.setText(item.toString());
+                generateNewBox();
             }
         });
+    }
+
+    public void generateNewBox() {
+        Box b = new Box(3);
+        String orderContains = "";
+        for (OrderItem i : b.getBoxShouldContain()) {
+            orderContains += i.toString()+"\n";
+        }
+        String boxContains = "";
+        for (OrderItem i : b.getBoxContains()) {
+            boxContains += i.toString()+"\n";
+        }
+        orderTextView.setText(orderContains);
+        boxTextView.setText(boxContains);
     }
 
 }
