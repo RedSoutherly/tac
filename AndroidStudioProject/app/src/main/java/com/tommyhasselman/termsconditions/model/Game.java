@@ -14,7 +14,7 @@ public class Game {
             CINIMATIC
     };
     private Timer time;
-
+    //TODO address protection of methods in this class
     public Game (){
         this.objects = new ArrayList<GameObject>();
         time = new Timer();
@@ -24,11 +24,30 @@ public class Game {
 
     /**
      *
+     * runs a loop to loop between cinematic and game
+     * until the player dies or a certain number of rounds are passed
+     */
+    public void runGame(){
+
+
+    }
+    /**
+     * generates the choices you use between rounds of the game
+     * takes input and saves your choices for scoring
+     */
+    public void startCinematic(){
+
+    }
+
+    /**
+     *
      * starts the game
      * in alpha it starts a timer and generates boxes
+     * you can then match boxes and itineraries
      */
     public void startGame(){
-        
+        //time.start();
+
     }
 
     public ArrayList<GameObject> getObjects() {
