@@ -34,7 +34,7 @@ public class Box extends GameObject {
                 boxShouldContain.add(new BasicItem());
             }
 
-
+            index++;
 
         }
     }
