@@ -2,6 +2,7 @@ package com.tommyhasselman.termsconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     OrderItem item;
     Box b;
     int boxSize=3;
+    //final Color red = Color.decode("#FF0000");
+    //final Color green = Color.decode("#0x008010");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +55,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!b.isDiff()) {
                     p.incrementScore();
+                    valid.setBackgroundColor(0xFF0000);
                 }
                 b.setValidated(true);
+
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 valid.setEnabled(false);
                 invalid.setEnabled(false);
             }
@@ -63,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(b.isDiff()) {
                     p.incrementScore();
+                    invalid.setBackgroundColor(0xFF0000);
                 }
                 b.setValidated(true);
                 valid.setEnabled(false);
