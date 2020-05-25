@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.tommyhasselman.termsconditions.model.Player;
 
 import com.tommyhasselman.termsconditions.model.BasicItem;
 import com.tommyhasselman.termsconditions.model.Box;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Player p = new Player();
 
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
