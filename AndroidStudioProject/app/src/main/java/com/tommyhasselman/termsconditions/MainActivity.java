@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.tommyhasselman.termsconditions.model.Player;
 
 import com.tommyhasselman.termsconditions.model.BasicItem;
 import com.tommyhasselman.termsconditions.model.Box;
@@ -16,20 +17,24 @@ public class MainActivity extends AppCompatActivity {
     TextView orderTextView;
     TextView boxTextView;
     Button generateButton;
+    Button valid;
+    Button invalid;
     OrderItem item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Player p = new Player();
 
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
         generateButton = (Button) findViewById(R.id.generateButton);
+        valid = (Button) findViewById(R.id.Valid);
+        invalid= (Button) findViewById(R.id.Invalid);
 
         /**
-         * When testButton is clicked, a new BasicItem instance is generated.
-         * testTextView's text is then updated with the new item.
+         * When generateButton is clicked, generateNewBox() is called.
          */
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +42,19 @@ public class MainActivity extends AppCompatActivity {
                 generateNewBox();
             }
         });
+        valid.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 
+    /**
+     * This method creates a new instance of a Box.
+     * It then updates the respective text fields with what
+     * the box contains, and what it should contain.
+     */
     public void generateNewBox() {
         Box b = new Box(3);
         String orderContains = "";
