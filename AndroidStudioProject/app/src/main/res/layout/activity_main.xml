@@ -61,4 +61,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BoxTitle" />
 
+    <Button
+        android:id="@+id/Valid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valid"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="651dp" />
+
+    <Button
+        android:id="@+id/Invalid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Invalid"
+        tools:layout_editor_absoluteX="284dp"
+        tools:layout_editor_absoluteY="651dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

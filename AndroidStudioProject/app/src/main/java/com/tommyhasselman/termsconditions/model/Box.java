@@ -10,6 +10,7 @@ public class Box extends GameObject {
     private List<OrderItem> boxContains = new ArrayList<OrderItem>();
     private List<OrderItem> boxShouldContain = new ArrayList<OrderItem>();
     private boolean diff;
+    private boolean validated;
     /* Value that determines the chance that a random item is going to be generated in boxShouldContain */
     int chanceValue = 4;
 
@@ -41,5 +42,25 @@ public class Box extends GameObject {
 
     public List<OrderItem> getBoxShouldContain() {
         return boxShouldContain;
+    }
+
+    public boolean isValidated() {
+        return validated;
+    }
+
+    public void setValidated(boolean validated) {
+        this.validated = validated;
+    }
+
+    public int getChanceValue() {
+        return chanceValue;
+    }
+
+    public void setChanceValue(int chanceValue) {
+        this.chanceValue = chanceValue;
+    }
+
+    public boolean isDiff() {
+        return diff;
     }
 }

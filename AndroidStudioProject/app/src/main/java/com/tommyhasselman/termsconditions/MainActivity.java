@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     TextView orderTextView;
     TextView boxTextView;
     Button generateButton;
+    Button valid;
+    Button invalid;
     OrderItem item;
 
     @Override
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
         generateButton = (Button) findViewById(R.id.generateButton);
+        valid = (Button) findViewById(R.id.Valid);
+        invalid= (Button) findViewById(R.id.Invalid);
 
         /**
          * When generateButton is clicked, generateNewBox() is called.
@@ -36,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 generateNewBox();
+            }
+        });
+        valid.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                
             }
         });
     }
