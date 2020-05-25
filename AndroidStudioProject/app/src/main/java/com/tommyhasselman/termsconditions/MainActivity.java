@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         generateButton = (Button) findViewById(R.id.generateButton);
 
         /**
-         * When testButton is clicked, a new BasicItem instance is generated.
-         * testTextView's text is then updated with the new item.
+         * When generateButton is clicked, generateNewBox() is called.
          */
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method creates a new instance of a Box.
+     * It then updates the respective text fields with what
+     * the box contains, and what it should contain.
+     */
     public void generateNewBox() {
         Box b = new Box(3);
         String orderContains = "";
