@@ -20,12 +20,15 @@ public class MainActivity extends AppCompatActivity {
     Button valid;
     Button invalid;
     OrderItem item;
+    Box b;
+    int boxSize=3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Player p = new Player();
+        final Player p = new Player();
+
 
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
@@ -40,12 +43,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 generateNewBox();
+                valid.setEnabled(true);
+                invalid.setEnabled(true);
             }
         });
         valid.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                
+                if(!b.isDiff()) {
+                    p.incrementScore();
+                }
+                b.setValidated(true);
+                valid.setEnabled(false);
+                invalid.setEnabled(false);
+            }
+        });
+        invalid.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(b.isDiff()) {
+                    p.incrementScore();
+                }
+                b.setValidated(true);
+                valid.setEnabled(false);
+                invalid.setEnabled(false);
             }
         });
     }
@@ -56,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
      * the box contains, and what it should contain.
      */
     public void generateNewBox() {
-        Box b = new Box(3);
+        b = new Box(boxSize);
         String orderContains = "";
         for (OrderItem i : b.getBoxShouldContain()) {
             orderContains += i.toString()+"\n";

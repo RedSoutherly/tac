@@ -8,7 +8,9 @@ public class Player {
         this.alive = true;
         this.score = 0;
     }
-
+    public void incrementScore(){
+        score++;
+    }
     public boolean isAlive() {
         return alive;
     }
