@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.tommyhasselman.termsconditions.model.Player;
-
+import java.util.TimerTask;
 import com.tommyhasselman.termsconditions.model.BasicItem;
 import com.tommyhasselman.termsconditions.model.Box;
 import com.tommyhasselman.termsconditions.model.OrderItem;
+
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Player p = new Player();
+        Timer t = new Timer();
 
 
         orderTextView = (TextView) findViewById(R.id.orderContents);
