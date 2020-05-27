@@ -2,6 +2,7 @@ package com.tommyhasselman.termsconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,12 +21,17 @@ public class MainActivity extends AppCompatActivity {
     Button valid;
     Button invalid;
     OrderItem item;
+    Box b;
+    int boxSize=3;
+    //final Color red = Color.decode("#FF0000");
+    //final Color green = Color.decode("#0x008010");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Player p = new Player();
+        final Player p = new Player();
+
 
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
@@ -40,12 +46,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 generateNewBox();
+                valid.setEnabled(true);
+                invalid.setEnabled(true);
             }
         });
         valid.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                
+                if(!b.isDiff()) {
+                    p.incrementScore();
+                    valid.setBackgroundColor(0xFF0000);
+                }
+                b.setValidated(true);
+
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                valid.setEnabled(false);
+                invalid.setEnabled(false);
+            }
+        });
+        invalid.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(b.isDiff()) {
+                    p.incrementScore();
+                    invalid.setBackgroundColor(0xFF0000);
+                }
+                b.setValidated(true);
+                valid.setEnabled(false);
+                invalid.setEnabled(false);
             }
         });
     }
@@ -56,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
      * the box contains, and what it should contain.
      */
     public void generateNewBox() {
-        Box b = new Box(3);
+        b = new Box(boxSize);
         String orderContains = "";
         for (OrderItem i : b.getBoxShouldContain()) {
             orderContains += i.toString()+"\n";
