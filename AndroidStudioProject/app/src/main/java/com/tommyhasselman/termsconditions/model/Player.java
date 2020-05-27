@@ -3,6 +3,7 @@ package com.tommyhasselman.termsconditions.model;
 public class Player {
     private boolean alive;
     private int score;
+    private double $;
 
     public Player() {
         this.alive = true;
@@ -11,6 +12,15 @@ public class Player {
     public void incrementScore(){
         score++;
     }
+
+    public double get$() {
+        return $;
+    }
+
+    public void increment$(int $) {
+        this.$ += score*2;
+    }
+
     public boolean isAlive() {
         return alive;
     }

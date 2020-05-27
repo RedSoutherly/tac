@@ -83,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 invalid.setEnabled(false);
             }
         });
+        // this implementation is proboly bad maybe use timer and schedule task
+        while(p.isAlive()){
+            long time= System.currentTimeMillis();
+            long end = time+15000;
+            if(time<end){
+                //set buttons to valid
+            }
+            //set buttons to invalid and do a cinematic
+        }
     }
 
     /**
