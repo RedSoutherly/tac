@@ -7,13 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.tommyhasselman.termsconditions.controller.Controller;
 import com.tommyhasselman.termsconditions.model.Player;
-import com.tommyhasselman.termsconditions.model.Box;
+import com.tommyhasselman.termsconditions.model.Order;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
 import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
+
+    public Controller controller;
 
     TextView orderTextView;
     TextView boxTextView;
@@ -21,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Button generateButton;
     Button correctButton;
     Button incorrectButton;
-    Box b;
+    Order b;
     int boxSize=3;
     //final Color red = Color.decode("#FF0000");
     //final Color green = Color.decode("#0x008010");
@@ -30,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         final Player p = new Player();
+        controller = new Controller();
+
+
+
         Timer t = new Timer();
 
 
@@ -110,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
      * the box contains, and what it should contain.
      */
     public void generateNewBox() {
-        b = new Box(boxSize);
+        b = controller.newOrder();
         String orderContains = "";
         for (OrderItem i : b.getBoxShouldContain()) {
             orderContains += i.toString()+"\n";
