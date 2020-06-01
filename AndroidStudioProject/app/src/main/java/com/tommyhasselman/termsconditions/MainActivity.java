@@ -2,14 +2,12 @@ package com.tommyhasselman.termsconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.tommyhasselman.termsconditions.model.Player;
-import java.util.TimerTask;
-import com.tommyhasselman.termsconditions.model.BasicItem;
 import com.tommyhasselman.termsconditions.model.Box;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
@@ -19,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
     TextView orderTextView;
     TextView boxTextView;
+    ImageView bezosImageView;
     Button generateButton;
-    Button valid;
-    Button invalid;
-    OrderItem item;
+    Button correctButton;
+    Button incorrectButton;
     Box b;
     int boxSize=3;
     //final Color red = Color.decode("#FF0000");
@@ -38,9 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
+        bezosImageView = (ImageView) findViewById(R.id.bezosImageView);
         generateButton = (Button) findViewById(R.id.generateButton);
-        valid = (Button) findViewById(R.id.Valid);
-        invalid= (Button) findViewById(R.id.Invalid);
+        correctButton = (Button) findViewById(R.id.correctButton);
+        incorrectButton = (Button) findViewById(R.id.incorrectButton);
 
         /**
          * When generateButton is clicked, generateNewBox() is called.
@@ -49,16 +48,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 generateNewBox();
-                valid.setEnabled(true);
-                invalid.setEnabled(true);
+                generateButton.setEnabled(false);
+                correctButton.setEnabled(true);
+                incorrectButton.setEnabled(true);
+                bezosImageView.setImageResource(R.drawable.question_bezos);
             }
         });
-        valid.setOnClickListener(new View.OnClickListener(){
+        correctButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if(!b.isDiff()) {
                     p.incrementScore();
-                    valid.setBackgroundColor(0xFF0000);
+                    bezosImageView.setImageResource(R.drawable.correct_bezos);
+                } else {
+                    bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
                 b.setValidated(true);
 
@@ -67,22 +70,28 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                valid.setEnabled(false);
-                invalid.setEnabled(false);
+                correctButton.setEnabled(false);
+                incorrectButton.setEnabled(false);
+                generateButton.setEnabled(true);
             }
         });
-        invalid.setOnClickListener(new View.OnClickListener(){
+        incorrectButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 if(b.isDiff()) {
                     p.incrementScore();
-                    invalid.setBackgroundColor(0xFF0000);
+                    bezosImageView.setImageResource(R.drawable.correct_bezos);
+                } else {
+                    bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
+
                 b.setValidated(true);
-                valid.setEnabled(false);
-                invalid.setEnabled(false);
+                correctButton.setEnabled(false);
+                incorrectButton.setEnabled(false);
+                generateButton.setEnabled(true);
             }
         });
+        /*
         // this implementation is proboly bad maybe use timer and schedule task
         while(p.isAlive()){
             long time= System.currentTimeMillis();
@@ -92,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             }
             //set buttons to invalid and do a cinematic
         }
+        */
     }
 
     /**
