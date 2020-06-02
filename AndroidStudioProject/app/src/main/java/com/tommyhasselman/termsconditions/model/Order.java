@@ -1,6 +1,6 @@
 package com.tommyhasselman.termsconditions.model;
 
-import com.tommyhasselman.termsconditions.controller.Controller;
+import com.tommyhasselman.termsconditions.Controller;
 
 import java.util.List;
 import java.util.ArrayList;

@@ -9,19 +9,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.tommyhasselman.termsconditions.controller.Controller;
 import com.tommyhasselman.termsconditions.model.Player;
 
-import java.text.CollationElementIterator;
-import java.util.Date;
-import java.util.TimerTask;
 import com.tommyhasselman.termsconditions.model.Order;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
 import java.util.Timer;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,10 +40,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        player = new Player();
-        controller = new Controller(player);
-
-
+        controller = ((Controller) this.getApplication());
+        player = controller.getPlayer();
 
         Timer t = new Timer();
 
