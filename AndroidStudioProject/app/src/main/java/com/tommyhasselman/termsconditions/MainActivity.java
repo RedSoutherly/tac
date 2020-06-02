@@ -3,6 +3,7 @@ package com.tommyhasselman.termsconditions;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.tommyhasselman.termsconditions.controller.Controller;
 import com.tommyhasselman.termsconditions.model.Player;
+
+import java.text.CollationElementIterator;
 import java.util.Date;
 import java.util.TimerTask;
 import com.tommyhasselman.termsconditions.model.Order;
@@ -109,6 +112,18 @@ public class MainActivity extends AppCompatActivity {
                 generateButton.setEnabled(true);
             }
         });
+        new CountDownTimer(30000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                countdownTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                countdownTextField.setText("done!");
+            }
+        }.start();
+
+
         /*
         // this implementation is proboly bad maybe use timer and schedule task
         while(p.isAlive()){
