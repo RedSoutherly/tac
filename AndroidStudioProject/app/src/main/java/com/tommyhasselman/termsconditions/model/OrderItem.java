@@ -20,4 +20,6 @@ public abstract class OrderItem extends GameObject {
             "Blue"
     };
 
+    public abstract String getCode();
+
 }

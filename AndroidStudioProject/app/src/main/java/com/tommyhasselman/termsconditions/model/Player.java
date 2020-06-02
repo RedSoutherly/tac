@@ -1,6 +1,7 @@
 package com.tommyhasselman.termsconditions.model;
 
 public class Player {
+
     private boolean alive;
     private int score;
     private double $;

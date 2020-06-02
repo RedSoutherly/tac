@@ -2,17 +2,17 @@ package com.tommyhasselman.termsconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.tommyhasselman.termsconditions.model.Player;
 
+import com.tommyhasselman.termsconditions.controller.Controller;
+import com.tommyhasselman.termsconditions.model.Player;
 import java.util.Date;
 import java.util.TimerTask;
-import com.tommyhasselman.termsconditions.model.BasicItem;
-import com.tommyhasselman.termsconditions.model.Box;
+import com.tommyhasselman.termsconditions.model.Order;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
 import java.util.Timer;
@@ -22,13 +22,17 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
+    Player player;
+    Controller controller;
+
     TextView orderTextView;
     TextView boxTextView;
+    TextView scoreTextView;
+    ImageView bezosImageView;
     Button generateButton;
-    Button valid;
-    Button invalid;
-    OrderItem item;
-    Box b;
+    Button correctButton;
+    Button incorrectButton;
+    Order order;
     int boxSize=3;
     //final Color red = Color.decode("#FF0000");
     //final Color green = Color.decode("#0x008010");
@@ -37,57 +41,76 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Player p = new Player();
+
+
+        player = new Player();
+        controller = new Controller(player);
+
+
+
         Timer t = new Timer();
 
 
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
+        scoreTextView = (TextView) findViewById(R.id.scoreTextView);
+        bezosImageView = (ImageView) findViewById(R.id.bezosImageView);
         generateButton = (Button) findViewById(R.id.generateButton);
-        valid = (Button) findViewById(R.id.Valid);
-        invalid = (Button) findViewById(R.id.Invalid);
+        correctButton = (Button) findViewById(R.id.correctButton);
+        incorrectButton = (Button) findViewById(R.id.incorrectButton);
 
-        /**
-         * When generateButton is clicked, generateNewBox() is called.
-         */
+
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 generateNewBox();
-                valid.setEnabled(true);
-                invalid.setEnabled(true);
+                generateButton.setEnabled(false);
+                correctButton.setEnabled(true);
+                incorrectButton.setEnabled(true);
+                bezosImageView.setImageResource(R.drawable.question_bezos);
             }
         });
-        valid.setOnClickListener(new View.OnClickListener() {
+        correctButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (!b.isDiff()) {
-                    p.incrementScore();
-                    valid.setBackgroundColor(0xFF0000);
+                if(order.isCorrectlyPacked()) {
+                    player.incrementScore();
+                    updateScore();
+                    bezosImageView.setImageResource(R.drawable.correct_bezos);
+                } else {
+                    bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
-                b.setValidated(true);
+                order.setValidated(true);
 
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                valid.setEnabled(false);
-                invalid.setEnabled(false);
+                correctButton.setEnabled(false);
+                incorrectButton.setEnabled(false);
+                generateButton.setEnabled(true);
             }
         });
-        invalid.setOnClickListener(new View.OnClickListener() {
+        incorrectButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (b.isDiff()) {
-                    p.incrementScore();
-                    invalid.setBackgroundColor(0xFF0000);
+                if(!order.isCorrectlyPacked()) {
+                    player.incrementScore();
+                    updateScore();
+                    bezosImageView.setImageResource(R.drawable.correct_bezos);
+                } else {
+                    bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
-                b.setValidated(true);
-                valid.setEnabled(false);
-                invalid.setEnabled(false);
+
+                order.setValidated(true);
+                correctButton.setEnabled(false);
+                incorrectButton.setEnabled(false);
+                generateButton.setEnabled(true);
             }
         });
+        /*
+        // this implementation is proboly bad maybe use timer and schedule task
         while(p.isAlive()){
         TimerTask task = new TimerTask() {
         
@@ -104,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         //hide count down,score and buttons
         //make a cinematic anc play it  then loop
         }
+        */
     }
 
     /**
@@ -112,17 +136,22 @@ public class MainActivity extends AppCompatActivity {
      * the box contains, and what it should contain.
      */
     public void generateNewBox() {
-        b = new Box(boxSize);
-        String orderContains = "";
-        for (OrderItem i : b.getBoxShouldContain()) {
-            orderContains += i.toString()+"\n";
+        order = controller.newOrder();
+        String orderedContains = "";
+        for (OrderItem i : order.getOrdered()) {
+            orderedContains += i.toString()+"\n";
         }
-        String boxContains = "";
-        for (OrderItem i : b.getBoxContains()) {
-            boxContains += i.toString()+"\n";
+        String packedContains = "";
+        for (OrderItem i : order.getPacked()) {
+            packedContains += i.toString()+"\n";
         }
-        orderTextView.setText(orderContains);
-        boxTextView.setText(boxContains);
+        orderTextView.setText(orderedContains);
+        boxTextView.setText(packedContains);
+    }
+
+    public void updateScore() {
+        String s = player.getScore() + " packages screened correctly.";
+        scoreTextView.setText(s);
     }
 
 }
