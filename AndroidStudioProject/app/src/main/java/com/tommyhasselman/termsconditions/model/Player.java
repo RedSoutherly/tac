@@ -18,8 +18,8 @@ public class Player {
         return $;
     }
 
-    public void increment$(int $) {
-        this.$ += score*2;
+    public void set$(double $) {
+        this.$=$;
     }
 
     public boolean isAlive() {
