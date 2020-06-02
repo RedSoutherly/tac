@@ -12,7 +12,7 @@ public class Controller extends Application {
     public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
     public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
 
-    public Controller(){};
+    public Controller() { }
 
     public Order newOrder() {
         return new Order(this);

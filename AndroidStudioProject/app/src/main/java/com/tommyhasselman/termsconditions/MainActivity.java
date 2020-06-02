@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,11 +27,10 @@ public class MainActivity extends AppCompatActivity {
     TextView boxTextView;
     TextView scoreTextView;
     ImageView bezosImageView;
-    Button generateButton;
+    ImageButton generateButton;
     Button correctButton;
     Button incorrectButton;
     Order order;
-    int boxSize=3;
     //final Color red = Color.decode("#FF0000");
     //final Color green = Color.decode("#0x008010");
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         boxTextView = (TextView) findViewById(R.id.boxContents);
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
         bezosImageView = (ImageView) findViewById(R.id.bezosImageView);
-        generateButton = (Button) findViewById(R.id.generateButton);
+        generateButton = (ImageButton) findViewById(R.id.generateButton);
         correctButton = (Button) findViewById(R.id.correctButton);
         incorrectButton = (Button) findViewById(R.id.incorrectButton);
 
@@ -60,8 +60,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 generateNewBox();
+                generateButton.setVisibility(View.GONE);
                 generateButton.setEnabled(false);
+                correctButton.setVisibility(View.VISIBLE);
                 correctButton.setEnabled(true);
+                incorrectButton.setVisibility(View.VISIBLE);
                 incorrectButton.setEnabled(true);
                 bezosImageView.setImageResource(R.drawable.question_bezos);
             }
@@ -78,13 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 order.setValidated(true);
 
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                correctButton.setVisibility(View.GONE);
                 correctButton.setEnabled(false);
+                incorrectButton.setVisibility(View.GONE);
                 incorrectButton.setEnabled(false);
+                generateButton.setVisibility(View.VISIBLE);
                 generateButton.setEnabled(true);
             }
         });
@@ -98,10 +99,13 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
-
                 order.setValidated(true);
+
+                correctButton.setVisibility(View.GONE);
                 correctButton.setEnabled(false);
+                incorrectButton.setVisibility(View.GONE);
                 incorrectButton.setEnabled(false);
+                generateButton.setVisibility(View.VISIBLE);
                 generateButton.setEnabled(true);
             }
         });

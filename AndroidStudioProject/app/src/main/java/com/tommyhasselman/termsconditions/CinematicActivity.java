@@ -13,6 +13,6 @@ public class CinematicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinematic);
         Cinematic c = new Cinematic();
-        c.Scenario s = new c.Scenario();
+        //c.Scenario s = new c.Scenario();
     }
 }
