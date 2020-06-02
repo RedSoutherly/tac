@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Player player;
     Controller controller;
 
+    TextView countdownTextField;
     TextView orderTextView;
     TextView boxTextView;
     TextView scoreTextView;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         Timer t = new Timer();
 
 
+        countdownTextField = (TextView) findViewById(R.id.countdownTextField);
         orderTextView = (TextView) findViewById(R.id.orderContents);
         boxTextView = (TextView) findViewById(R.id.boxContents);
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
