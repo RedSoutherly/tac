@@ -21,10 +21,9 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-$ANDROID_API_LEVEL
-licenses:
-    - 'android-sdk-preview-license-.+'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+before_script:
+    - mkdir -p "$ANDROID_HOME/licenses"
+    - cp ./google-licenses/* "$ANDROID_HOME/licenses/"
 script:
     - cd AndroidStudioProject
     - chmod +x gradlew
