@@ -1,9 +1,6 @@
 language: android
 dist: trusty
-addons:
-  apt:
-    packages:
-      - ant
+install: ant deps
 android:
   components:
     # Uncomment the lines below if you want to
