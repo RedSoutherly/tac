@@ -23,7 +23,7 @@ android:
     - addon-google_apis-google-$ANDROID_API_LEVEL
 before_script:
     - mkdir -p "$ANDROID_HOME/licenses"
-    - cp ./google-licenses/* "$ANDROID_HOME/licenses/"
+    - cp ./AndroidStudioProject/google-licenses/* "$ANDROID_HOME/licenses/"
 script:
     - cd AndroidStudioProject
     - chmod +x gradlew
