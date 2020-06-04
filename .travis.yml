@@ -26,5 +26,6 @@ licenses:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 script:
-    - chmod +x AndroidStudioProject/gradlew
-    - ./AndroidStudioProject/gradlew build check
+    - cd AndroidStudioProject
+    - chmod +x gradlew
+    - ./gradlew build check
