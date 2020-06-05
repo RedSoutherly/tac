@@ -1,5 +1,8 @@
 package com.tommyhasselman.termsconditions.model;
 
+/**
+ * Player is responsible for tracking all of the variables for a given players game
+ */
 public class Player {
 
     private boolean alive;

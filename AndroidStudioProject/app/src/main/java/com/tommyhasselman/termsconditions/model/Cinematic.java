@@ -2,6 +2,9 @@ package com.tommyhasselman.termsconditions.model;
 
 import java.util.Random;
 
+/**
+ * An instance of cinimatic contains a scenario and 2 related choices generated at random
+ */
 public class Cinematic {
         private String[] Choice1 = {"Pay for medication -$50", "Pay for home heating -$30", "Pay to fix the toilet -$70", "Book a psychologist appointment -$80"};
         private String[] Choice2 = {"Pray the sickness away", "Endure the cold", "Attempt to fix it yourself", "Grin and bear it"};
@@ -11,10 +14,11 @@ public class Cinematic {
         private String scenarioChoice;
 
         /** The constructor randomly chooses a scenario and assigns this scenario and
-         *  the associated choices to scenario and choice variable */
+         *  the associated choices to scenario and choice variable
+         */
         public Cinematic(){
             Random rand = new Random();
-            int randomChoice = rand.nextInt(Scenario.length-1);
+            int randomChoice = rand.nextInt(Scenario.length);
             this.scenarioChoice = Scenario[randomChoice];
             this.firstChoice = Choice1[randomChoice];
             this.secondChoice = Choice2[randomChoice];

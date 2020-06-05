@@ -18,6 +18,12 @@ import com.tommyhasselman.termsconditions.model.OrderItem;
 
 import java.util.Timer;
 
+/**
+ *
+ * resposible for the butons and listeners of the main game, also keeps a timer in order to track
+ * length of a "work day"
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     Player player;

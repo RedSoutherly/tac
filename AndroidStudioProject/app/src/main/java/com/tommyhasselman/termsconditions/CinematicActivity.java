@@ -13,6 +13,10 @@ import android.widget.TextView;
 import com.tommyhasselman.termsconditions.model.Cinematic;
 import com.tommyhasselman.termsconditions.model.Player;
 
+/**
+ *  the Class resposible for generating scenarios, generating adn listening to the buttons for the
+ *  purpose of keeping track of cinimatic choices.
+ */
 public class CinematicActivity extends AppCompatActivity {
     TextView message1;
     Button choice1;
@@ -30,7 +34,7 @@ public class CinematicActivity extends AppCompatActivity {
         message1= (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
         choice2 = (Button) findViewById(R.id.choice2);
-        message1.setText("congradulations you packed "+ score +"boxes, youve earnt" +score*3.2 +"$");
+        message1.setText("congradulations you packed "+ score +"boxes, youve earnt" +score*3 +"$");
         p.set$(p.get$()+(score*3.2));
         p.setScore(0);
         choice1.setOnClickListener(new View.OnClickListener() {

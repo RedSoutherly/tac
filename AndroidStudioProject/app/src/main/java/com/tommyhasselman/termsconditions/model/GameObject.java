@@ -4,7 +4,7 @@ import java.io.File;
 
 /**
  * the GameObject super class defines the common methods and variables shared
- * by all GameObject's
+ * by all GameObject's, not presently used much as objects are presently just Strings
  */
 
 public abstract class GameObject {

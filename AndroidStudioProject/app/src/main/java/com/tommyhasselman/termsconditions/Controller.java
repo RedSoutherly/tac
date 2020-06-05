@@ -4,6 +4,9 @@ import android.app.Application;
 
 import com.tommyhasselman.termsconditions.model.*;
 
+/**
+ *Controller is an Application and hence can be viewed 
+ */
 public class Controller extends Application {
 
     public Player player = new Player(); // Player object.
