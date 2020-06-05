@@ -42,7 +42,7 @@ public class CinematicActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO do something with the choice
                 //go back to mainview
-                startActivity(new Intent(CinematicActivity.this,MainActivity.class));
+                startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
             }
         });
         choice2.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class CinematicActivity extends AppCompatActivity {
             public void onClick(View v) {
             //TODO do something with the choice
                 //go back to mainview
-             startActivity(new Intent(CinematicActivity.this,MainActivity.class));
+             startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
             }
         });
         new CountDownTimer(5000, 1000) {
