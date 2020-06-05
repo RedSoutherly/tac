@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.tommyhasselman.termsconditions.model.Cinematic;
 
 /**
- *  the Class resposible for generating scenarios, generating adn listening to the buttons for the
- *  purpose of keeping track of cinimatic choices.
+ *  The Class responsible for generating scenarios, generating adn listening to the buttons for the
+ *  purpose of keeping track of cinematic choices.
  */
 public class CinematicActivity extends AppCompatActivity {
     TextView message1;
@@ -24,18 +24,20 @@ public class CinematicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinematic);
+
         final Cinematic c = new Cinematic();
         controller = ((Controller) this.getApplication());
         int score=controller.getPreviousRoundScore();
         message1= (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
         choice2 = (Button) findViewById(R.id.choice2);
-        message1.setText("Congradulations you packed "+ score +" boxes,\nyou've earn't $" + controller.getBalanceEarnt()+".");
+        String s = ("Congratulations you packed "+ score +" boxes,\nyou've earn't $" + controller.getBalanceEarnt()+".");
+        message1.setText(s);
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO do something with the choice
-                //go back to mainview
+                //go back to LobbyActivity
                 startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
             }
         });
@@ -43,7 +45,7 @@ public class CinematicActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             //TODO do something with the choice
-                //go back to mainview
+                //go back to LobbyActivity
              startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
             }
         });

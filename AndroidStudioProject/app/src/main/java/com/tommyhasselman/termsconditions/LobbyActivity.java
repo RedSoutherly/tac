@@ -10,12 +10,13 @@ import android.widget.TextView;
 
 /**
  * the lobby activity is a view with a button that displays information about how well youre are doing
- * and allowes you to pause before heading back to work 
+ * and allowed you to pause before heading back to work
  */
 public class LobbyActivity extends AppCompatActivity {
 
     Button workButton;
     TextView balanceTextView;
+    TextView screenedTextView;
 
     Controller cont;
 
@@ -26,12 +27,15 @@ public class LobbyActivity extends AppCompatActivity {
 
         workButton = (Button) findViewById(R.id.workButton);
         balanceTextView = (TextView) findViewById(R.id.balanceTextView);
+        screenedTextView = (TextView) findViewById(R.id.screenedTextView);
 
         cont = ((Controller) this.getApplication());
-        String playerBalance = "$"+cont.getBalance();
 
+        String playerBalance = "$"+cont.getBalance();
+        String screened = ""+cont.getLifetimeScore();
 
         balanceTextView.setText(playerBalance);
+        screenedTextView.setText(screened);
 
         workButton.setOnClickListener(new View.OnClickListener() {
             @Override
