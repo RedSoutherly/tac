@@ -5,7 +5,9 @@ import android.app.Application;
 import com.tommyhasselman.termsconditions.model.*;
 
 /**
- *Controller is an Application and hence can be viewed 
+ *Controller is an Application and hence all activities have permissions to view its varibales,
+ * which centralises main variables needed between the different main classes. it also centralises
+ * a few other simple methods such as generating a new order.
  */
 public class Controller extends Application {
 

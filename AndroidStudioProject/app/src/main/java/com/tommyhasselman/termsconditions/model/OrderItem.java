@@ -1,5 +1,8 @@
 package com.tommyhasselman.termsconditions.model;
 
+/**
+ *a very basic constructor for alpha that generates items with differnt random atributes
+ */
 public abstract class OrderItem extends GameObject {
 
     String[] basicProducts = {
@@ -20,6 +23,9 @@ public abstract class OrderItem extends GameObject {
             "Blue"
     };
 
+    /**
+     * @return the unique identifying code for a given object
+     */
     public abstract String getCode();
 
 }
