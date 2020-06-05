@@ -1,26 +1,32 @@
 package com.tommyhasselman.termsconditions.model;
 
 /**
- *a very basic constructor for alpha that generates items with differnt random atributes
+ * A very basic constructor for alpha that generates items with different random attributes.
  */
 public abstract class OrderItem extends GameObject {
 
     String[] basicProducts = {
             "Hat",
             "Dildo",
-            "Ball"
+            "Ball",
+            "Fleshlight",
+            "Riot Shield"
     };
 
     String[] sizes = {
             "Small",
             "Medium",
-            "Large"
+            "Large",
+            "Mediocre",
+            "Grande"
     };
 
     String[] colours = {
             "Red",
             "Green",
-            "Blue"
+            "Blue",
+            "Yellow",
+            "Magenta"
     };
 
     /**

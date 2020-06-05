@@ -15,9 +15,8 @@ import com.tommyhasselman.termsconditions.model.Order;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
 /**
- *
- * resposible for the butons and listeners of the main game, also keeps a timer in order to track
- * length of a "work day"
+ * Responsible for the buttons and listeners of the main game, also keeps a timer in order to track
+ * length of a "work day".
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -122,26 +121,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
 
-
-        /*
-        // this implementation is proboly bad maybe use timer and schedule task
-        while(p.isAlive()){
-        TimerTask task = new TimerTask() {
-        
-
-            @Override
-            public void run() {
-                //display a countdown
-                //make buttons , score  usable and visable
-            }
-        };
-
-        Timer timer = new Timer();
-        timer.schedule(task, new Date(), 3000);
-        //hide count down,score and buttons
-        //make a cinematic anc play it  then loop
-        }
-        */
     }
 
     /**
@@ -163,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
         boxTextView.setText(packedContains);
     }
 
+    /**
+     * This method quickly updates the Score text view.
+     */
     public void updateScore() {
         String s = ordersCompleted + " packages screened correctly.";
         scoreTextView.setText(s);
