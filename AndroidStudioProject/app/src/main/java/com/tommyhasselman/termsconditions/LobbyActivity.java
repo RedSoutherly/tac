@@ -24,7 +24,7 @@ public class LobbyActivity extends AppCompatActivity {
         balanceTextView = (TextView) findViewById(R.id.balanceTextView);
 
         cont = ((Controller) this.getApplication());
-        String playerBalance = "$"+cont.getPlayer().get$();
+        String playerBalance = "$"+cont.getBalance();
 
 
         balanceTextView.setText(playerBalance);

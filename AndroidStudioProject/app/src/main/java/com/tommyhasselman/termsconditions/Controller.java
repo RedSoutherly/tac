@@ -9,7 +9,11 @@ import com.tommyhasselman.termsconditions.model.*;
  */
 public class Controller extends Application {
 
-    public Player player = new Player(); // Player object.
+    public int previousRoundScore;
+    public int lifetimeScore;
+    public int balanceEarnt;
+    public int balance;
+    public int payRate = 5; // The current amount of pay you get per correct order evaluation.
 
     public int orderSize = 3; // The amount of items in a order;
     public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
@@ -21,12 +25,23 @@ public class Controller extends Application {
         return new Order(this);
     }
 
-    public Player getPlayer() {
-        return player;
+    public void endRound(int ordersComplete) {
+        previousRoundScore = ordersComplete;
+        lifetimeScore += previousRoundScore;
+        balanceEarnt = (ordersComplete * payRate);
+        balance += balanceEarnt;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public int getBalance() {
+        return balance;
+    }
+
+    public int getBalanceEarnt() {
+        return balanceEarnt;
+    }
+
+    public int getPreviousRoundScore() {
+        return previousRoundScore;
     }
 
     public int getOrderSize() {

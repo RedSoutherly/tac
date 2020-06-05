@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.tommyhasselman.termsconditions.model.Cinematic;
-import com.tommyhasselman.termsconditions.model.Player;
 
 /**
  *  the Class resposible for generating scenarios, generating adn listening to the buttons for the
@@ -22,21 +20,17 @@ public class CinematicActivity extends AppCompatActivity {
     Button choice1;
     Button choice2;
     Controller controller;
-    Player p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinematic);
         final Cinematic c = new Cinematic();
         controller = ((Controller) this.getApplication());
-        p=controller.getPlayer();
-        int score=p.getScore();
+        int score=controller.getPreviousRoundScore();
         message1= (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
         choice2 = (Button) findViewById(R.id.choice2);
-        message1.setText("congradulations you packed "+ score +"boxes, youve earnt" +score*3 +"$");
-        p.set$(p.get$()+(score*3.2));
-        p.setScore(0);
+        message1.setText("congradulations you packed "+ score +"boxes, youve earnt $" + controller.getBalanceEarnt());
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +56,9 @@ public class CinematicActivity extends AppCompatActivity {
             public void onFinish() {
                 message1.setText(c.getScenarioChoice());
                 choice1.setText(c.getFirstChoice());
+                choice1.setVisibility(View.VISIBLE);
                 choice2.setText(c.getSecondChoice());
+                choice2.setVisibility(View.VISIBLE);
             }
         }.start();
         //display options and buttons

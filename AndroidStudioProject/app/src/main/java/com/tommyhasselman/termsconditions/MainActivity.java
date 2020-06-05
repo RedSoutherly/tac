@@ -11,12 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.tommyhasselman.termsconditions.model.Player;
-
 import com.tommyhasselman.termsconditions.model.Order;
 import com.tommyhasselman.termsconditions.model.OrderItem;
-
-import java.util.Timer;
 
 /**
  *
@@ -26,7 +22,6 @@ import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
 
-    Player player;
     Controller controller;
 
     TextView countdownTextField;
@@ -41,17 +36,16 @@ public class MainActivity extends AppCompatActivity {
     //final Color red = Color.decode("#FF0000");
     //final Color green = Color.decode("#0x008010");
 
+    int ordersCompleted;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ordersCompleted = 0;
 
         controller = ((Controller) this.getApplication());
-        player = controller.getPlayer();
-
-        Timer t = new Timer();
-
 
         countdownTextField = (TextView) findViewById(R.id.countdownTextField);
         orderTextView = (TextView) findViewById(R.id.orderContents);
@@ -80,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(order.isCorrectlyPacked()) {
-                    player.incrementScore();
+                    ordersCompleted++;
                     updateScore();
                     bezosImageView.setImageResource(R.drawable.correct_bezos);
                 } else {
@@ -100,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!order.isCorrectlyPacked()) {
-                    player.incrementScore();
+                    ordersCompleted++;
                     updateScore();
                     bezosImageView.setImageResource(R.drawable.correct_bezos);
                 } else {
@@ -123,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
+                controller.endRound(ordersCompleted);
                 startActivity(new Intent(MainActivity.this,CinematicActivity.class));
             }
         }.start();
@@ -169,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateScore() {
-        String s = player.getScore() + " packages screened correctly.";
+        String s = ordersCompleted + " packages screened correctly.";
         scoreTextView.setText(s);
     }
 
