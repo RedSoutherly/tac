@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * the lobby activity is a view with a button that displays information about how well youre are doing
+ * and allowes you to pause before heading back to work 
+ */
 public class LobbyActivity extends AppCompatActivity {
 
     Button workButton;
