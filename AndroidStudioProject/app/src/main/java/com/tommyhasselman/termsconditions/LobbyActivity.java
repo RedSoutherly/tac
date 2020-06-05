@@ -10,7 +10,11 @@ import android.widget.TextView;
 
 /**
  * the lobby activity is a view with a button that displays information about how well youre are doing
+<<<<<<< HEAD
  * and allowed you to pause before heading back to work
+=======
+ * and allowes you to pause before heading back to work
+>>>>>>> master
  */
 public class LobbyActivity extends AppCompatActivity {
 
