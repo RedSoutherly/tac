@@ -30,7 +30,7 @@ public class CinematicActivity extends AppCompatActivity {
         message1= (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
         choice2 = (Button) findViewById(R.id.choice2);
-        message1.setText("congradulations you packed "+ score +"boxes, youve earnt $" + controller.getBalanceEarnt());
+        message1.setText("Congradulations you packed "+ score +" boxes,\nyou've earn't $" + controller.getBalanceEarnt()+".");
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
