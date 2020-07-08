@@ -96,4 +96,36 @@ public class Controller extends Application {
     public double getMissingItemChance() {
         return missingItemChance;
     }
+
+    public void setPreviousRoundScore(int previousRoundScore) {
+        this.previousRoundScore = previousRoundScore;
+    }
+
+    public void setLifetimeScore(int lifetimeScore) {
+        this.lifetimeScore = lifetimeScore;
+    }
+
+    public void setBalanceEarnt(int balanceEarnt) {
+        this.balanceEarnt = balanceEarnt;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void setPayRate(int payRate) {
+        this.payRate = payRate;
+    }
+
+    public void setOrderSize(int orderSize) {
+        this.orderSize = orderSize;
+    }
+
+    public void setIncorrectItemChance(double incorrectItemChance) {
+        this.incorrectItemChance = incorrectItemChance;
+    }
+
+    public void setMissingItemChance(double missingItemChance) {
+        this.missingItemChance = missingItemChance;
+    }
 }
