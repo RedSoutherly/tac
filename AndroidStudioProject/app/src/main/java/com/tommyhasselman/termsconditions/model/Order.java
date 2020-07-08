@@ -69,6 +69,14 @@ public class Order extends GameObject {
         return ordered;
     }
 
+    public void setOrdered(List<OrderItem> ordered) {
+        this.ordered = ordered;
+    }
+
+    public void setPacked(List<OrderItem> packed) {
+        this.packed = packed;
+    }
+
     public boolean isValidated() {
         return validated;
     }
