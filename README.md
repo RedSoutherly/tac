@@ -1,5 +1,5 @@
 # Build Status: [![Build Status](https://travis-ci.org/RedSoutherly/tac.svg?branch=master)](https://travis-ci.org/RedSoutherly/tac)
-Build done by Travis-CI integration.
+Build done by Travis-CI integration. Runs a gradle build check, and JUnit tests.
 
 # Documentation Status: [![Documentation](https://codedocs.xyz/RedSoutherly/tac.svg)](https://codedocs.xyz/RedSoutherly/tac/)
 Documentation done by CodeDocs.xyz
