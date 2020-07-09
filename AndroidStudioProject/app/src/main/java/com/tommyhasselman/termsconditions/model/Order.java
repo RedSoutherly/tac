@@ -19,6 +19,8 @@ public class Order extends GameObject {
 
     /**
      * Order constructor populates the ordered and packed arrays.
+     * The Random class is used to decide if the items in the packed array
+     * match the ones in the ordered array.
      */
     public Order(Controller c) {
 
@@ -45,6 +47,10 @@ public class Order extends GameObject {
 
     }
 
+    /**
+     * Concatenates the OrderItem codes for the ordered array for comparison.
+     * @return Returns a String of OrderItem codes.
+     */
     public String getOrderedCodes() {
         String s = "";
         for (OrderItem i : ordered) {
@@ -53,6 +59,10 @@ public class Order extends GameObject {
         return s;
     }
 
+    /**
+     * Concatenates the OrderItem codes for the packed array for comparison.
+     * @return Returns a String of OrderItem codes.
+     */
     public String getPackedCodes() {
         String s = "";
         for (OrderItem i : packed) {
