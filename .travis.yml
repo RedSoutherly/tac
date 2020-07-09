@@ -28,3 +28,4 @@ script:
     - cd AndroidStudioProject
     - chmod +x gradlew
     - ./gradlew build check
+    - ./gradlew test
