@@ -1,6 +1,8 @@
 # Build Status: [![Build Status](https://travis-ci.org/RedSoutherly/tac.svg?branch=master)](https://travis-ci.org/RedSoutherly/tac)
+Build done by Travis-CI integration.
 
 # Documentation Status: [![Documentation](https://codedocs.xyz/RedSoutherly/tac.svg)](https://codedocs.xyz/RedSoutherly/tac/)
+Documentation done by CodeDocs.xyz
 
 # COSC345 Group Project - Terms and Conditions:
 Text based game with some graphical elements, Terms and Conditions places you in a dystopian American distribution centre where you have to check and form deliveries under increasing time restraints and scrutiny. The game plays homage to 'Papers Please' and pokes fun at a certain large American online retailer.
