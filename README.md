@@ -1,6 +1,8 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/33aa73ec0a97462e9209fe6ef4c94abf)](https://app.codacy.com/manual/RedSoutherly/tac?utm_source=github.com&utm_medium=referral&utm_content=RedSoutherly/tac&utm_campaign=Badge_Grade_Dashboard)
 # Build Status: [![Build Status](https://travis-ci.org/RedSoutherly/tac.svg?branch=master)](https://travis-ci.org/RedSoutherly/tac)
 Build done by Travis-CI integration. Runs a gradle build check, and JUnit tests.
+
+# Codacy Quality Grade:
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/33aa73ec0a97462e9209fe6ef4c94abf)](https://app.codacy.com/manual/RedSoutherly/tac?utm_source=github.com&utm_medium=referral&utm_content=RedSoutherly/tac&utm_campaign=Badge_Grade_Dashboard)
 
 # Documentation Status: [![Documentation](https://codedocs.xyz/RedSoutherly/tac.svg)](https://codedocs.xyz/RedSoutherly/tac/)
 Documentation done by CodeDocs.xyz
