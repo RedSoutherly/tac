@@ -4,7 +4,7 @@ env:
  global:
     - ANDROID_API_LEVEL=29
     - ANDROID_BUILD_TOOLS_VERSION=29.0.3
-    - ANDROID_TARGET=android-29
+    - ANDROID_TARGET=android-22
     - ANDROID_ABI=armeabi-v7a
 android:
  licenses:
@@ -23,6 +23,8 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-$ANDROID_API_LEVEL
+    - $ANDROID_TARGET
+    - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
 before_script:
     - mkdir -p "$ANDROID_HOME/licenses"
     - cp ./AndroidStudioProject/google-licenses/* "$ANDROID_HOME/licenses/"
