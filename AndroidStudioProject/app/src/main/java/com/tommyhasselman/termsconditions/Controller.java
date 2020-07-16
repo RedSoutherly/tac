@@ -2,7 +2,7 @@ package com.tommyhasselman.termsconditions;
 
 import android.app.Application;
 
-import com.tommyhasselman.termsconditions.model.*;
+import com.tommyhasselman.termsconditions.model.Order;
 
 /**
  * Controller is an extension of the Application and hence all activities have permissions to view its variables.

@@ -5,7 +5,7 @@ package com.tommyhasselman.termsconditions.model;
  */
 public abstract class OrderItem extends GameObject {
 
-    String[] basicProducts = {
+    protected String[] basicProducts = {
             "Hat",
             "Dildo",
             "Ball",
@@ -13,7 +13,7 @@ public abstract class OrderItem extends GameObject {
             "Riot Shield"
     };
 
-    String[] sizes = {
+    protected String[] sizes = {
             "Small",
             "Medium",
             "Large",
@@ -21,7 +21,7 @@ public abstract class OrderItem extends GameObject {
             "Grande"
     };
 
-    String[] colours = {
+    protected String[] colours = {
             "Red",
             "Green",
             "Blue",

@@ -2,15 +2,16 @@ package com.tommyhasselman.termsconditions;
 
 import com.tommyhasselman.termsconditions.model.Order;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 
 public class ControllerTest {
 
-    Controller c;
+    private Controller c;
 
     @Before
     public void setUp() throws Exception {

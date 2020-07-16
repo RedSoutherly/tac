@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     //final Color red = Color.decode("#FF0000");
     //final Color green = Color.decode("#0x008010");
 
-    int ordersCompleted;
+    private int ordersCompleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
