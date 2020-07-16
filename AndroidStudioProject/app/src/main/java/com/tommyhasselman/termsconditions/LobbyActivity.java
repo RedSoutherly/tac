@@ -13,7 +13,7 @@ import android.widget.TextView;
  * and allowed you to pause before heading back to work
  */
 public class LobbyActivity extends AppCompatActivity {
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
