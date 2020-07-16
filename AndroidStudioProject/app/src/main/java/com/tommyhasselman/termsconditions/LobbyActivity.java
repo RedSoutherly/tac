@@ -14,9 +14,9 @@ import android.widget.TextView;
  */
 public class LobbyActivity extends AppCompatActivity {
 
-    Button workButton;
-    TextView balanceTextView;
-    TextView screenedTextView;
+    private Button workButton;
+    private TextView balanceTextView;
+    private TextView screenedTextView;
 
     Controller cont;
 

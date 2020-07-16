@@ -16,10 +16,10 @@ import com.tommyhasselman.termsconditions.model.Cinematic;
  *  purpose of keeping track of cinematic choices.
  */
 public class CinematicActivity extends AppCompatActivity {
-    TextView message1;
-    Button choice1;
-    Button choice2;
-    Controller controller;
+    private TextView message1;
+    private Button choice1;
+    private Button choice2;
+    private Controller controller;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
