@@ -20,15 +20,13 @@ public class CinematicActivity extends AppCompatActivity {
     private TextView message1;
     private Button choice1;
     private Button choice2;
-    private Controller controller;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinematic);
 
         final Cinematic c = new Cinematic();
-        controller = ((Controller) this.getApplication());
+        Controller controller = ((Controller) this.getApplication());
         int score=controller.getPreviousRoundScore();
         message1= (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
