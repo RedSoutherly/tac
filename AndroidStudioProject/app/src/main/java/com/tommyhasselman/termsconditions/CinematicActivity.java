@@ -50,7 +50,7 @@ public class CinematicActivity extends AppCompatActivity {
             }
         });
         new CountDownTimer(5000, 1000) {
-            //dont rip this out for codecov 
+            //dont rip this out for codecov
             public void onTick(long millisUntilFinished) {
 
             }

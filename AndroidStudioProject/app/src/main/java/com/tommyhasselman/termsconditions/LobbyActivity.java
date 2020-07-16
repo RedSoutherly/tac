@@ -13,9 +13,7 @@ import android.widget.TextView;
  * and allowed you to pause before heading back to work
  */
 public class LobbyActivity extends AppCompatActivity {
-
-    Controller cont;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +23,7 @@ public class LobbyActivity extends AppCompatActivity {
         TextView balanceTextView = (TextView) findViewById(R.id.balanceTextView);
         TextView screenedTextView = (TextView) findViewById(R.id.screenedTextView);
 
-        cont = ((Controller) this.getApplication());
+        Controller cont = ((Controller) this.getApplication());
 
         String playerBalance = "$"+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();
