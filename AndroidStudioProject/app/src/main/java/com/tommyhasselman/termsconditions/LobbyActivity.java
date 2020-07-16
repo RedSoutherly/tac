@@ -14,10 +14,6 @@ import android.widget.TextView;
  */
 public class LobbyActivity extends AppCompatActivity {
 
-    private Button workButton;
-    private TextView balanceTextView;
-    private TextView screenedTextView;
-
     Controller cont;
 
     @Override
@@ -25,9 +21,9 @@ public class LobbyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
 
-        workButton = (Button) findViewById(R.id.workButton);
-        balanceTextView = (TextView) findViewById(R.id.balanceTextView);
-        screenedTextView = (TextView) findViewById(R.id.screenedTextView);
+        Button workButton = (Button) findViewById(R.id.workButton);
+        TextView balanceTextView = (TextView) findViewById(R.id.balanceTextView);
+        TextView screenedTextView = (TextView) findViewById(R.id.screenedTextView);
 
         cont = ((Controller) this.getApplication());
 
