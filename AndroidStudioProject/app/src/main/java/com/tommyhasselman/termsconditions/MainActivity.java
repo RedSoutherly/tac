@@ -21,17 +21,17 @@ import com.tommyhasselman.termsconditions.model.OrderItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    Controller controller;
+    private Controller controller;
 
-    TextView countdownTextField;
-    TextView orderTextView;
-    TextView boxTextView;
-    TextView scoreTextView;
-    ImageView bezosImageView;
-    ImageButton generateButton;
-    Button correctButton;
-    Button incorrectButton;
-    Order order;
+    private TextView countdownTextField;
+    private TextView orderTextView;
+    private TextView boxTextView;
+    private TextView scoreTextView;
+    private ImageView bezosImageView;
+    private ImageButton generateButton;
+    private Button correctButton;
+    private Button incorrectButton;
+    private Order order;
     //final Color red = Color.decode("#FF0000");
     //final Color green = Color.decode("#0x008010");
 

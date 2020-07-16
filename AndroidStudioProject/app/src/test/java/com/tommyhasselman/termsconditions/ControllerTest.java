@@ -22,11 +22,6 @@ public class ControllerTest {
 
     }
 
-    @After
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void newOrder() {
 
