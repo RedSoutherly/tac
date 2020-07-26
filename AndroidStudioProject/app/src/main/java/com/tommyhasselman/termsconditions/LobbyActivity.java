@@ -8,11 +8,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 /**
  * the lobby activity is a view with a button that displays information about how well youre are doing
  * and allowed you to pause before heading back to work
  */
 public class LobbyActivity extends AppCompatActivity {
+
+    Controller cont;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cont.signIn(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +32,7 @@ public class LobbyActivity extends AppCompatActivity {
         TextView balanceTextView = (TextView) findViewById(R.id.balanceTextView);
         TextView screenedTextView = (TextView) findViewById(R.id.screenedTextView);
 
-        Controller cont = ((Controller) this.getApplication());
+        cont = ((Controller) this.getApplication());
 
         String playerBalance = "$"+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();

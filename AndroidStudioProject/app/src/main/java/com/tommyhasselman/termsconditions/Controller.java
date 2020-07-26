@@ -1,8 +1,11 @@
 package com.tommyhasselman.termsconditions;
 
+import android.app.Activity;
 import android.app.Application;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.tommyhasselman.termsconditions.model.Order;
+import com.tommyhasselman.termsconditions.playServices.*;
 
 /**
  * Controller is an extension of the Application and hence all activities have permissions to view its variables.
@@ -10,6 +13,10 @@ import com.tommyhasselman.termsconditions.model.Order;
  * a few other simple methods such as generating a new order.
  */
 public class Controller extends Application {
+
+    private Account acc = new Account(this);
+
+    private GoogleSignInAccount signedInAccount;
 
     // Player variables
     public int previousRoundScore;
@@ -128,4 +135,13 @@ public class Controller extends Application {
     public void setMissingItemChance(double missingItemChance) {
         this.missingItemChance = missingItemChance;
     }
+
+    public void signIn(Activity act) {
+        acc.signInSilently(act);
+    }
+
+    public void setSignedInAccount(GoogleSignInAccount signedInAccount) {
+        this.signedInAccount = signedInAccount;
+    }
+
 }
