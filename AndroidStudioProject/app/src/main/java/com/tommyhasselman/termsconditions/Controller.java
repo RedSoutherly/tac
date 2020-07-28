@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.app.Application;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.games.Player;
+import com.google.android.gms.games.PlayersClient;
 import com.tommyhasselman.termsconditions.model.Order;
 import com.tommyhasselman.termsconditions.playServices.*;
+
+import static com.google.android.gms.games.Games.getPlayersClient;
 
 /**
  * Controller is an extension of the Application and hence all activities have permissions to view its variables.
@@ -15,6 +19,7 @@ import com.tommyhasselman.termsconditions.playServices.*;
 public class Controller extends Application {
 
     private GoogleSignInAccount signedInAccount;
+    private Player player;
 
     // Player variables
     public int previousRoundScore;
@@ -137,6 +142,10 @@ public class Controller extends Application {
 
     public void setSignedInAccount(GoogleSignInAccount signedInAccount) {
         this.signedInAccount = signedInAccount;
+        player = (Player) getPlayersClient(this, signedInAccount).getCurrentPlayer();
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 }
