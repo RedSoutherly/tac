@@ -15,7 +15,7 @@ import com.tommyhasselman.termsconditions.model.Cinematic;
  *  The Class responsible for generating scenarios, generating adn listening to the buttons for the
  *  purpose of keeping track of cinematic choices.
  */
-public class CinematicActivity extends AppCompatActivity {
+public class CinematicActivity extends BaseActivity {
 
     private TextView message1;
     private Button choice1;

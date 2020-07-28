@@ -8,20 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.tommyhasselman.termsconditions.model.BasicItem;
+
 
 /**
  * the lobby activity is a view with a button that displays information about how well youre are doing
  * and allowed you to pause before heading back to work
  */
-public class LobbyActivity extends AppCompatActivity {
+public class LobbyActivity extends BaseActivity {
 
     Controller cont;
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        cont.signIn(this);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

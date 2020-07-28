@@ -14,8 +14,6 @@ import com.tommyhasselman.termsconditions.playServices.*;
  */
 public class Controller extends Application {
 
-    private Account acc = new Account(this);
-
     private GoogleSignInAccount signedInAccount;
 
     // Player variables
@@ -29,6 +27,7 @@ public class Controller extends Application {
     public int orderSize = 3; // The amount of items in a order;
     public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
     public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
+
 
     /**
      * @return returns an instance of Order.
@@ -134,10 +133,6 @@ public class Controller extends Application {
 
     public void setMissingItemChance(double missingItemChance) {
         this.missingItemChance = missingItemChance;
-    }
-
-    public void signIn(Activity act) {
-        acc.signInSilently(act);
     }
 
     public void setSignedInAccount(GoogleSignInAccount signedInAccount) {

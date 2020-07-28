@@ -19,7 +19,7 @@ import com.tommyhasselman.termsconditions.model.OrderItem;
  * length of a "work day".
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private Controller controller;
 

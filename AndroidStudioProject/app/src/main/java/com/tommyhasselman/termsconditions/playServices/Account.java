@@ -16,13 +16,9 @@ import static com.google.android.gms.drive.Drive.SCOPE_APPFOLDER;
 
 public class Account {
 
-    private Controller cont;
+    public static void signInSilently(Activity act, Controller c) {
 
-    public Account(Controller c) {
-        cont = c;
-    }
-
-    public void signInSilently(Activity act) {
+        final Controller cont = c;
 
         GoogleSignInOptions signInOption =
                 new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
