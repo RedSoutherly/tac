@@ -1,8 +1,18 @@
 package com.tommyhasselman.termsconditions;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.tommyhasselman.termsconditions.model.Order;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 
 /**
  * Controller is an extension of the Application and hence all activities have permissions to view its variables.
@@ -13,10 +23,10 @@ public class Controller extends Application {
 
 
     // Player variables
-    public int previousRoundScore;
-    public int lifetimeScore;
-    public int balanceEarnt;
-    public int balance;
+    public int previousRoundScore = 0;
+    public int lifetimeScore = 0;
+    public int balanceEarnt = 0;
+    public int balance = 0;
     public int payRate = 5; // The current amount of pay you get per correct order evaluation.
 
     // Order variables
@@ -24,6 +34,87 @@ public class Controller extends Application {
     public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
     public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
 
+    private final String SAVE_FILE = "tncSaveFile.ser";
+
+    /**
+     * This is used to check if a save file is present.
+     * @param context The activity context for the file path.
+     * @return Returns true if a file exists with the save file name.
+     */
+    public boolean saveExists(Context context) {
+
+        String path = context.getFilesDir().getAbsolutePath() + "/" + SAVE_FILE;
+        File file = new File(path);
+        return file.exists();
+
+    }
+
+    /**
+     * This method is used for reading the game save from internal storage.
+     * It reads in a serialised HashMap, deserialises it and updates Controller's
+     * data fields.
+     * @param context The activity context for the FileInputStream.
+     */
+    public void readSave(Context context) {
+
+        HashMap<String, Object> gameData = null;
+
+        try {
+            FileInputStream fileIn = context.openFileInput(SAVE_FILE);
+            ObjectInputStream objIn = new ObjectInputStream(fileIn);
+            gameData = (HashMap<String, Object>) objIn.readObject();
+            objIn.close();
+            fileIn.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        previousRoundScore = (int) gameData.get("previousRoundScore");
+        lifetimeScore = (int) gameData.get("lifetimeScore");
+        balanceEarnt = (int) gameData.get("balanceEarnt");
+        balance = (int) gameData.get("balance");
+        payRate = (int) gameData.get("payRate");
+        orderSize = (int) gameData.get("orderSize");
+        incorrectItemChance = (double) gameData.get("incorrectItemChance");
+        missingItemChance = (double) gameData.get("missingItemChance");
+
+    }
+
+    /**
+     * This method is used for saving the state of the Controller variables.
+     * It creates a HashMap of the Controller data fields and serialises it
+     * to internal storage.
+     * @param context The activity context for the FileOutputStream.
+     */
+    public void createSave(Context context) {
+
+        HashMap<String, Object> gameData = new HashMap<>();
+        gameData.put("previousRoundScore", previousRoundScore);
+        gameData.put("lifetimeScore", lifetimeScore);
+        gameData.put("balanceEarnt", balanceEarnt);
+        gameData.put("balance", balance);
+        gameData.put("payRate", payRate);
+        gameData.put("orderSize", orderSize);
+        gameData.put("incorrectItemChance", incorrectItemChance);
+        gameData.put("missingItemChance", missingItemChance);
+
+        try {
+            FileOutputStream fileOut = context.openFileOutput(SAVE_FILE, Context.MODE_PRIVATE);
+            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+            objOut.writeObject(gameData);
+            objOut.close();
+            fileOut.close();
+        } catch (FileNotFoundException fileNotFound) {
+            fileNotFound.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
+    }
 
     /**
      * @return returns an instance of Order.
@@ -42,6 +133,23 @@ public class Controller extends Application {
         balanceEarnt = (ordersComplete * payRate);
         balance += balanceEarnt;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * @return returns the number of correctly screened packages from the latest round as an int.
