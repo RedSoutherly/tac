@@ -20,6 +20,7 @@ public class Controller extends Application {
 
     private GoogleSignInAccount signedInAccount;
     private Player player;
+    private String playerDisplayName = "null";
 
     // Player variables
     public int previousRoundScore;
@@ -142,10 +143,15 @@ public class Controller extends Application {
 
     public void setSignedInAccount(GoogleSignInAccount signedInAccount) {
         this.signedInAccount = signedInAccount;
-        player = (Player) getPlayersClient(this, signedInAccount).getCurrentPlayer();
+        //player = (Player) getPlayersClient(this, signedInAccount).getCurrentPlayer();
+        //playerDisplayName = player.getDisplayName();
     }
 
     public Player getPlayer() {
         return player;
+    }
+
+    public String getPlayerDisplayName() {
+        return playerDisplayName;
     }
 }

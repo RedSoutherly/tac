@@ -13,7 +13,7 @@ import android.widget.TextView;
  */
 public class LobbyActivity extends BaseActivity {
 
-    Controller cont;
+    Controller cont = ((Controller) this.getApplication());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class LobbyActivity extends BaseActivity {
 
         String playerBalance = "$"+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();
-        String welcome = "Welcome back " + cont.getPlayer().getDisplayName();
+        String welcome = "Welcome back " + cont.getPlayerDisplayName();
 
         balanceTextView.setText(playerBalance);
         screenedTextView.setText(screened);
