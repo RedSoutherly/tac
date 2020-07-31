@@ -1,15 +1,8 @@
 package com.tommyhasselman.termsconditions;
 
-import android.app.Activity;
 import android.app.Application;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.games.Player;
-import com.google.android.gms.games.PlayersClient;
 import com.tommyhasselman.termsconditions.model.Order;
-import com.tommyhasselman.termsconditions.playServices.*;
-
-import static com.google.android.gms.games.Games.getPlayersClient;
 
 /**
  * Controller is an extension of the Application and hence all activities have permissions to view its variables.
