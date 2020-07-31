@@ -29,7 +29,7 @@ public class LobbyActivity extends BaseActivity {
 
         String playerBalance = "$"+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();
-        String welcome = "Welcome back " + cont.getPlayerDisplayName();
+        String welcome = "Welcome back ";
 
         balanceTextView.setText(playerBalance);
         screenedTextView.setText(screened);
