@@ -34,7 +34,7 @@ public class LobbyActivity extends AppCompatActivity {
 
         String playerBalance = "$"+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();
-        String welcome = "Welcome back ";
+        String welcome = "Welcome back " + cont.getPlayerName();
 
         balanceTextView.setText(playerBalance);
         screenedTextView.setText(screened);

@@ -23,6 +23,7 @@ public class Controller extends Application {
 
 
     // Player variables
+    private String playerName = "Jeff";
     public int previousRoundScore = 0;
     public int lifetimeScore = 0;
     public int balanceEarnt = 0;
@@ -135,21 +136,13 @@ public class Controller extends Application {
     }
 
 
+    public String getPlayerName() {
+        return playerName;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
 
     /**
      * @return returns the number of correctly screened packages from the latest round as an int.

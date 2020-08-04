@@ -10,6 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".OptionsMenu"
+            android:theme="@style/Base.Theme.AppCompat.Dialog" />
         <activity android:name=".LobbyActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".CinematicActivity" />
