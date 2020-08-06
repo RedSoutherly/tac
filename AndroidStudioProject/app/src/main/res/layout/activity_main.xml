@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/generateButton"
-        android:layout_width="166dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="16dp"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/next_button" />
-
     <TextView
         android:id="@+id/OrderTitle"
         android:layout_width="wrap_content"
@@ -71,29 +60,31 @@
         android:id="@+id/correctButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
         android:layout_marginBottom="32dp"
-        android:enabled="false"
+        android:enabled="true"
         android:fontFamily="@font/amazonfont"
         android:text="CORRECT"
         android:textStyle="bold"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/generateButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/incorrectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="75dp"
         android:layout_marginBottom="32dp"
-        android:enabled="false"
+        android:enabled="true"
+        android:fontFamily="@font/amazonfont"
         android:text="INCORRECT"
         android:textStyle="bold"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/generateButton"
-        android:fontFamily="@font/amazonfont" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/bezosImageView"

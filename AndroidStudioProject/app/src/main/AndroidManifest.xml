@@ -11,13 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".BoxDialog"
+            android:theme="@style/ThemeDialog" />
+        <activity
+            android:name=".OrderDialog"
+            android:theme="@style/ThemeDialog" />
+        <activity
             android:name=".OptionsMenu"
-            android:theme="@style/ThemeDialog"
-            android:label="Options"/>
+            android:label="Options"
+            android:theme="@style/ThemeDialog" />
         <activity android:name=".LobbyActivity" />
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".CinematicActivity" />
+        <activity android:name=".CinematicActivity" />
         <activity android:name=".MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -28,12 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView boxTextView;
     private TextView scoreTextView;
     private ImageView bezosImageView;
-    private ImageButton generateButton;
     private Button correctButton;
     private Button incorrectButton;
     private Order order;
-    //final Color red = Color.decode("#FF0000");
-    //final Color green = Color.decode("#0x008010");
 
     private int ordersCompleted;
 
@@ -51,24 +48,14 @@ public class MainActivity extends AppCompatActivity {
         boxTextView = findViewById(R.id.boxContents);
         scoreTextView = findViewById(R.id.scoreTextView);
         bezosImageView = findViewById(R.id.bezosImageView);
-        generateButton = findViewById(R.id.generateButton);
         correctButton = findViewById(R.id.correctButton);
         incorrectButton = findViewById(R.id.incorrectButton);
 
+        generateNewBox();
 
-        generateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                generateNewBox();
-                generateButton.setVisibility(View.GONE);
-                generateButton.setEnabled(false);
-                correctButton.setVisibility(View.VISIBLE);
-                correctButton.setEnabled(true);
-                incorrectButton.setVisibility(View.VISIBLE);
-                incorrectButton.setEnabled(true);
-                bezosImageView.setImageResource(R.drawable.question_bezos);
-            }
-        });
+
+
+
         correctButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -81,12 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 order.setValidated(true);
 
-                correctButton.setVisibility(View.GONE);
-                correctButton.setEnabled(false);
-                incorrectButton.setVisibility(View.GONE);
-                incorrectButton.setEnabled(false);
-                generateButton.setVisibility(View.VISIBLE);
-                generateButton.setEnabled(true);
+                generateNewBox();
             }
         });
         incorrectButton.setOnClickListener(new View.OnClickListener(){
@@ -101,12 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 order.setValidated(true);
 
-                correctButton.setVisibility(View.GONE);
-                correctButton.setEnabled(false);
-                incorrectButton.setVisibility(View.GONE);
-                incorrectButton.setEnabled(false);
-                generateButton.setVisibility(View.VISIBLE);
-                generateButton.setEnabled(true);
+                generateNewBox();
             }
         });
         new CountDownTimer(30000, 1000) {
