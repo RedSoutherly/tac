@@ -167,6 +167,10 @@ public class Controller extends Application {
     }
 
     public StoryTreeNode getStoryNode() {
+        if(storyNode==null){
+            StoryTreeNode s= new StoryTreeNode(null);
+            return s;
+        }
         return storyNode;
     }
 
