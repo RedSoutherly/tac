@@ -11,11 +11,21 @@ public class StoryTreeNode {
         this.left=null;
         this.right=null;
         this.scenario=scenario;//you can pass in null that's all good
+        if(scenario!=null){
+            switch(scenario.getEventCode()){
+                case 1:
+                    
+                    break;
+                default:
+
+                    break;
+            }
+        }
     }
     public void setScenario(Cinematic scenario){
         this.scenario=scenario;
     }
-    public Cinematic getScenario(){
+    public Cinematic getCinematic(){
         if(scenario==null){
             this.scenario=new Cinematic();
             return scenario;

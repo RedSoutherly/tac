@@ -68,5 +68,9 @@ public class Cinematic {
     public void setScenarioChoice(String scenarioChoice) {
         this.scenarioChoice = scenarioChoice;
     }
+
+    public int getEventCode() {
+        return eventCode;
+    }
 }
 
