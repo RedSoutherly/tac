@@ -23,9 +23,8 @@ import java.util.HashMap;
 public class Controller extends Application {
 
 
-    }
-        return storyNode;
-    public StoryTreeNode getStoryNode() {
+
+
     // Player variables
     private String playerName = "Jeff";
     public int previousRoundScore = 0;
@@ -167,6 +166,9 @@ public class Controller extends Application {
         balance += balanceEarnt;
     }
 
+    public StoryTreeNode getStoryNode() {
+        return storyNode;
+    }
 
     public String getPlayerName() {
         return playerName;
