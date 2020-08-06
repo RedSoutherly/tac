@@ -10,7 +10,7 @@ public class StoryTreeNode {
     public StoryTreeNode(Cinematic scenario){
         this.left=null;
         this.right=null;
-        this.scenario=scenario;//you can pass in null thats all good
+        this.scenario=scenario;//you can pass in null that's all good
     }
     public void setScenario(Cinematic scenario){
         this.scenario=scenario;
@@ -27,9 +27,6 @@ public class StoryTreeNode {
         Random r = new Random();
         int x = r.nextInt(1);
         switch (x) {
-            case (1):
-                return left;
-
             case (0):
                 return right;
             default:

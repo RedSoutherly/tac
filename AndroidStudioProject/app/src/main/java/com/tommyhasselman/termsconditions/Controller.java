@@ -21,6 +21,8 @@ import java.util.HashMap;
  */
 public class Controller extends Application {
 
+    //story variables
+    public StoryTreeNode storyNode;//basically if a node is null make a new random one if not do what it says
 
     // Player variables
     private String playerName = "Jeff";
