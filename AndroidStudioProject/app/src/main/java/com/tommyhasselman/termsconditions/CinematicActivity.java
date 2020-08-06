@@ -32,6 +32,7 @@ public class CinematicActivity extends AppCompatActivity {
         choice2 = (Button) findViewById(R.id.choice2);
         String s = ("Congratulations you packed "+ score +" boxes,\nyou've earn't $" + controller.getBalanceEarnt()+".");
         message1.setText(s);
+        controller.setStoryNode(controller.getStoryNode().getRandomNode());
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

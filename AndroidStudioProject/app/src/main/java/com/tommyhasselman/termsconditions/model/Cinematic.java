@@ -23,16 +23,44 @@ public class Cinematic {
             this.scenarioChoice = Scenario[randomChoice];
             this.firstChoice = Choice1[randomChoice];
             this.secondChoice = Choice2[randomChoice];
-            eventCode=0;
+            eventCode=randomChoice+1;
         }
+        //scenarios 1-10 are a random smatering of events
+        //scenarions 11-20 are consequases of the cheapo option
+        //scenarios 21-30 are conseqeuences of the pay option
+        //scenario 31-40 are cheap +compassion or similar options and result in game loss
         public Cinematic(int event){
             switch(event){
                 // a unique case for each differnt special story
-                case 1:
+                case 11:
                     eventCode=event;
-                    setFirstChoice("blah");
-                    setSecondChoice("blah");
-                    setScenarioChoice("blah");
+                    setFirstChoice("Harden up and get on with work");
+                    setSecondChoice("Ask for time off work to attend a funeral.");
+                    setScenarioChoice("after a bout of pneumonia your nephew dies painfully in the night.");
+                    break;
+                    case 12:
+                    eventCode=event;
+                    setFirstChoice("See a Docter -90$");
+                    setSecondChoice("Tough it out like your forefathers.");
+                    setScenarioChoice("Two of your fingers become frostbitten.");
+                    break;
+                case 13:
+                    eventCode=event;
+                    setFirstChoice("have your house professionally cleaned -150$");
+                    setSecondChoice("Turn to the bottle in stress -10$");
+                    setScenarioChoice("Your toilet overflows pouring raw sewage into your home.");
+                    break;
+                case 14:
+                    eventCode=event;
+                    setFirstChoice("Book some leave from work.");
+                    setSecondChoice("Take it out on your wife and kids.");
+                    setScenarioChoice("Your mental health begins to spiral out of control.");
+                    break;
+                case 21:
+                    eventCode=event;
+                    setFirstChoice("Continue working hard.");
+                    setSecondChoice("Go home via the bar to celebrate -5$.");
+                    setScenarioChoice("Your boss is impressed with your how hardy uou've been and gives you a certificate .");
                     break;
                 default:
                     Random rand = new Random();

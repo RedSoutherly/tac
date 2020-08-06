@@ -38,6 +38,8 @@ public class Controller extends Application {
     public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
     public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
 
+
+
     //story variables
     public StoryTreeNode storyNode = null;//basically if a node is null make a new random one if not do what it says
 
@@ -268,6 +270,9 @@ public class Controller extends Application {
 
     public void setMissingItemChance(double missingItemChance) {
         this.missingItemChance = missingItemChance;
+    }
+    public void setStoryNode(StoryTreeNode storyNode) {
+        this.storyNode = storyNode;
     }
 
 }
