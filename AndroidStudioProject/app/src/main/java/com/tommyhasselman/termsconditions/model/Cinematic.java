@@ -12,6 +12,7 @@ public class Cinematic {
         private String firstChoice;
         private String secondChoice;
         private String scenarioChoice;
+        private int eventCode;
 
         /** The constructor randomly chooses a scenario and assigns this scenario and
          *  the associated choices to scenario and choice variable
@@ -22,7 +23,26 @@ public class Cinematic {
             this.scenarioChoice = Scenario[randomChoice];
             this.firstChoice = Choice1[randomChoice];
             this.secondChoice = Choice2[randomChoice];
-
+            eventCode=0;
+        }
+        public Cinematic(int event){
+            switch(event){
+                // a unique case for each differnt special story
+                case 1:
+                    eventCode=event;
+                    setFirstChoice("blah");
+                    setSecondChoice("blah");
+                    setScenarioVhoice("blah");
+                    break;
+                default:
+                    Random rand = new Random();
+                    int randomChoice = rand.nextInt(Scenario.length);
+                    this.scenarioChoice = Scenario[randomChoice];
+                    this.firstChoice = Choice1[randomChoice];
+                    this.secondChoice = Choice2[randomChoice];
+                    eventCode=0;
+                    break;
+            }
         }
 
     public String getFirstChoice() {
