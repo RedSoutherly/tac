@@ -3,6 +3,7 @@ package com.tommyhasselman.termsconditions.model;
 import java.util.Random;
 
 public class StoryTreeNode {
+
     StoryTreeNode left;
     StoryTreeNode right;
     Cinematic scenario;
@@ -43,6 +44,12 @@ public class StoryTreeNode {
                 return left;
         }
 
+    }
+    public void setRight(StoryTreeNode right) {
+        this.right = right;
+    }
+    public void setLeft(StoryTreeNode left) {
+        this.left = left;
     }
 
 }

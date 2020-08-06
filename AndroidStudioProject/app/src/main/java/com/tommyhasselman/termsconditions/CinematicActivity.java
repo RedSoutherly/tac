@@ -10,32 +10,39 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.tommyhasselman.termsconditions.model.Cinematic;
+import com.tommyhasselman.termsconditions.model.StoryTreeNode;
 
 /**
- *  The Class responsible for generating scenarios, generating adn listening to the buttons for the
- *  purpose of keeping track of cinematic choices.
+ * The Class responsible for generating scenarios, generating adn listening to the buttons for the
+ * purpose of keeping track of cinematic choices.
  */
 public class CinematicActivity extends AppCompatActivity {
 
     private TextView message1;
     private Button choice1;
     private Button choice2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinematic);
-        Controller controller = ((Controller) this.getApplication());
-        final Cinematic c=controller.getStoryNode().getCinematic();
-        int score=controller.getPreviousRoundScore();
-        message1= (TextView) findViewById(R.id.message1);
+        final Controller controller = ((Controller) this.getApplication());
+        final Cinematic c = controller.getStoryNode().getCinematic();
+        int score = controller.getPreviousRoundScore();
+        message1 = (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
         choice2 = (Button) findViewById(R.id.choice2);
-        String s = ("Congratulations you packed "+ score +" boxes,\nyou've earn't $" + controller.getBalanceEarnt()+".");
+        String s = ("Congratulations you packed " + score + " boxes,\nyou've earn't $" + controller.getBalanceEarnt() + ".");
         message1.setText(s);
+        controller.setStoryNode(controller.getStoryNode().getRandomNode());
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO do something with the choice
+                //TODO impliment costs
+                //TODO set depth of consequince to random
+
+                controller.getStoryNode().setLeft(new StoryTreeNode(new Cinematic(Cinematic.getEventCode() + 10)));
+                controller.setStoryNode(controller.getStoryNode().getRandomNode());
                 //go back to LobbyActivity
                 startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
                 finish();
@@ -44,8 +51,9 @@ public class CinematicActivity extends AppCompatActivity {
         choice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //TODO do something with the choice
+                //TODO do something with the choice
                 //go back to LobbyActivity
+                controller.setStoryNode(controller.getStoryNode().getRandomNode());
              startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
              finish();
             }
