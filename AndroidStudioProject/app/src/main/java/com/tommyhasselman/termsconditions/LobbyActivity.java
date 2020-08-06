@@ -44,6 +44,7 @@ public class LobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LobbyActivity.this,MainActivity.class));
+                finish();
             }
         });
     }
