@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 controller.endRound(ordersCompleted);
                 startActivity(new Intent(MainActivity.this,CinematicActivity.class));
-                //finish();
+                finish();
             }
         }.start();
 

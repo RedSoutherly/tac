@@ -38,6 +38,7 @@ public class CinematicActivity extends AppCompatActivity {
                 //TODO do something with the choice
                 //go back to LobbyActivity
                 startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
+                finish();
             }
         });
         choice2.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +47,7 @@ public class CinematicActivity extends AppCompatActivity {
             //TODO do something with the choice
                 //go back to LobbyActivity
              startActivity(new Intent(CinematicActivity.this,LobbyActivity.class));
+             finish();
             }
         });
         new CountDownTimer(5000, 1000) {
