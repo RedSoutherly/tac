@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.tommyhasselman.termsconditions.model.Order;
+import com.tommyhasselman.termsconditions.model.StoryTreeNode;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,9 +22,6 @@ import java.util.HashMap;
  */
 public class Controller extends Application {
 
-    //story variables
-    public StoryTreeNode storyNode;//basically if a node is null make a new random one if not do what it says
-
     // Player variables
     private String playerName = "Jeff";
     public int previousRoundScore = 0;
@@ -36,6 +34,9 @@ public class Controller extends Application {
     public int orderSize = 3; // The amount of items in a order;
     public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
     public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
+
+    //story variables
+    public StoryTreeNode storyNode;//basically if a node is null make a new random one if not do what it says
 
     private final String SAVE_FILE = "tncSaveFile.ser";
 
@@ -76,6 +77,7 @@ public class Controller extends Application {
             e.printStackTrace();
         }
 
+        playerName = (String) gameData.get("playerName");
         previousRoundScore = (int) gameData.get("previousRoundScore");
         lifetimeScore = (int) gameData.get("lifetimeScore");
         balanceEarnt = (int) gameData.get("balanceEarnt");
@@ -84,6 +86,7 @@ public class Controller extends Application {
         orderSize = (int) gameData.get("orderSize");
         incorrectItemChance = (double) gameData.get("incorrectItemChance");
         missingItemChance = (double) gameData.get("missingItemChance");
+        storyNode = (StoryTreeNode) gameData.get("storyNode");
 
     }
 
@@ -96,6 +99,8 @@ public class Controller extends Application {
     public void createSave(Context context) {
 
         HashMap<String, Object> gameData = new HashMap<>();
+
+        gameData.put("playerName", playerName);
         gameData.put("previousRoundScore", previousRoundScore);
         gameData.put("lifetimeScore", lifetimeScore);
         gameData.put("balanceEarnt", balanceEarnt);
@@ -104,6 +109,7 @@ public class Controller extends Application {
         gameData.put("orderSize", orderSize);
         gameData.put("incorrectItemChance", incorrectItemChance);
         gameData.put("missingItemChance", missingItemChance);
+        gameData.put("storyNode", storyNode);
 
         try {
             FileOutputStream fileOut = context.openFileOutput(SAVE_FILE, Context.MODE_PRIVATE);
