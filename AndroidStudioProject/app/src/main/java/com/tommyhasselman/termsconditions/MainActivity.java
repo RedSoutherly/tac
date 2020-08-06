@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
         controller = ((Controller) this.getApplication());
 
-        countdownTextField = (TextView) findViewById(R.id.countdownTextField);
-        orderTextView = (TextView) findViewById(R.id.orderContents);
-        boxTextView = (TextView) findViewById(R.id.boxContents);
-        scoreTextView = (TextView) findViewById(R.id.scoreTextView);
-        bezosImageView = (ImageView) findViewById(R.id.bezosImageView);
-        generateButton = (ImageButton) findViewById(R.id.generateButton);
-        correctButton = (Button) findViewById(R.id.correctButton);
-        incorrectButton = (Button) findViewById(R.id.incorrectButton);
+        countdownTextField = findViewById(R.id.countdownTextField);
+        orderTextView = findViewById(R.id.orderContents);
+        boxTextView = findViewById(R.id.boxContents);
+        scoreTextView = findViewById(R.id.scoreTextView);
+        bezosImageView = findViewById(R.id.bezosImageView);
+        generateButton = findViewById(R.id.generateButton);
+        correctButton = findViewById(R.id.correctButton);
+        incorrectButton = findViewById(R.id.incorrectButton);
 
 
         generateButton.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                countdownTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+                String message = ("seconds remaining: " + millisUntilFinished / 1000);
+                countdownTextField.setText(message);
             }
 
             public void onFinish() {
