@@ -28,6 +28,7 @@ public class LobbyActivity extends AppCompatActivity {
         cont.createSave(this);
 
         Button workButton = findViewById(R.id.workButton);
+        Button mmButton = findViewById(R.id.mmButton);
         TextView balanceTextView = findViewById(R.id.balanceTextView);
         TextView screenedTextView = findViewById(R.id.screenedTextView);
         TextView welcomeTextView = findViewById(R.id.welcomeTextView);
@@ -44,6 +45,14 @@ public class LobbyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LobbyActivity.this,MainActivity.class));
+                finish();
+            }
+        });
+
+        mmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LobbyActivity.this, MainMenu.class));
                 finish();
             }
         });
