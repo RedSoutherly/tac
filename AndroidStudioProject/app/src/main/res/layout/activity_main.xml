@@ -24,6 +24,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="100dp"
+        android:fontFamily="@font/amazonfont"
         android:text="Order"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -37,6 +38,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/amazonfont"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OrderTitle" />
 
@@ -47,6 +49,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
+        android:fontFamily="@font/amazonfont"
         android:text="Box"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -60,6 +63,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:fontFamily="@font/amazonfont"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BoxTitle" />
 
@@ -69,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:enabled="false"
+        android:fontFamily="@font/amazonfont"
         android:text="CORRECT"
         android:textStyle="bold"
         android:visibility="gone"
@@ -87,7 +92,8 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/generateButton" />
+        app:layout_constraintStart_toEndOf="@+id/generateButton"
+        android:fontFamily="@font/amazonfont" />
 
     <ImageView
         android:id="@+id/bezosImageView"
@@ -107,6 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
+        android:fontFamily="@font/amazonfont"
         android:text="Score:"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -119,6 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/amazonfont"
         android:text="0"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -131,6 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/amazonfont"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
