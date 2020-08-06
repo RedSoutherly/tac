@@ -32,7 +32,7 @@ public class Cinematic {
                     eventCode=event;
                     setFirstChoice("blah");
                     setSecondChoice("blah");
-                    setScenarioVhoice("blah");
+                    setScenarioChoice("blah");
                     break;
                 default:
                     Random rand = new Random();

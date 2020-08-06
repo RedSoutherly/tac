@@ -36,7 +36,7 @@ public class Controller extends Application {
     public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
 
     //story variables
-    public StoryTreeNode storyNode;//basically if a node is null make a new random one if not do what it says
+    public StoryTreeNode storyNode = null;//basically if a node is null make a new random one if not do what it says
 
     private final String SAVE_FILE = "tncSaveFile.ser";
 
@@ -54,8 +54,28 @@ public class Controller extends Application {
     }
 
     /**
+     * This method is used to reset the game save back to defaults.
+     * It sets all vars back to default value and calls createSave()
+     * to overwrite the existing file.
+     */
+    public void resetSave() {
+        playerName = "Jeff";
+        previousRoundScore = 0;
+        lifetimeScore = 0;
+        balanceEarnt = 0;
+        balance = 0;
+        payRate = 5;
+        orderSize = 3;
+        incorrectItemChance = 0.25;
+        missingItemChance = 0.01;
+        storyNode = null;
+
+        createSave(this);
+    }
+
+    /**
      * This method is used for reading the game save from internal storage.
-     * It reads in a serialised HashMap, deserialises it and updates Controller's
+     * It reads in a serialised HashMap, deserializes it and updates Controller's
      * data fields.
      * @param context The activity context for the FileInputStream.
      */

@@ -17,9 +17,17 @@ public class OptionsMenu extends AppCompatActivity {
 
         final Controller cont = ((Controller) this.getApplication());
 
+        Button resetButton = findViewById(R.id.resetButton);
         Button doneButton = findViewById(R.id.goBackButton);
         final EditText nameField = findViewById(R.id.editTextTextPersonName);
         nameField.setText(cont.getPlayerName());
+
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cont.resetSave();
+            }
+        });
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
