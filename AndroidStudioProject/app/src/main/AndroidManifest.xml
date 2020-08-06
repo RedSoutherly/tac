@@ -12,10 +12,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".OptionsMenu"
-            android:theme="@style/Base.Theme.AppCompat.Dialog" />
+            android:theme="@style/ThemeDialog"
+            android:label="Options"/>
         <activity android:name=".LobbyActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CinematicActivity" />
+        <activity
+            android:name=".CinematicActivity"
+            android:theme="@style/Base.Theme.AppCompat.Light.Dialog"/>
         <activity android:name=".MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
