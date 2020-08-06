@@ -21,17 +21,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/orderContents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/amazonfont"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OrderTitle" />
-
-    <TextView
         android:id="@+id/BoxTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,17 +33,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/boxContents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:fontFamily="@font/amazonfont"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BoxTitle" />
 
     <Button
         android:id="@+id/correctButton"
@@ -135,5 +113,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/boxButton"
+        android:layout_width="50pt"
+        android:layout_height="50pt"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/scoreTitle"
+        app:layout_constraintTop_toBottomOf="@+id/BoxTitle"
+        app:srcCompat="@drawable/box" />
+
+    <ImageButton
+        android:id="@+id/orderButton"
+        android:layout_width="50pt"
+        android:layout_height="50pt"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/scoreTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OrderTitle"
+        app:srcCompat="@drawable/monitor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView bezosImageView;
     private Button correctButton;
     private Button incorrectButton;
+    private ImageButton boxButton;
+    private ImageButton orderButton;
     private Order order;
 
     private int ordersCompleted;
@@ -44,16 +46,29 @@ public class MainActivity extends AppCompatActivity {
         controller = ((Controller) this.getApplication());
 
         countdownTextField = findViewById(R.id.countdownTextField);
-        orderTextView = findViewById(R.id.orderContents);
-        boxTextView = findViewById(R.id.boxContents);
         scoreTextView = findViewById(R.id.scoreTextView);
         bezosImageView = findViewById(R.id.bezosImageView);
         correctButton = findViewById(R.id.correctButton);
         incorrectButton = findViewById(R.id.incorrectButton);
+        boxButton = findViewById(R.id.boxButton);
+        orderButton = findViewById(R.id.orderButton);
 
         generateNewBox();
 
 
+        boxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, BoxDialog.class));
+            }
+        });
+
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, OrderDialog.class));
+            }
+        });
 
 
         correctButton.setOnClickListener(new View.OnClickListener(){
@@ -117,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
         for (OrderItem i : order.getPacked()) {
             packedContains += i.toString()+"\n";
         }
-        orderTextView.setText(orderedContains);
-        boxTextView.setText(packedContains);
+        //orderTextView.setText(orderedContains);
+        //boxTextView.setText(packedContains);
     }
 
     /**
