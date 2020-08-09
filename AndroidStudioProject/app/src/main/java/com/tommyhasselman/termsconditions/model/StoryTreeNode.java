@@ -12,22 +12,15 @@ public class StoryTreeNode {
         this.left=null;
         this.right=null;
         this.scenario=scenario;//you can pass in null that's all good
-        if(scenario!=null){
-            switch(scenario.getEventCode()){
-                case 1:
-                    
-                    break;
-                default:
-
-                    break;
-            }
+        if(scenario==null){
+            this.scenario= new Cinematic();
         }
     }
     public void setScenario(Cinematic scenario){
         this.scenario=scenario;
     }
     public Cinematic getCinematic(){
-        if(scenario==null){
+        if(this.scenario==null){
             this.scenario=new Cinematic();
             return scenario;
         }
@@ -36,7 +29,7 @@ public class StoryTreeNode {
 
     public StoryTreeNode getRandomNode() {
         Random r = new Random();
-        int x = r.nextInt(1);
+        int x = r.nextInt(2);
         switch (x) {
             case (0):
                 return right;

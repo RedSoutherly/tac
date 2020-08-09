@@ -9,6 +9,7 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class BoxDialog extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class BoxDialog extends AppCompatActivity {
 
         FlexboxLayout cl = findViewById(R.id.boxFlex);
         ArrayList<OrderItem> boxed = cont.getCurrentOrder().getPacked();
+        Collections.shuffle(boxed);
 
         for (OrderItem item : boxed) {
             ImageView img = new ImageView(getBaseContext());
