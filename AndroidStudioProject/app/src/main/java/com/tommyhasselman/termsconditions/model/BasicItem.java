@@ -22,6 +22,9 @@ public class BasicItem extends OrderItem {
     private String colour;
     private String product;
 
+    private int intSize;
+    private int argbColour;
+
     /**
      * Default constructor for Basic Item.
      * Constructs an instance with all fields randomised.
@@ -34,7 +37,9 @@ public class BasicItem extends OrderItem {
         code = "SCP" + rs + rc + rp;
         System.out.println(code);
         size = sizes[rs];
+        intSize = intSizes[rs];
         colour = colours[rc];
+        argbColour = argbColours[rc];
         product = basicProducts[rp];
     }
 
@@ -55,4 +60,11 @@ public class BasicItem extends OrderItem {
         return code;
     }
 
+    public int getArgbColour() {
+        return argbColour;
+    }
+
+    public int getIntSize() {
+        return intSize;
+    }
 }
