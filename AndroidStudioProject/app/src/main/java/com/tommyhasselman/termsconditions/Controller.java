@@ -43,6 +43,9 @@ public class Controller extends Application {
     //story variables
     public StoryTreeNode storyNode = null;//basically if a node is null make a new random one if not do what it says
 
+    //order validator(keeps track of rules number of additional rules active)
+    public OrderValidator validator = new OrderValidator(0);
+
     private final String SAVE_FILE = "tncSaveFile.ser";
 
     /**
