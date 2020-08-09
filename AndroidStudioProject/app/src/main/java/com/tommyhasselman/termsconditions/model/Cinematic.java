@@ -13,6 +13,8 @@ public class Cinematic {
     private String firstChoice;
     private String secondChoice;
     private String scenarioChoice;
+    private int [] cost = new int[3];
+    private int [] randcost = {50,30,70,80};//TODO support this lazy implimentation with a test
 
 
     /**
@@ -46,12 +48,15 @@ public class Cinematic {
                 setFirstChoice("See a Docter -90$");
                 setSecondChoice("Tough it out like your forefathers.");
                 setScenarioChoice("Two of your fingers become frostbitten.");
+                cost[0]=90;
                 break;
             case 13:
                 eventCode = event;
                 setFirstChoice("have your house professionally cleaned -150$");
                 setSecondChoice("Turn to the bottle in stress -10$");
                 setScenarioChoice("Your toilet overflows pouring raw sewage into your home.");
+                cost[0]=150;
+                cost[1]=10;
                 break;
             case 14:
                 eventCode = event;
@@ -64,6 +69,7 @@ public class Cinematic {
                 setFirstChoice("Continue working hard.");
                 setSecondChoice("Go home via the bar to celebrate -5$.");
                 setScenarioChoice("Your boss is impressed with your how hardy uou've been and gives you a certificate .");
+                cost[1]=5;
                 break;
             default:
                 Random rand = new Random();
@@ -71,7 +77,8 @@ public class Cinematic {
                 this.scenarioChoice = Scenario[randomChoice];
                 this.firstChoice = Choice1[randomChoice];
                 this.secondChoice = Choice2[randomChoice];
-                eventCode = 0;
+                eventCode = randomChoice+1;
+                cost[0]=randcost[eventCode];
                 break;
         }
     }
@@ -102,6 +109,10 @@ public class Cinematic {
 
     public static int getEventCode() {
         return eventCode;
+    }
+
+    public int[] getCost() {
+        return cost;
     }
 }
 
