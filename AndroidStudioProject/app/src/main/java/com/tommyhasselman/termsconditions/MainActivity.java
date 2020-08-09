@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView bezosImageView;
     private Button correctButton;
     private Button incorrectButton;
+    private Button finButton;
     private ImageButton boxButton;
     private ImageButton orderButton;
     private Order order;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         incorrectButton = findViewById(R.id.incorrectButton);
         boxButton = findViewById(R.id.boxButton);
         orderButton = findViewById(R.id.orderButton);
+        finButton = findViewById(R.id.finButton);
 
         order = controller.getNewOrder();
 
@@ -100,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
                 order = controller.getNewOrder();
             }
         });
+        finButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CinematicActivity.class));
+                finish();
+            }
+        });
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -108,9 +117,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                //controller.endRound(ordersCompleted);
-               // startActivity(new Intent(MainActivity.this,CinematicActivity.class));
-                //finish();
+                controller.endRound(ordersCompleted);
+                correctButton.setVisibility(View.GONE);
+                incorrectButton.setVisibility(View.GONE);
+                finButton.setVisibility(View.VISIBLE);
             }
         }.start();
 
