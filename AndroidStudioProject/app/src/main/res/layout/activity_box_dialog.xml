@@ -2,10 +2,13 @@
 <com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootView"
+    android:id="@+id/boxFlex"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8F5F40"
+    app:alignContent="flex_start"
+    app:alignItems="flex_start"
+    app:flexWrap="wrap"
     tools:context=".BoxDialog">
 
 </com.google.android.flexbox.FlexboxLayout>

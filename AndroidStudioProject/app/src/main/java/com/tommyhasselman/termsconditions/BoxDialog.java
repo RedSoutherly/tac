@@ -1,9 +1,6 @@
 package com.tommyhasselman.termsconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -22,19 +19,19 @@ public class BoxDialog extends AppCompatActivity {
 
         Controller cont = ((Controller) this.getApplication());
 
-        FlexboxLayout cl = findViewById(R.id.rootView);
-
+        FlexboxLayout cl = findViewById(R.id.boxFlex);
         ArrayList<OrderItem> boxed = cont.getCurrentOrder().getPacked();
 
         for (OrderItem item : boxed) {
             ImageView img = new ImageView(getBaseContext());
             img.setImageResource(R.drawable.dildo);
+            FlexboxLayout.LayoutParams lp = new FlexboxLayout.LayoutParams(item.getIntSize(),item.getIntSize());
+            img.setLayoutParams(lp);
             img.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            img.setColorFilter(Color.argb(50,255,0,0));
+            img.setColorFilter(item.getArgbColour());
+            img.setPadding(20,20,20,20);
             cl.addView(img);
         }
-
-
 
     }
 }
