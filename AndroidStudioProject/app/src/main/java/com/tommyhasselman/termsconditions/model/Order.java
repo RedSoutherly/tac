@@ -12,8 +12,8 @@ import java.util.Random;
 public class Order extends GameObject {
 
 
-    private List<OrderItem> ordered = new ArrayList<>(); // Array of items on the order.
-    private List<OrderItem> packed = new ArrayList<>(); // Array of items that have been packed.
+    private ArrayList<OrderItem> ordered = new ArrayList<>(); // Array of items on the order.
+    private ArrayList<OrderItem> packed = new ArrayList<>(); // Array of items that have been packed.
     private boolean correctlyPacked;
     private boolean validated;
 
@@ -71,19 +71,19 @@ public class Order extends GameObject {
         return s;
     }
 
-    public List<OrderItem> getPacked() {
+    public ArrayList<OrderItem> getPacked() {
         return packed;
     }
 
-    public List<OrderItem> getOrdered() {
+    public ArrayList<OrderItem> getOrdered() {
         return ordered;
     }
 
-    public void setOrdered(List<OrderItem> ordered) {
+    public void setOrdered(ArrayList<OrderItem> ordered) {
         this.ordered = ordered;
     }
 
-    public void setPacked(List<OrderItem> packed) {
+    public void setPacked(ArrayList<OrderItem> packed) {
         this.packed = packed;
     }
 

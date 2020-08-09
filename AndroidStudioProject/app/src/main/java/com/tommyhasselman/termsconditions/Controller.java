@@ -34,6 +34,7 @@ public class Controller extends Application {
     public int payRate = 5; // The current amount of pay you get per correct order evaluation.
 
     // Order variables
+    private Order currentOrder = null;
     public int orderSize = 3; // The amount of items in a order;
     public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
     public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
@@ -150,11 +151,13 @@ public class Controller extends Application {
 
     }
 
-    /**
-     * @return returns an instance of Order.
-     */
-    public Order newOrder() {
-        return new Order(this);
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public Order getNewOrder() {
+        currentOrder = new Order(this);
+        return currentOrder;
     }
 
     /**

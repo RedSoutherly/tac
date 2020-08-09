@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
      * the box contains, and what it should contain.
      */
     public void generateNewBox() {
-        order = controller.newOrder();
+        order = controller.getNewOrder();
         String orderedContains = "";
         for (OrderItem i : order.getOrdered()) {
             orderedContains += i.toString()+"\n";
