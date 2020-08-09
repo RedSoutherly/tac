@@ -23,30 +23,44 @@ import java.util.HashMap;
 public class Controller extends Application {
 
 
+    //Defaults. Change game variables here.
+
+    private final String DEFAULT_PLAYER_NAME = "Jeff";
+    private final int DEFAULT_PREVIOUS_ROUND_SCORE = 0;
+    private final int DEFAULT_LIFETIME_SCORE = 0;
+    private final int DEFAULT_BALANCE_EARNT = 0;
+    private final int DEFAULT_BALANCE = 0;
+    private final int DEFAULT_PAY_RATE = 5;
+    private final int DEFAULT_ORDER_SIZE = 3;
+    private final double DEFAULT_INCORRECT_ITEM_CHANCE = 0.25;
+    private final double DEFAULT_MISSING_ITEM_CHANCE = 0.01;
+    private final StoryTreeNode DEFAULT_STORY_NODE = null;
+
+    private final String SAVE_FILE = "tncSaveFile.ser";
+
+
+
 
 
     // Player variables
-    private String playerName = "Jeff";
-    public int previousRoundScore = 0;
-    public int lifetimeScore = 0;
-    public int balanceEarnt = 0;
-    public int balance = 0;
-    public int payRate = 5; // The current amount of pay you get per correct order evaluation.
+    private String playerName;
+    public int previousRoundScore;
+    public int lifetimeScore;
+    public int balanceEarnt;
+    public int balance;
+    public int payRate; // The current amount of pay you get per correct order evaluation.
 
     // Order variables
-    public int orderSize = 3; // The amount of items in a order;
-    public double incorrectItemChance = 0.25; // This value is the percentage chance of an item being incorrect.
-    public double missingItemChance = 0.05; // This value is the percentage chance of an item being missing.
-
-
+    private Order currentOrder;
+    public int orderSize; // The amount of items in a order;
+    public double incorrectItemChance; // This value is the percentage chance of an item being incorrect.
+    public double missingItemChance; // This value is the percentage chance of an item being missing.
 
     //story variables
     public StoryTreeNode storyNode = null;//basically if a node is null make a new random one if not do what it says
 
     //order validator(keeps track of rules number of additional rules active)
     public OrderValidator validator = new OrderValidator(0);
-
-    private final String SAVE_FILE = "tncSaveFile.ser";
 
     /**
      * This is used to check if a save file is present.
@@ -67,16 +81,16 @@ public class Controller extends Application {
      * to overwrite the existing file.
      */
     public void resetSave() {
-        playerName = "Jeff";
-        previousRoundScore = 0;
-        lifetimeScore = 0;
-        balanceEarnt = 0;
-        balance = 0;
-        payRate = 5;
-        orderSize = 3;
-        incorrectItemChance = 0.25;
-        missingItemChance = 0.01;
-        storyNode = null;
+        playerName = DEFAULT_PLAYER_NAME;
+        previousRoundScore = DEFAULT_PREVIOUS_ROUND_SCORE;
+        lifetimeScore = DEFAULT_LIFETIME_SCORE;
+        balanceEarnt = DEFAULT_BALANCE_EARNT;
+        balance = DEFAULT_BALANCE;
+        payRate = DEFAULT_PAY_RATE;
+        orderSize = DEFAULT_ORDER_SIZE;
+        incorrectItemChance = DEFAULT_INCORRECT_ITEM_CHANCE;
+        missingItemChance = DEFAULT_MISSING_ITEM_CHANCE;
+        storyNode = DEFAULT_STORY_NODE;
 
         createSave(this);
     }
@@ -153,12 +167,15 @@ public class Controller extends Application {
 
     }
 
-    /**
-     * @return returns an instance of Order.
-     */
-    public Order newOrder() {
-        return new Order(this);
+    public Order getCurrentOrder() {
+        return currentOrder;
     }
+
+    public Order getNewOrder() {
+        currentOrder = new Order(this);
+        return currentOrder;
+    }
+
 
     /**
      * This method updates the player variables when called.

@@ -26,7 +26,7 @@ public class ControllerTest {
     @Test
     public void newOrder() {
 
-        Order o = c.newOrder();
+        Order o = c.getNewOrder();
 
         assertNotNull(o);
 
