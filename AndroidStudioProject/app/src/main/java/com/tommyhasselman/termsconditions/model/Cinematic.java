@@ -7,9 +7,9 @@ import java.util.Random;
  */
 public class Cinematic {
     private int eventCode;
-    private String[] Choice1 = {"Pay for medication -$50", "Pay for home heating -$30", "Pay to fix the toilet -$70", "Book a psychologist appointment -$80", "Fulfill his wishes -$50", "Take your wife out to dinner -$75", "Get her phone fixed -$100", "Get a professional remove it -$75", "Hire an exterminator -$100"};
-    private String[] Choice2 = {"Pray the sickness away", "Endure the cold", "Attempt to fix it yourself", "Grin and bear it", "Beat your son", "Get an earful", "Tell her to suck it up", "Attempt to clean it yourself", "Deal with your new pets"};
-    private String[] Scenario = {"Your nephew is sick, do you;", "Winter is coming:", "Your toilet is broken, do you;", "Your mental health is at an all time low, do you;", "Your son asks for a new toy, do you;", "It is your wedding anniversary, do you;", "Your daughter's phone breaks, do you;", "You find suspicious mold growing in your bathroom, do you;", "Rats are found infesting your home, do you;"};
+    private String[] Choice1 = {"Pay for medication -$50", "Pay for home heating -$30", "Pay to fix the toilet -$70"};//, "Book a psychologist appointment -$80", "Fulfill his wishes -$50", "Take your wife out to dinner -$75", "Get her phone fixed -$100", "Get a professional remove it -$75", "Hire an exterminator -$100"};
+    private String[] Choice2 = {"Pray the sickness away", "Endure the cold", "Attempt to fix it yourself"};//, "Grin and bear it", "Beat your son", "Get an earful", "Tell her to suck it up", "Attempt to clean it yourself", "Deal with your new pets"};
+    private String[] Scenario = {"Your nephew is sick, do you;", "Winter is coming:", "Your toilet is broken, do you;"};//, "Your mental health is at an all time low, do you;", "Your son asks for a new toy, do you;", "It is your wedding anniversary, do you;", "Your daughter's phone breaks, do you;", "You find suspicious mold growing in your bathroom, do you;", "Rats are found infesting your home, do you;"};
     private String firstChoice;
     private String secondChoice;
     private String scenarioChoice;
@@ -28,6 +28,7 @@ public class Cinematic {
         this.firstChoice = Choice1[randomChoice];
         this.secondChoice = Choice2[randomChoice];
         this.eventCode = randomChoice;
+        System.out.println(randomChoice +" "+ this.scenarioChoice);
     }
 
     //scenarios 0-9 are a random smatering of events
@@ -35,7 +36,9 @@ public class Cinematic {
     //scenarios 21-30 are conseqeuences of the pay option
     //scenario 31-40 are cheap +compassion or similar options and result in game loss
     public Cinematic(int event) {
+        System.out.println("switch");
         switch (event) {
+
             // a unique case for each differnt special story
             case 10:
                 this.eventCode = event;

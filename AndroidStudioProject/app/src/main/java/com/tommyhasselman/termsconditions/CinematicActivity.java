@@ -34,15 +34,18 @@ public class CinematicActivity extends AppCompatActivity {
         choice2 = (Button) findViewById(R.id.choice2);
         String s = ("Congratulations you packed " + score + " boxes,\nyou've earn't $" + controller.getBalanceEarnt() + ".");
         message1.setText(s);
-        controller.setStoryNode(controller.getStoryNode().getRandomNode());
+       //onoller.setStoryNode(controller.getStoryNode().getRandomNode());
         controller.setBalance(controller.getBalance() - controller.getStoryNode().getCinematic().getCost()[2]);
 
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.setBalance(controller.getBalance() - controller.getStoryNode().getCinematic().getCost()[0]); // this is a mess maybe i tidy this
+                controller.setBalance(controller.getBalance() - c.getCost()[0]); // this is a mess maybe i tidy this
                 //TODO set depth of consequince to random
                 controller.setStoryNode(controller.getStoryNode().getRandomNode());
+                if(controller.getStoryNode()==null){
+                    controller.setStoryNode(new StoryTreeNode(new Cinematic()));
+                }
                 //go back to LobbyActivity
                 startActivity(new Intent(CinematicActivity.this, LobbyActivity.class));
                 //TODO if balance < 0 go to fail case
@@ -52,10 +55,13 @@ public class CinematicActivity extends AppCompatActivity {
         choice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.setBalance(controller.getBalance() - controller.getStoryNode().getCinematic().getCost()[1]);
-                controller.getStoryNode().setLeft(new StoryTreeNode(new Cinematic( controller.getStoryNode().getCinematic().getEventCode()+10)));
+                controller.setBalance(controller.getBalance() - c.getCost()[1]);
+                controller.getStoryNode().setLeft(new StoryTreeNode(new Cinematic( c.getEventCode()+10)));
                 System.out.println(controller.getStoryNode().getCinematic().getEventCode()+"ass");
                 controller.setStoryNode(controller.getStoryNode().getRandomNode());
+                if(controller.getStoryNode()==null){
+                    controller.setStoryNode(new StoryTreeNode(new Cinematic()));
+                }
                 startActivity(new Intent(CinematicActivity.this, LobbyActivity.class));//go back to LobbyActivity
                 //TODO if balance < 0 go to fail case
                 finish();
