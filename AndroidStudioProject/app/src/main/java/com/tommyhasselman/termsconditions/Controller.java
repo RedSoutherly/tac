@@ -173,6 +173,7 @@ public class Controller extends Application {
         return currentOrder;
     }
 
+
     /**
      * This method updates the player variables when called.
      * @param ordersComplete The total number of correctly screened orders.

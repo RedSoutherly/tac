@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tommyhasselman.termsconditions.model.Order;
-import com.tommyhasselman.termsconditions.model.OrderItem;
 
 /**
  * Responsible for the buttons and listeners of the main game, also keeps a timer in order to track
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         boxButton = findViewById(R.id.boxButton);
         orderButton = findViewById(R.id.orderButton);
 
-        generateNewBox();
+        order = controller.getNewOrder();
 
 
         boxButton.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 order.setValidated(true);
 
-                generateNewBox();
+                order = controller.getNewOrder();
             }
         });
         incorrectButton.setOnClickListener(new View.OnClickListener(){
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 order.setValidated(true);
 
-                generateNewBox();
+                order = controller.getNewOrder();
             }
         });
         new CountDownTimer(30000, 1000) {
@@ -109,32 +108,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                controller.endRound(ordersCompleted);
-                startActivity(new Intent(MainActivity.this,CinematicActivity.class));
-                finish();
+                //controller.endRound(ordersCompleted);
+               // startActivity(new Intent(MainActivity.this,CinematicActivity.class));
+                //finish();
             }
         }.start();
 
     }
 
-    /**
-     * This method creates a new instance of a Box.
-     * It then updates the respective text fields with what
-     * the box contains, and what it should contain.
-     */
-    public void generateNewBox() {
-        order = controller.getNewOrder();
-        String orderedContains = "";
-        for (OrderItem i : order.getOrdered()) {
-            orderedContains += i.toString()+"\n";
-        }
-        String packedContains = "";
-        for (OrderItem i : order.getPacked()) {
-            packedContains += i.toString()+"\n";
-        }
-        //orderTextView.setText(orderedContains);
-        //boxTextView.setText(packedContains);
-    }
 
     /**
      * This method quickly updates the Score text view.

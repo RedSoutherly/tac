@@ -21,9 +21,9 @@ public class OrderDialog extends AppCompatActivity {
         Controller cont = ((Controller) this.getApplication());
 
         FlexboxLayout cl = findViewById(R.id.orderFlex);
-        ArrayList<OrderItem> boxed = cont.getCurrentOrder().getPacked();
+        ArrayList<OrderItem> ordered = cont.getCurrentOrder().getOrdered();
 
-        for (OrderItem item : boxed) {
+        for (OrderItem item : ordered) {
             ImageView img = new ImageView(getBaseContext());
             img.setImageResource(R.drawable.dildo);
             FlexboxLayout.LayoutParams lp = new FlexboxLayout.LayoutParams(item.getIntSize(),item.getIntSize());
