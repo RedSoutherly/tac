@@ -113,9 +113,18 @@ public class MainActivity extends AppCompatActivity {
         });
         new CountDownTimer(30000, 1000) {
 
+            int i = 0;
+
             public void onTick(long millisUntilFinished) {
                 String message = ("seconds remaining: " + millisUntilFinished / 1000);
                 countdownTextField.setText(message);
+                
+                if (i > 2) {
+                    bezosImageView.setImageResource(R.drawable.question_bezos);
+                    i = 0;
+                } else {
+                    i++;
+                }
             }
 
             public void onFinish() {
