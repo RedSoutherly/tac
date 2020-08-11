@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     updateScore();
                     bezosImageView.setImageResource(R.drawable.correct_bezos);
                 } else {
+                    ordersCompleted--;
                     bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
                 order.setValidated(true);
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     updateScore();
                     bezosImageView.setImageResource(R.drawable.correct_bezos);
                 } else {
+                    ordersCompleted--;
                     bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
                 order.setValidated(true);
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
      * This method quickly updates the Score text view.
      */
     public void updateScore() {
-        String s = ordersCompleted + " packages screened correctly.";
+        String s = ""+ordersCompleted;
         scoreTextView.setText(s);
     }
 
