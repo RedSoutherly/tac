@@ -1,5 +1,7 @@
 package com.tommyhasselman.termsconditions.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -7,9 +9,10 @@ import java.util.Random;
  */
 public class Cinematic {
     private int eventCode;
-    private String[] Choice1 = {"Pay for medication -$50", "Pay for home heating -$30", "Pay to fix the toilet -$70"};//, "Book a psychologist appointment -$80", "Fulfill his wishes -$50", "Take your wife out to dinner -$75", "Get her phone fixed -$100", "Get a professional remove it -$75", "Hire an exterminator -$100"};
-    private String[] Choice2 = {"Pray the sickness away", "Endure the cold", "Attempt to fix it yourself"};//, "Grin and bear it", "Beat your son", "Get an earful", "Tell her to suck it up", "Attempt to clean it yourself", "Deal with your new pets"};
-    private String[] Scenario = {"Your nephew is sick, do you;", "Winter is coming:", "Your toilet is broken, do you;"};//, "Your mental health is at an all time low, do you;", "Your son asks for a new toy, do you;", "It is your wedding anniversary, do you;", "Your daughter's phone breaks, do you;", "You find suspicious mold growing in your bathroom, do you;", "Rats are found infesting your home, do you;"};
+    private static ArrayList<Integer> randChoice=new ArrayList<Integer>();
+    private String[] Choice1 = {"Pay for medication -$50", "Pay for home heating -$30", "Pay to fix the toilet -$70", "Book a psychologist appointment -$80", "Fulfill his wishes -$50", "Take your wife out to dinner -$75", "Get her phone fixed -$100", "Get a professional remove it -$75", "Hire an exterminator -$100"};
+    private String[] Choice2 = {"Pray the sickness away", "Endure the cold", "Attempt to fix it yourself", "Grin and bear it", "Beat your son", "Get an earful", "Tell her to suck it up", "Attempt to clean it yourself", "Deal with your new pets"};
+    private String[] Scenario = {"Your nephew is sick, do you;", "Winter is coming:", "Your toilet is broken, do you;", "Your mental health is at an all time low, do you;", "Your son asks for a new toy, do you;", "It is your wedding anniversary, do you;", "Your daughter's phone breaks, do you;", "You find suspicious mold growing in your bathroom, do you;", "Rats are found infesting your home, do you;"};
     private String firstChoice;
     private String secondChoice;
     private String scenarioChoice;
@@ -22,13 +25,20 @@ public class Cinematic {
      * the associated choices to scenario and choice variable
      */
     public Cinematic() {
-        Random rand = new Random();
-        int randomChoice = rand.nextInt(Scenario.length);
-        this.scenarioChoice = Scenario[randomChoice];
-        this.firstChoice = Choice1[randomChoice];
-        this.secondChoice = Choice2[randomChoice];
-        this.eventCode = randomChoice;
-        System.out.println(randomChoice +" "+ this.scenarioChoice);
+        if(randChoice.size()==0){
+            for(int i=0;i<9;i++){
+                randChoice.add(i);
+            }
+        }
+        Collections.sort(randChoice);
+        int rand = randChoice.get(0);
+        randChoice.remove(0);
+        this.scenarioChoice = Scenario[rand];
+        this.firstChoice = Choice1[rand];
+        this.secondChoice = Choice2[rand];
+        this.eventCode = rand;
+        this.cost[0]=randcost[rand];
+        System.out.println(rand +" "+ this.scenarioChoice);
     }
 
     //scenarios 0-9 are a random smatering of events
@@ -36,7 +46,7 @@ public class Cinematic {
     //scenarios 21-30 are conseqeuences of the pay option
     //scenario 31-40 are cheap +compassion or similar options and result in game loss
     public Cinematic(int event) {
-        System.out.println("switch");
+        System.out.println("switch "+ event);
         switch (event) {
 
             // a unique case for each differnt special story
@@ -75,12 +85,18 @@ public class Cinematic {
                 this.cost[1]=5;
                 break;
             default:
-                Random rand = new Random();
-                int randomChoice = rand.nextInt(Scenario.length);
-                this.scenarioChoice = Scenario[randomChoice];
-                this.firstChoice = Choice1[randomChoice];
-                this.secondChoice = Choice2[randomChoice];
-                this.eventCode = randomChoice;
+                if(randChoice.size()==0){
+                    for(int i=0;i<9;i++){
+                        randChoice.add(i);
+                    }
+                }
+                Collections.sort(randChoice);
+                int rand = randChoice.get(0);
+                randChoice.remove(0);
+                this.scenarioChoice = Scenario[rand];
+                this.firstChoice = Choice1[rand];
+                this.secondChoice = Choice2[rand];
+                this.eventCode = rand;
                 this.cost[0]=randcost[eventCode];
                 System.out.println("default");
                 break;
