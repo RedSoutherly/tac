@@ -39,6 +39,10 @@ public class LobbyActivity extends AppCompatActivity {
         String welcome = "Welcome back " + cont.getPlayerName();
         String rounds = ""+cont.getRoundsPlayed();
 
+        if (cont.getPlayerName().equals("debug")) {
+            welcome = "UwU ~ hewwo mr debugu ***";
+        }
+
         balanceTextView.setText(playerBalance);
         screenedTextView.setText(screened);
         welcomeTextView.setText(welcome);
