@@ -111,14 +111,22 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        new CountDownTimer(30000, 1000) {
+
+        int countdownLength = 30000; // 30 seconds
+
+        if (controller.getPlayerName().equals("debug")) {
+            countdownLength = 999999999;
+            finButton.setVisibility(View.VISIBLE);
+        }
+
+        new CountDownTimer(countdownLength, 1000) {
 
             int i = 0;
 
             public void onTick(long millisUntilFinished) {
                 String message = ("seconds remaining: " + millisUntilFinished / 1000);
                 countdownTextField.setText(message);
-                
+
                 if (i > 2) {
                     bezosImageView.setImageResource(R.drawable.question_bezos);
                     i = 0;
