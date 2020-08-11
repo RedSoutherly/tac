@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton orderButton;
     private Order order;
 
+    private Button varsButton;
+
     private int ordersCompleted;
 
     @Override
@@ -53,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
         boxButton = findViewById(R.id.boxButton);
         orderButton = findViewById(R.id.orderButton);
         finButton = findViewById(R.id.finButton);
+        varsButton = findViewById(R.id.varsButton);
+
+        if (controller.getPlayerName().equals("debug")) {
+            varsButton.setVisibility(View.VISIBLE);
+            varsButton.setEnabled(true);
+        }
 
         order = controller.getNewOrder();
 
@@ -77,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(order.isCorrectlyPacked()) {
                     ordersCompleted++;
-                    updateScore();
                     bezosImageView.setImageResource(R.drawable.correct_bezos);
                 } else {
                     ordersCompleted--;
                     bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
                 order.setValidated(true);
+                updateScore();
 
                 order = controller.getNewOrder();
             }
@@ -93,13 +101,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!order.isCorrectlyPacked()) {
                     ordersCompleted++;
-                    updateScore();
                     bezosImageView.setImageResource(R.drawable.correct_bezos);
                 } else {
                     ordersCompleted--;
                     bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
                 order.setValidated(true);
+                updateScore();
 
                 order = controller.getNewOrder();
             }
@@ -142,6 +150,13 @@ public class MainActivity extends AppCompatActivity {
                 finButton.setVisibility(View.VISIBLE);
             }
         }.start();
+
+        varsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, VarsActivity.class));
+            }
+        });
 
     }
 
