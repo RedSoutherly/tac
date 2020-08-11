@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.tommyhasselman.termsconditions.model.Cinematic;
 import com.tommyhasselman.termsconditions.model.StoryTreeNode;
 
+import static java.lang.Thread.sleep;
+
 /**
  * The Class responsible for generating scenarios, generating adn listening to the buttons for the
  * purpose of keeping track of cinematic choices.
@@ -29,6 +31,7 @@ public class CinematicActivity extends AppCompatActivity {
         final Controller controller = ((Controller) this.getApplication());
         final Cinematic c = controller.getStoryNode().getCinematic();
         int score = controller.getPreviousRoundScore();
+
         message1 = (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
         choice2 = (Button) findViewById(R.id.choice2);
@@ -67,18 +70,24 @@ public class CinematicActivity extends AppCompatActivity {
                 finish();
             }
         });
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(3500, 1000) {
             //dont rip this out for codecov
             public void onTick(long millisUntilFinished) {
 
             }
 
             public void onFinish() {
-                message1.setText(c.getScenarioChoice());
-                choice1.setText(c.getFirstChoice());
-                choice1.setVisibility(View.VISIBLE);
-                choice2.setText(c.getSecondChoice());
-                choice2.setVisibility(View.VISIBLE);
+                if(controller.getRoundsPlayed()<3) {
+                    startActivity(new Intent(CinematicActivity.this, LobbyActivity.class));//go back to LobbyActivity
+                    finish();
+
+                }else {
+                    message1.setText(c.getScenarioChoice());
+                    choice1.setText(c.getFirstChoice());
+                    choice1.setVisibility(View.VISIBLE);
+                    choice2.setText(c.getSecondChoice());
+                    choice2.setVisibility(View.VISIBLE);
+                }
             }
         }.start();
         //display options and buttons
