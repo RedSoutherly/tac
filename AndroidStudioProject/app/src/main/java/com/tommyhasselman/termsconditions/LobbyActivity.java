@@ -32,14 +32,17 @@ public class LobbyActivity extends AppCompatActivity {
         TextView balanceTextView = findViewById(R.id.balanceTextView);
         TextView screenedTextView = findViewById(R.id.screenedTextView);
         TextView welcomeTextView = findViewById(R.id.welcomeTextView);
+        TextView roundsTV = findViewById(R.id.roundsTV);
 
         String playerBalance = "$"+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();
         String welcome = "Welcome back " + cont.getPlayerName();
+        String rounds = ""+cont.getRoundsPlayed();
 
         balanceTextView.setText(playerBalance);
         screenedTextView.setText(screened);
         welcomeTextView.setText(welcome);
+        roundsTV.setText(rounds);
 
         workButton.setOnClickListener(new View.OnClickListener() {
             @Override

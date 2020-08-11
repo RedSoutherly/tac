@@ -24,7 +24,7 @@ public class Controller extends Application {
 
 
     //Defaults. Change game variables here.
-
+    private final int DEFAULT_ROUNDS_PLAYED = 0;
     private final String DEFAULT_PLAYER_NAME = "Jeff";
     private final int DEFAULT_PREVIOUS_ROUND_SCORE = 0;
     private final int DEFAULT_LIFETIME_SCORE = 0;
@@ -40,7 +40,7 @@ public class Controller extends Application {
 
 
 
-
+    private int roundsPlayed;
 
     // Player variables
     private String playerName;
@@ -81,6 +81,7 @@ public class Controller extends Application {
      * to overwrite the existing file.
      */
     public void resetSave() {
+        roundsPlayed = DEFAULT_ROUNDS_PLAYED;
         playerName = DEFAULT_PLAYER_NAME;
         previousRoundScore = DEFAULT_PREVIOUS_ROUND_SCORE;
         lifetimeScore = DEFAULT_LIFETIME_SCORE;
@@ -119,16 +120,23 @@ public class Controller extends Application {
             e.printStackTrace();
         }
 
-        playerName = (String) gameData.get("playerName");
-        previousRoundScore = (int) gameData.get("previousRoundScore");
-        lifetimeScore = (int) gameData.get("lifetimeScore");
-        balanceEarnt = (int) gameData.get("balanceEarnt");
-        balance = (int) gameData.get("balance");
-        payRate = (int) gameData.get("payRate");
-        orderSize = (int) gameData.get("orderSize");
-        incorrectItemChance = (double) gameData.get("incorrectItemChance");
-        missingItemChance = (double) gameData.get("missingItemChance");
-        storyNode = (StoryTreeNode) gameData.get("storyNode");
+
+        try {
+            roundsPlayed = (int) gameData.get("roundsPlayed");
+            playerName = (String) gameData.get("playerName");
+            previousRoundScore = (int) gameData.get("previousRoundScore");
+            lifetimeScore = (int) gameData.get("lifetimeScore");
+            balanceEarnt = (int) gameData.get("balanceEarnt");
+            balance = (int) gameData.get("balance");
+            payRate = (int) gameData.get("payRate");
+            orderSize = (int) gameData.get("orderSize");
+            incorrectItemChance = (double) gameData.get("incorrectItemChance");
+            missingItemChance = (double) gameData.get("missingItemChance");
+            storyNode = (StoryTreeNode) gameData.get("storyNode");
+        } catch (RuntimeException e) {
+            resetSave(); // If the vars in the existing save do not match the current reads the save is reset.
+                         // This allows us to add to the save without crashing on read during development.
+        }
 
     }
 
@@ -142,6 +150,7 @@ public class Controller extends Application {
 
         HashMap<String, Object> gameData = new HashMap<>();
 
+        gameData.put("roundsPlayed", roundsPlayed);
         gameData.put("playerName", playerName);
         gameData.put("previousRoundScore", previousRoundScore);
         gameData.put("lifetimeScore", lifetimeScore);
@@ -186,6 +195,7 @@ public class Controller extends Application {
         lifetimeScore += previousRoundScore;
         balanceEarnt = (ordersComplete * payRate);
         balance += balanceEarnt;
+        roundsPlayed++;
     }
 
     public StoryTreeNode getStoryNode() {
@@ -293,6 +303,10 @@ public class Controller extends Application {
     }
     public void setStoryNode(StoryTreeNode storyNode) {
         this.storyNode = storyNode;
+    }
+
+    public int getRoundsPlayed() {
+        return roundsPlayed;
     }
 
 }
