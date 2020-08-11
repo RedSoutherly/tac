@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         finButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                controller.endRound(ordersCompleted);
                 startActivity(new Intent(MainActivity.this,CinematicActivity.class));
                 finish();
             }
@@ -136,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                controller.endRound(ordersCompleted);
                 correctButton.setVisibility(View.GONE);
                 incorrectButton.setVisibility(View.GONE);
                 finButton.setVisibility(View.VISIBLE);
