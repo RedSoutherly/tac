@@ -33,6 +33,7 @@ public class LobbyActivity extends AppCompatActivity {
         TextView screenedTextView = findViewById(R.id.screenedTextView);
         TextView welcomeTextView = findViewById(R.id.welcomeTextView);
         TextView roundsTV = findViewById(R.id.roundsTV);
+        Button varsButton = findViewById(R.id.varsButton);
 
         String playerBalance = "$"+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();
@@ -41,6 +42,8 @@ public class LobbyActivity extends AppCompatActivity {
 
         if (cont.getPlayerName().equals("debug")) {
             welcome = "UwU ~ hewwo mr debugu ***";
+            varsButton.setVisibility(View.VISIBLE);
+            varsButton.setEnabled(true);
         }
 
         balanceTextView.setText(playerBalance);
@@ -63,6 +66,16 @@ public class LobbyActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
+        varsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LobbyActivity.this, VarsActivity.class));
+            }
+        });
+
     }
 
 }
