@@ -62,6 +62,26 @@ public class Controller extends Application {
     //order validator(keeps track of rules number of additional rules active)
     public OrderValidator validator = new OrderValidator(0);
 
+
+    public HashMap<String, Object> mapVars() {
+        HashMap<String, Object> gameData = new HashMap<>();
+
+        gameData.put("roundsPlayed", roundsPlayed);
+        gameData.put("playerName", playerName);
+        gameData.put("previousRoundScore", previousRoundScore);
+        gameData.put("lifetimeScore", lifetimeScore);
+        gameData.put("balanceEarnt", balanceEarnt);
+        gameData.put("balance", balance);
+        gameData.put("payRate", payRate);
+        gameData.put("orderSize", orderSize);
+        gameData.put("incorrectItemChance", incorrectItemChance);
+        gameData.put("missingItemChance", missingItemChance);
+        gameData.put("storyNode", storyNode);
+
+        return gameData;
+    }
+
+
     /**
      * This is used to check if a save file is present.
      * @param context The activity context for the file path.
@@ -148,19 +168,7 @@ public class Controller extends Application {
      */
     public void createSave(Context context) {
 
-        HashMap<String, Object> gameData = new HashMap<>();
-
-        gameData.put("roundsPlayed", roundsPlayed);
-        gameData.put("playerName", playerName);
-        gameData.put("previousRoundScore", previousRoundScore);
-        gameData.put("lifetimeScore", lifetimeScore);
-        gameData.put("balanceEarnt", balanceEarnt);
-        gameData.put("balance", balance);
-        gameData.put("payRate", payRate);
-        gameData.put("orderSize", orderSize);
-        gameData.put("incorrectItemChance", incorrectItemChance);
-        gameData.put("missingItemChance", missingItemChance);
-        gameData.put("storyNode", storyNode);
+        HashMap<String, Object> gameData = mapVars();
 
         try {
             FileOutputStream fileOut = context.openFileOutput(SAVE_FILE, Context.MODE_PRIVATE);

@@ -5,6 +5,7 @@
     android:id="@+id/orderFlex"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#244577"
     app:alignContent="flex_start"
     app:alignItems="flex_start"
     app:flexWrap="wrap"

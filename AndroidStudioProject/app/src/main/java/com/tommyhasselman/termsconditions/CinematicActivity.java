@@ -23,6 +23,7 @@ public class CinematicActivity extends AppCompatActivity {
     private TextView message1;
     private Button choice1;
     private Button choice2;
+    private Button varsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,14 @@ public class CinematicActivity extends AppCompatActivity {
         message1 = (TextView) findViewById(R.id.message1);
         choice1 = (Button) findViewById(R.id.choice1);
         choice2 = (Button) findViewById(R.id.choice2);
+
+        varsButton = findViewById(R.id.varsButton);
+
+        if (controller.getPlayerName().equals("debug")) {
+            varsButton.setVisibility(View.VISIBLE);
+            varsButton.setEnabled(true);
+        }
+
         String s = ("Congratulations you packed " + score + " boxes,\nyou've earn't $" + controller.getBalanceEarnt() + ".");
         message1.setText(s);
        //onoller.setStoryNode(controller.getStoryNode().getRandomNode());
@@ -91,7 +100,14 @@ public class CinematicActivity extends AppCompatActivity {
             }
         }.start();
         //display options and buttons
-        //do noting with that 
+        //do noting with that
+
+        varsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CinematicActivity.this, VarsActivity.class));
+            }
+        });
     }
 
 }

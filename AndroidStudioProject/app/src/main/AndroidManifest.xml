@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".VarsActivity"
+            android:theme="@style/ThemeDialog"/>
+        <activity
             android:name=".BoxDialog"
             android:theme="@style/ThemeDialog" />
         <activity
