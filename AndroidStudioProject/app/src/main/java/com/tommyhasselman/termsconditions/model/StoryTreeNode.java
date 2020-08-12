@@ -1,8 +1,9 @@
 package com.tommyhasselman.termsconditions.model;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class StoryTreeNode {
+public class StoryTreeNode implements Serializable {
 
     StoryTreeNode left;
     StoryTreeNode right;

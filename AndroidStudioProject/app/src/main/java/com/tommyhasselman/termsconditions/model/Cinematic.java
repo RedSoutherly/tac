@@ -1,13 +1,14 @@
 package com.tommyhasselman.termsconditions.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
+
 
 /**
  * An instance of cinimatic contains a scenario and 2 related choices generated at random
  */
-public class Cinematic {
+public class Cinematic implements Serializable {
     private int eventCode;
     private static ArrayList<Integer> randChoice=new ArrayList<Integer>();
     private String[] Choice1 = {"Pay for medication -$50", "Pay for home heating -$30", "Pay to fix the toilet -$70", "Book a psychologist appointment -$80", "Fulfill his wishes -$50", "Take your wife out to dinner -$75", "Get her phone fixed -$100", "Get a professional remove it -$75", "Hire an exterminator -$100"};

@@ -14,7 +14,6 @@ import com.tommyhasselman.termsconditions.model.StoryTreeNode;
 
 import java.util.Random;
 
-import static java.lang.Thread.sleep;
 
 /**
  * The Class responsible for generating scenarios, generating adn listening to the buttons for the
@@ -33,7 +32,13 @@ public class CinematicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinematic);
         final Controller controller = ((Controller) this.getApplication());
-        final Cinematic c = controller.getStoryNode().getCinematic();
+        StoryTreeNode storyNode = controller.getStoryNode();
+        if(storyNode==null){
+            storyNode = new StoryTreeNode(new Cinematic());
+        }
+        final StoryTreeNode finalStoryNode = storyNode;
+        controller.setStoryNode(storyNode);
+        final Cinematic c = storyNode.getCinematic();
         int score = controller.getPreviousRoundScore();
         Random rand = new Random();
         int flip=rand.nextInt(2);
@@ -57,6 +62,7 @@ public class CinematicActivity extends AppCompatActivity {
        //onoller.setStoryNode(controller.getStoryNode().getRandomNode());
         controller.setBalance(controller.getBalance() - controller.getStoryNode().getCinematic().getCost()[2]);
 
+
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +71,8 @@ public class CinematicActivity extends AppCompatActivity {
                 }else {
                     controller.setBalance(controller.getBalance() - c.getCost()[0]);
                 }
-                controller.setStoryNode(controller.getStoryNode().getRandomNode());
+                controller.setStoryNode(finalStoryNode.getRandomNode());
+                //shouldnt be possible now
                 if(controller.getStoryNode()==null){
                     controller.setStoryNode(new StoryTreeNode(new Cinematic()));
                 }
