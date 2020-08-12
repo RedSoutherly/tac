@@ -36,6 +36,7 @@ public class Controller extends Application {
     private final double DEFAULT_MISSING_ITEM_CHANCE = 0.01;
     private final StoryTreeNode DEFAULT_STORY_NODE = null;
 
+
     private final String SAVE_FILE = "tncSaveFile.ser";
 
 
@@ -49,6 +50,7 @@ public class Controller extends Application {
     public int balanceEarnt;
     public int balance;
     public int payRate; // The current amount of pay you get per correct order evaluation.
+    public int daysInDebt=0;//TODO impliment in save
 
     // Order variables
     private Order currentOrder;
@@ -317,4 +319,11 @@ public class Controller extends Application {
         return roundsPlayed;
     }
 
+    public int getDaysInDebt() {
+        return daysInDebt;
+    }
+
+    public void setDaysInDebt(int daysInDebt) {
+        this.daysInDebt = daysInDebt;
+    }
 }
