@@ -31,6 +31,7 @@ public class Controller extends Application {
     private final int DEFAULT_BALANCE_EARNT = 0;
     private final int DEFAULT_BALANCE = 0;
     private final int DEFAULT_PAY_RATE = 5;
+    private final int DEFAULT_DAYS_IN_DEBT = 0;
     private final int DEFAULT_ORDER_SIZE = 3;
     private final double DEFAULT_INCORRECT_ITEM_CHANCE = 0.25;
     private final double DEFAULT_MISSING_ITEM_CHANCE = 0.01;
@@ -50,7 +51,7 @@ public class Controller extends Application {
     public int balanceEarnt;
     public int balance;
     public int payRate; // The current amount of pay you get per correct order evaluation.
-    public int daysInDebt=0;//TODO impliment in save
+    public int daysInDebt;
 
     // Order variables
     private Order currentOrder;
@@ -75,6 +76,7 @@ public class Controller extends Application {
         gameData.put("balanceEarnt", balanceEarnt);
         gameData.put("balance", balance);
         gameData.put("payRate", payRate);
+        gameData.put("daysInDebt", daysInDebt);
         gameData.put("orderSize", orderSize);
         gameData.put("incorrectItemChance", incorrectItemChance);
         gameData.put("missingItemChance", missingItemChance);
@@ -110,6 +112,7 @@ public class Controller extends Application {
         balanceEarnt = DEFAULT_BALANCE_EARNT;
         balance = DEFAULT_BALANCE;
         payRate = DEFAULT_PAY_RATE;
+        daysInDebt = DEFAULT_DAYS_IN_DEBT;
         orderSize = DEFAULT_ORDER_SIZE;
         incorrectItemChance = DEFAULT_INCORRECT_ITEM_CHANCE;
         missingItemChance = DEFAULT_MISSING_ITEM_CHANCE;
@@ -151,6 +154,7 @@ public class Controller extends Application {
             balanceEarnt = (int) gameData.get("balanceEarnt");
             balance = (int) gameData.get("balance");
             payRate = (int) gameData.get("payRate");
+            daysInDebt = (int) gameData.get("daysInDebt");
             orderSize = (int) gameData.get("orderSize");
             incorrectItemChance = (double) gameData.get("incorrectItemChance");
             missingItemChance = (double) gameData.get("missingItemChance");
