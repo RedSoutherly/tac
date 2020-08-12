@@ -78,16 +78,6 @@ public class CinematicActivity extends AppCompatActivity {
         choice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //exit to loss screen
-                if(controller.getBalance()<0){
-                    controller.setDaysInDebt(controller.getDaysInDebt()+1);
-                    if(controller.getDaysInDebt()>3){
-                        startActivity(new Intent(CinematicActivity.this, LobbyActivity.class));//go back to LobbyActivity
-                        finish();
-                    }
-                }else{
-                    controller.setDaysInDebt(0);
-                }
                 if(flipBtn){
                     controller.setBalance(controller.getBalance() - c.getCost()[0]);
                 }else{
@@ -99,7 +89,6 @@ public class CinematicActivity extends AppCompatActivity {
                     controller.setStoryNode(new StoryTreeNode(new Cinematic()));
                 }
                 startActivity(new Intent(CinematicActivity.this, LobbyActivity.class));//go back to LobbyActivity
-                //TODO if balance < 0 go to fail case
                 finish();
             }
         });
@@ -110,6 +99,17 @@ public class CinematicActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
+                //exit to loss screen
+                if(controller.getBalance()<0){
+                    controller.setDaysInDebt(controller.getDaysInDebt()+1);
+                    if(controller.getDaysInDebt()>3){
+                        startActivity(new Intent(CinematicActivity.this, LossActivity.class));
+                        finish();
+                    }
+                }else{
+                    controller.setDaysInDebt(0);
+                }
+                //dont do a cinematic if in first 3 rounds
                 if(controller.getRoundsPlayed()<3) {
                     startActivity(new Intent(CinematicActivity.this, LobbyActivity.class));//go back to LobbyActivity
                     finish();
