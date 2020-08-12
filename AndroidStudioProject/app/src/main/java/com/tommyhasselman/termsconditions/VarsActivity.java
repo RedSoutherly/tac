@@ -3,10 +3,14 @@ package com.tommyhasselman.termsconditions;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.net.Inet4Address;
 import java.util.HashMap;
 
 public class VarsActivity extends AppCompatActivity {
@@ -16,7 +20,23 @@ public class VarsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vars);
 
-        Controller cont = ((Controller) this.getApplication());
+        final Controller cont = ((Controller) this.getApplication());
+
+        final EditText balanceEdit = findViewById(R.id.balanceEdit);
+        final EditText payRateEdit = findViewById(R.id.payRateEdit);
+        final EditText orderSizeEdit = findViewById(R.id.orderSizeEdit);
+        final EditText incorrectEdit = findViewById(R.id.incorrectEdit);
+        final EditText missingEdit = findViewById(R.id.missingEdit);
+        Button doneButton = findViewById(R.id.doneButton);
+
+
+        balanceEdit.setText(""+cont.getBalance(), TextView.BufferType.EDITABLE);
+        payRateEdit.setText(""+cont.getPayRate(), TextView.BufferType.EDITABLE);
+        orderSizeEdit.setText(""+cont.getOrderSize(), TextView.BufferType.EDITABLE);
+        incorrectEdit.setText(""+cont.getIncorrectItemChance(), TextView.BufferType.EDITABLE);
+        missingEdit.setText(""+cont.getMissingItemChance(), TextView.BufferType.EDITABLE);
+
+
 
         LinearLayout ll = findViewById(R.id.linearlay);
 
@@ -28,10 +48,26 @@ public class VarsActivity extends AppCompatActivity {
 
             TextView t = new TextView(getBaseContext());
             t.setTextSize(18);
-            t.setPadding(100,10,10,10);
+            t.setPaddingRelative(20,20,20,20);
             t.setText(s);
             ll.addView(t);
         }
+
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                cont.setBalance(Integer.parseInt(balanceEdit.getText().toString()));
+                cont.setPayRate(Integer.parseInt(payRateEdit.getText().toString()));
+                cont.setOrderSize(Integer.parseInt(orderSizeEdit.getText().toString()));
+                cont.setIncorrectItemChance(Double.parseDouble(incorrectEdit.getText().toString()));
+                cont.setMissingItemChance(Double.parseDouble(missingEdit.getText().toString()));
+
+
+                finish();
+            }
+        });
+
 
     }
 }
