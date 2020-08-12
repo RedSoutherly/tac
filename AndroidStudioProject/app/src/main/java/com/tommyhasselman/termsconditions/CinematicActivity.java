@@ -110,7 +110,9 @@ public class CinematicActivity extends AppCompatActivity {
                     controller.setDaysInDebt(0);
                 }
                 //dont do a cinematic if in first 3 rounds
-                if(controller.getRoundsPlayed()<3) {
+                //the and stops game from displaying the buttons for a fraction of a second i assume
+                //this is something to do with multi threading
+                if(controller.getRoundsPlayed()<3 && controller.getDaysInDebt()<=2) {
                     startActivity(new Intent(CinematicActivity.this, LobbyActivity.class));//go back to LobbyActivity
                     finish();
 
