@@ -2,6 +2,7 @@ package com.tommyhasselman.termsconditions.model;
 
 import com.tommyhasselman.termsconditions.Controller;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,6 +15,7 @@ public class Order extends GameObject {
 
     private ArrayList<OrderItem> ordered = new ArrayList<>(); // Array of items on the order.
     private ArrayList<OrderItem> packed = new ArrayList<>(); // Array of items that have been packed.
+    private ArrayList<OrderItem> packedShuff;
     private boolean correctlyPacked;
     private boolean validated;
 
@@ -45,6 +47,9 @@ public class Order extends GameObject {
 
         correctlyPacked = (getOrderedCodes().equals(getPackedCodes()));
 
+        packedShuff = (ArrayList<OrderItem>) packed.clone();
+        Collections.shuffle(packedShuff);
+
     }
 
     /**
@@ -73,6 +78,10 @@ public class Order extends GameObject {
 
     public ArrayList<OrderItem> getPacked() {
         return packed;
+    }
+
+    public ArrayList<OrderItem> getPackedShuff() {
+        return packedShuff;
     }
 
     public ArrayList<OrderItem> getOrdered() {

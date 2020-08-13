@@ -24,6 +24,7 @@ public class BasicItem extends OrderItem {
 
     private int intSize;
     private int argbColour;
+    private int drawable;
 
     /**
      * Default constructor for Basic Item.
@@ -41,6 +42,7 @@ public class BasicItem extends OrderItem {
         colour = colours[rc];
         argbColour = argbColours[rc];
         product = basicProducts[rp];
+        drawable = basicDrawables[rp];
     }
 
     /**
@@ -67,4 +69,6 @@ public class BasicItem extends OrderItem {
     public int getIntSize() {
         return intSize;
     }
+
+    public int getDrawable() { return  drawable; }
 }

@@ -20,12 +20,11 @@ public class BoxDialog extends AppCompatActivity {
         Controller cont = ((Controller) this.getApplication());
 
         FlexboxLayout cl = findViewById(R.id.boxFlex);
-        ArrayList<OrderItem> boxed = cont.getCurrentOrder().getPacked();
-        Collections.shuffle(boxed);
+        ArrayList<OrderItem> boxed = cont.getCurrentOrder().getPackedShuff();
 
         for (OrderItem item : boxed) {
             ImageView img = new ImageView(getBaseContext());
-            img.setImageResource(R.drawable.dildo);
+            img.setImageResource(item.getDrawable());
             FlexboxLayout.LayoutParams lp = new FlexboxLayout.LayoutParams(item.getIntSize(),item.getIntSize());
             img.setLayoutParams(lp);
             img.setScaleType(ImageView.ScaleType.FIT_CENTER);

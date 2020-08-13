@@ -25,7 +25,7 @@ public class OrderDialog extends AppCompatActivity {
 
         for (OrderItem item : ordered) {
             ImageView img = new ImageView(getBaseContext());
-            img.setImageResource(R.drawable.dildo);
+            img.setImageResource(item.getDrawable());
             FlexboxLayout.LayoutParams lp = new FlexboxLayout.LayoutParams(item.getIntSize(),item.getIntSize());
             img.setLayoutParams(lp);
             img.setScaleType(ImageView.ScaleType.FIT_CENTER);

@@ -1,6 +1,10 @@
 package com.tommyhasselman.termsconditions.model;
 
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+
+import com.tommyhasselman.termsconditions.R;
 
 /**
  * A very basic constructor for alpha that generates items with different random attributes.
@@ -8,11 +12,28 @@ import android.graphics.Color;
 public abstract class OrderItem extends GameObject {
 
     protected String[] basicProducts = {
-            "Hat",
             "Dildo",
-            "Ball",
-            "Fleshlight",
-            "Riot Shield"
+            "Cute Ball",
+            "Pokeball",
+            "Star Ball",
+            "Flower Hat",
+            "Star Hat",
+            "BLM Shirt",
+            "Lolita Shirt",
+            "MAGA Shirt"
+    };
+
+
+    protected int[] basicDrawables = {
+            R.drawable.dildo,
+            R.drawable.ball_cute,
+            R.drawable.ball_poke,
+            R.drawable.ball_star,
+            R.drawable.hat_flower,
+            R.drawable.hat_star,
+            R.drawable.shirt_blm,
+            R.drawable.shirt_loli,
+            R.drawable.shirt_maga
     };
 
     protected String[] sizes = {
@@ -51,5 +72,7 @@ public abstract class OrderItem extends GameObject {
     public abstract int getArgbColour();
 
     public abstract int getIntSize();
+
+    public abstract int getDrawable();
 
 }
