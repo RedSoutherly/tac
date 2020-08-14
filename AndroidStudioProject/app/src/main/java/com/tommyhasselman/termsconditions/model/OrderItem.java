@@ -9,31 +9,71 @@ import com.tommyhasselman.termsconditions.R;
 /**
  * A very basic constructor for alpha that generates items with different random attributes.
  */
-public abstract class OrderItem extends GameObject {
+public abstract class OrderItem {
 
-    protected String[] basicProducts = {
+    protected int plainProductBoundary = 5;
+
+    protected String[] productTypes = {
+            "Ball",
             "Dildo",
-            "Cute Ball",
+            "Hat",
+            "Riot Shield",
+            "Shirt",
+
+            "Butterfly Ball",
             "Pokeball",
             "Star Ball",
+
             "Flower Hat",
             "Star Hat",
+
+            "Patterned Riot Shield",
+
             "BLM Shirt",
-            "Lolita Shirt",
+            "Loli Shirt",
             "MAGA Shirt"
     };
 
+    protected int[] drawables = {
+            R.drawable.p_ball_plain,
+            R.drawable.p_dildo,
+            R.drawable.p_hat_plain,
+            R.drawable.p_riotshield,
+            R.drawable.p_shirt_plain,
 
-    protected int[] basicDrawables = {
-            R.drawable.dildo,
-            R.drawable.ball_cute,
-            R.drawable.ball_poke,
-            R.drawable.ball_star,
-            R.drawable.hat_flower,
-            R.drawable.hat_star,
-            R.drawable.shirt_blm,
-            R.drawable.shirt_loli,
-            R.drawable.shirt_maga
+            R.drawable.p_ball_cute,
+            R.drawable.p_ball_poke,
+            R.drawable.p_ball_star,
+
+            R.drawable.p_hat_flower,
+            R.drawable.p_hat_star,
+
+            R.drawable.p_riotshield_cute,
+
+            R.drawable.p_shirt_blm,
+            R.drawable.p_shirt_loli,
+            R.drawable.p_shirt_maga
+    };
+
+    protected int[] labbelledDrawables = {
+            R.drawable.p_ball_plain_labelled,
+            R.drawable.p_dildo_labelled,
+            R.drawable.p_hat_plain_labelled,
+            R.drawable.p_riotshield_labelled,
+            R.drawable.p_shirt_plain_labelled,
+
+            R.drawable.p_ball_cute_labelled,
+            R.drawable.p_ball_poke_labelled,
+            R.drawable.p_ball_star_labelled,
+
+            R.drawable.p_hat_flower_labelled,
+            R.drawable.p_hat_star_labelled,
+
+            R.drawable.p_riotshield_cute_labelled,
+
+            R.drawable.p_shirt_blm_labelled,
+            R.drawable.p_shirt_loli_labelled,
+            R.drawable.p_shirt_maga_labelled
     };
 
     protected String[] sizes = {

@@ -35,6 +35,7 @@ public class Controller extends Application {
     private final int DEFAULT_ORDER_SIZE = 3;
     private final double DEFAULT_INCORRECT_ITEM_CHANCE = 0.25;
     private final double DEFAULT_MISSING_ITEM_CHANCE = 0.01;
+    private final int DEFAULT_ORDER_ITEM_COMPLEXITY = 0;
     private final StoryTreeNode DEFAULT_STORY_NODE = null;
 
 
@@ -58,6 +59,7 @@ public class Controller extends Application {
     public int orderSize; // The amount of items in a order;
     public double incorrectItemChance; // This value is the percentage chance of an item being incorrect.
     public double missingItemChance; // This value is the percentage chance of an item being missing.
+    private int orderItemComplexity;
 
     //story variables
     public StoryTreeNode storyNode = null;//basically if a node is null make a new random one if not do what it says
@@ -80,6 +82,7 @@ public class Controller extends Application {
         gameData.put("orderSize", orderSize);
         gameData.put("incorrectItemChance", incorrectItemChance);
         gameData.put("missingItemChance", missingItemChance);
+        gameData.put("orderItemComplexity", orderItemComplexity);
         gameData.put("storyNode", storyNode);
 
         return gameData;
@@ -116,6 +119,7 @@ public class Controller extends Application {
         orderSize = DEFAULT_ORDER_SIZE;
         incorrectItemChance = DEFAULT_INCORRECT_ITEM_CHANCE;
         missingItemChance = DEFAULT_MISSING_ITEM_CHANCE;
+        orderItemComplexity = DEFAULT_ORDER_ITEM_COMPLEXITY;
         storyNode = DEFAULT_STORY_NODE;
 
         createSave(this);
@@ -158,6 +162,7 @@ public class Controller extends Application {
             orderSize = (int) gameData.get("orderSize");
             incorrectItemChance = (double) gameData.get("incorrectItemChance");
             missingItemChance = (double) gameData.get("missingItemChance");
+            orderItemComplexity = (int) gameData.get("orderItemComplexity");
             storyNode = (StoryTreeNode) gameData.get("storyNode");
         } catch (RuntimeException e) {
             resetSave(); // If the vars in the existing save do not match the current reads the save is reset.
@@ -188,6 +193,14 @@ public class Controller extends Application {
             ioException.printStackTrace();
         }
 
+    }
+
+    public int getOrderItemComplexity() {
+        return orderItemComplexity;
+    }
+
+    public void setOrderItemComplexity(int comp) {
+        orderItemComplexity = comp;
     }
 
     public Order getCurrentOrder() {

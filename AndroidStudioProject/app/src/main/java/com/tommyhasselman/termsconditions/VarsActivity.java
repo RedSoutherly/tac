@@ -27,6 +27,7 @@ public class VarsActivity extends AppCompatActivity {
         final EditText orderSizeEdit = findViewById(R.id.orderSizeEdit);
         final EditText incorrectEdit = findViewById(R.id.incorrectEdit);
         final EditText missingEdit = findViewById(R.id.missingEdit);
+        final EditText complexityEdit = findViewById(R.id.complexityEdit);
         Button doneButton = findViewById(R.id.doneButton);
 
 
@@ -35,6 +36,7 @@ public class VarsActivity extends AppCompatActivity {
         orderSizeEdit.setText(""+cont.getOrderSize(), TextView.BufferType.EDITABLE);
         incorrectEdit.setText(""+cont.getIncorrectItemChance(), TextView.BufferType.EDITABLE);
         missingEdit.setText(""+cont.getMissingItemChance(), TextView.BufferType.EDITABLE);
+        complexityEdit.setText(""+cont.getOrderItemComplexity(), TextView.BufferType.EDITABLE);
 
 
 
@@ -62,7 +64,7 @@ public class VarsActivity extends AppCompatActivity {
                 cont.setOrderSize(Integer.parseInt(orderSizeEdit.getText().toString()));
                 cont.setIncorrectItemChance(Double.parseDouble(incorrectEdit.getText().toString()));
                 cont.setMissingItemChance(Double.parseDouble(missingEdit.getText().toString()));
-
+                cont.setOrderItemComplexity(Integer.parseInt(complexityEdit.getText().toString()));
 
                 finish();
             }
