@@ -44,10 +44,6 @@ public class StoryTreeNode implements Serializable {
 
     }
 
-    public void setRight(StoryTreeNode right) {
-        this.right = right;
-    }
-
     public void setLeft(StoryTreeNode left) {
         this.left = left;
     }
