@@ -11,5 +11,7 @@ Text based game with some graphical elements, Terms and Conditions places you in
 
 Written in Java using the Android Studio IDE.
 
-# Assignment 2 - Developer Documentation PDF: 
-Describes the current beta project, its classes, our current UI (with attached photos) and our future implementation ideas.
+# Assignment 3: Beta Version
+Present within our Wiki under Developer Documentation, describes the current beta project, its current gameplay, scenes and our further implementation ideas.
+Formal Code documentation is displayed when clicking the Documentation badge above.
+
