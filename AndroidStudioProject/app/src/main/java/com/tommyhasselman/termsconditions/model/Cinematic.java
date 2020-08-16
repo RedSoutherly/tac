@@ -39,7 +39,6 @@ public class Cinematic implements Serializable {
         this.secondChoice = Choice2[rand];
         this.eventCode = rand;
         this.cost[0]=randcost[rand];
-        System.out.println(rand +" "+ this.scenarioChoice);
     }
 
     //scenarios 0-9 are a random smatering of events
