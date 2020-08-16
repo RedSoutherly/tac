@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * The OptionsMenu is available on the MainMenu and currently has two options.
+ * There is an EditText field where the player may set a name. This is how debug may be enabled.
+ * And there is a reset save button where the player may reset the game save back to default values.
+ */
 public class OptionsMenu extends AppCompatActivity {
 
     @Override

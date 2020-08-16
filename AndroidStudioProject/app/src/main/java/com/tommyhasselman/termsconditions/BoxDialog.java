@@ -9,6 +9,10 @@ import com.tommyhasselman.termsconditions.model.OrderItem;
 
 import java.util.ArrayList;
 
+/**
+ * The BoxDialog is used to show the contents of the packed array in the current Order.
+ * It uses the data fields in each Item in the array to display its drawable in the Flexbox Layout.
+ */
 public class BoxDialog extends AppCompatActivity {
 
     @Override

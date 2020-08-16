@@ -11,6 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.HashMap;
 
+/**
+ * VarsActivity defines and handles the variables dialog available in debug mode. It can be used to
+ * change core gameplay variables during gameplay. And also displays all other gameplay variables
+ * and their current values in a ScrollView. For debug mode to be available the player name must be
+ * set to "debug".
+ */
 public class VarsActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")

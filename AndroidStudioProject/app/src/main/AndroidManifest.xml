@@ -25,7 +25,7 @@
             android:label="Options"
             android:theme="@style/ThemeDialog" />
         <activity android:name=".LobbyActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ConveyorActivity" />
         <activity android:name=".CinematicActivity" />
         <activity android:name=".MainMenu">
             <intent-filter>

@@ -53,7 +53,7 @@ public class LobbyActivity extends AppCompatActivity {
         workButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LobbyActivity.this,MainActivity.class));
+                startActivity(new Intent(LobbyActivity.this, ConveyorActivity.class));
                 finish();
             }
         });

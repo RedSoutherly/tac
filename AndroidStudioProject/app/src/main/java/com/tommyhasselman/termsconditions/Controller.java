@@ -16,19 +16,16 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 /**
- * Controller is an extension of the Application and hence all activities have permissions to view its variables.
- * Which centralises main variables needed between the different main classes. It also centralises
- * a few other simple methods such as generating a new order.
+ * Controller extends Application. This means that any class in the application can retrieve the
+ * current instance of the Controller.
+ * Controller centralises the gameplay variables so that they can be controlled in one location.
+ * The save system is also contained here. Along with certain gameplay methods including endRound()
+ * and getNewOrder() etc.
  */
 @SuppressWarnings("unused")
 public class Controller extends Application {
 
-
-
-
     private final String SAVE_FILE = "tncSaveFile.ser";
-
-
 
     private int roundsPlayed;
 
@@ -54,7 +51,9 @@ public class Controller extends Application {
     //order validator(keeps track of rules number of additional rules active)
     public OrderValidator validator = new OrderValidator(0);
 
-
+    /**
+     * @return Returns a HashMap of gameplay variables. Keyed by their variable name.
+     */
     public HashMap<String, Object> mapVars() {
         HashMap<String, Object> gameData = new HashMap<>();
 
@@ -75,7 +74,6 @@ public class Controller extends Application {
         return gameData;
     }
 
-
     /**
      * This is used to check if a save file is present.
      * @param context The activity context for the file path.
@@ -91,7 +89,7 @@ public class Controller extends Application {
 
     /**
      * This method is used to reset the game save back to defaults.
-     * It sets all vars back to default value and calls createSave()
+     * It sets all vars back to default values and calls createSave()
      * to overwrite the existing file.
      */
     public void resetSave() {
@@ -203,7 +201,7 @@ public class Controller extends Application {
 
 
     /**
-     * This method updates the player variables when called.
+     * This method updates the relevant player and gameplay variables when called.
      * @param ordersComplete The total number of correctly screened orders.
      */
     public void endRound(int ordersComplete) {
@@ -215,6 +213,9 @@ public class Controller extends Application {
         
         if (orderItemComplexity < 4 && (roundsPlayed % 5) == 0) {
             orderItemComplexity++;
+        }
+        if ((roundsPlayed % 10) == 0) {
+            orderSize++;
         }
     }
 
