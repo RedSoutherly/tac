@@ -19,9 +19,11 @@ public class Order {
     private boolean validated;
 
     /**
-     * Order constructor populates the ordered and packed arrays.
-     * The Random class is used to decide if the items in the packed array
-     * match the ones in the ordered array.
+     * Order constructor populates the ordered and packed arrays. As well as a shuffled packed array
+     * used by the BoxDialog class. An instance of Random is used against incorrect and missing
+     * chances, defined in the controller object, to determine the makeup of the packed box; against
+     * the original order array.
+     * @param c The Instance of Controller used to retrieve the chance values.
      */
     public Order(Controller c) {
 
@@ -55,7 +57,7 @@ public class Order {
     }
 
     /**
-     * Concatenates the OrderItem codes for the ordered array for comparison.
+     * Joins Item codes of the ordered array for comparison.
      * @return Returns a String of OrderItem codes.
      */
     public String getOrderedCodes() {
@@ -67,7 +69,7 @@ public class Order {
     }
 
     /**
-     * Concatenates the OrderItem codes for the packed array for comparison.
+     * Joins Item codes of the packed array for comparison.
      * @return Returns a String of OrderItem codes.
      */
     public String getPackedCodes() {
@@ -78,34 +80,43 @@ public class Order {
         return s.toString();
     }
 
+    /**
+     * @return Returns the ArrayList of packed items.
+     */
     public ArrayList<OrderItem> getPacked() {
         return packed;
     }
 
+    /**
+     * @return Returns the ArrayList of shuffled packed items.
+     */
     public ArrayList<OrderItem> getPackedShuff() {
         return packedShuff;
     }
 
+    /**
+     * @return Returns the ArrayList of ordered items.
+     */
     public ArrayList<OrderItem> getOrdered() {
         return ordered;
     }
 
+    /**
+     * @param ordered Sets the ordered array to given ArrayList.
+     */
     public void setOrdered(ArrayList<OrderItem> ordered) {
         this.ordered = ordered;
     }
-
+    /**
+     * @param packed Sets the packed array to given ArrayList.
+     */
     public void setPacked(ArrayList<OrderItem> packed) {
         this.packed = packed;
     }
 
-    public boolean isValidated() {
-        return validated;
-    }
-
-    public void setValidated(boolean validated) {
-        this.validated = validated;
-    }
-
+    /**
+     * @return Returns the correctlyPacked boolean value.
+     */
     public boolean isCorrectlyPacked() {
         return correctlyPacked;
     }

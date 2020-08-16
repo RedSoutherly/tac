@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
                     ordersCompleted--;
                     bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
-                order.setValidated(true);
                 updateScore();
 
                 order = controller.getNewOrder();
@@ -100,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
                     ordersCompleted--;
                     bezosImageView.setImageResource(R.drawable.incorrect_bezos);
                 }
-                order.setValidated(true);
                 updateScore();
 
                 order = controller.getNewOrder();
