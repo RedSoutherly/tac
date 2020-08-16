@@ -31,7 +31,7 @@ public class StoryTreeNode implements Serializable {
         }
         return scenario;
     }
-
+    //switch to support a possibility of more than binary trees
     public StoryTreeNode getRandomNode() {
         Random r = new Random();
         int x = r.nextInt(2);
