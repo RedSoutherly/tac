@@ -8,7 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 public class LossActivity extends AppCompatActivity {
-
+    /**
+     * loss activity is the class resposible for displaying the loss screen generating and listenig
+     * to the gohome button and displaying the game loss message
+     * TODO impliment unique messages for each different loss condition
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
