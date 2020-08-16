@@ -23,18 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private Controller controller;
 
     private TextView countdownTextField;
-    private TextView orderTextView;
-    private TextView boxTextView;
     private TextView scoreTextView;
     private ImageView bezosImageView;
     private Button correctButton;
     private Button incorrectButton;
     private Button finButton;
-    private ImageButton boxButton;
-    private ImageButton orderButton;
     private Order order;
-
-    private Button varsButton;
 
     private int ordersCompleted;
 
@@ -52,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
         bezosImageView = findViewById(R.id.bezosImageView);
         correctButton = findViewById(R.id.correctButton);
         incorrectButton = findViewById(R.id.incorrectButton);
-        boxButton = findViewById(R.id.boxButton);
-        orderButton = findViewById(R.id.orderButton);
+        ImageButton boxButton = findViewById(R.id.boxButton);
+        ImageButton orderButton = findViewById(R.id.orderButton);
         finButton = findViewById(R.id.finButton);
-        varsButton = findViewById(R.id.varsButton);
+        Button varsButton = findViewById(R.id.varsButton);
 
         if (controller.getPlayerName().equals("debug")) {
             varsButton.setVisibility(View.VISIBLE);
@@ -159,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
 
     /**
      * This method quickly updates the Score text view.

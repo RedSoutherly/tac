@@ -20,23 +20,10 @@ import java.util.HashMap;
  * Which centralises main variables needed between the different main classes. It also centralises
  * a few other simple methods such as generating a new order.
  */
+@SuppressWarnings("unused")
 public class Controller extends Application {
 
 
-    //Defaults. Change game variables here.
-    private final int DEFAULT_ROUNDS_PLAYED = 0;
-    private final String DEFAULT_PLAYER_NAME = "Jeff";
-    private final int DEFAULT_PREVIOUS_ROUND_SCORE = 0;
-    private final int DEFAULT_LIFETIME_SCORE = 0;
-    private final int DEFAULT_BALANCE_EARNT = 0;
-    private final int DEFAULT_BALANCE = 0;
-    private final int DEFAULT_PAY_RATE = 5;
-    private final int DEFAULT_DAYS_IN_DEBT = 0;
-    private final int DEFAULT_ORDER_SIZE = 3;
-    private final double DEFAULT_INCORRECT_ITEM_CHANCE = 0.25;
-    private final double DEFAULT_MISSING_ITEM_CHANCE = 0.01;
-    private final int DEFAULT_ORDER_ITEM_COMPLEXITY = 0;
-    private final StoryTreeNode DEFAULT_STORY_NODE = null;
 
 
     private final String SAVE_FILE = "tncSaveFile.ser";
@@ -108,19 +95,19 @@ public class Controller extends Application {
      * to overwrite the existing file.
      */
     public void resetSave() {
-        roundsPlayed = DEFAULT_ROUNDS_PLAYED;
-        playerName = DEFAULT_PLAYER_NAME;
-        previousRoundScore = DEFAULT_PREVIOUS_ROUND_SCORE;
-        lifetimeScore = DEFAULT_LIFETIME_SCORE;
-        balanceEarnt = DEFAULT_BALANCE_EARNT;
-        balance = DEFAULT_BALANCE;
-        payRate = DEFAULT_PAY_RATE;
-        daysInDebt = DEFAULT_DAYS_IN_DEBT;
-        orderSize = DEFAULT_ORDER_SIZE;
-        incorrectItemChance = DEFAULT_INCORRECT_ITEM_CHANCE;
-        missingItemChance = DEFAULT_MISSING_ITEM_CHANCE;
-        orderItemComplexity = DEFAULT_ORDER_ITEM_COMPLEXITY;
-        storyNode = DEFAULT_STORY_NODE;
+        roundsPlayed = 0;
+        playerName = "Jeff";
+        previousRoundScore = 0;
+        lifetimeScore = 0;
+        balanceEarnt = 0;
+        balance = 0;
+        payRate = 5;
+        daysInDebt = 0;
+        orderSize = 3;
+        incorrectItemChance = 0.1;
+        missingItemChance = 0.01;
+        orderItemComplexity = 0;
+        storyNode = null;
 
         createSave(this);
     }
@@ -131,6 +118,7 @@ public class Controller extends Application {
      * data fields.
      * @param context The activity context for the FileInputStream.
      */
+    @SuppressWarnings("unchecked")
     public void readSave(Context context) {
 
         HashMap<String, Object> gameData = null;
@@ -149,24 +137,25 @@ public class Controller extends Application {
             e.printStackTrace();
         }
 
-
-        try {
-            roundsPlayed = (int) gameData.get("roundsPlayed");
-            playerName = (String) gameData.get("playerName");
-            previousRoundScore = (int) gameData.get("previousRoundScore");
-            lifetimeScore = (int) gameData.get("lifetimeScore");
-            balanceEarnt = (int) gameData.get("balanceEarnt");
-            balance = (int) gameData.get("balance");
-            payRate = (int) gameData.get("payRate");
-            daysInDebt = (int) gameData.get("daysInDebt");
-            orderSize = (int) gameData.get("orderSize");
-            incorrectItemChance = (double) gameData.get("incorrectItemChance");
-            missingItemChance = (double) gameData.get("missingItemChance");
-            orderItemComplexity = (int) gameData.get("orderItemComplexity");
-            storyNode = (StoryTreeNode) gameData.get("storyNode");
-        } catch (RuntimeException e) {
-            resetSave(); // If the vars in the existing save do not match the current reads the save is reset.
-                         // This allows us to add to the save without crashing on read during development.
+        if (gameData != null) {
+            try {
+                roundsPlayed = (int) gameData.get("roundsPlayed");
+                playerName = (String) gameData.get("playerName");
+                previousRoundScore = (int) gameData.get("previousRoundScore");
+                lifetimeScore = (int) gameData.get("lifetimeScore");
+                balanceEarnt = (int) gameData.get("balanceEarnt");
+                balance = (int) gameData.get("balance");
+                payRate = (int) gameData.get("payRate");
+                daysInDebt = (int) gameData.get("daysInDebt");
+                orderSize = (int) gameData.get("orderSize");
+                incorrectItemChance = (double) gameData.get("incorrectItemChance");
+                missingItemChance = (double) gameData.get("missingItemChance");
+                orderItemComplexity = (int) gameData.get("orderItemComplexity");
+                storyNode = (StoryTreeNode) gameData.get("storyNode");
+            } catch (Exception e) {
+                resetSave(); // If the vars in the existing save do not match the current reads the save is reset.
+                // This allows us to add to the save without crashing on read during development.
+            }
         }
 
     }
@@ -230,9 +219,8 @@ public class Controller extends Application {
     }
 
     public StoryTreeNode getStoryNode() {
-        if(storyNode==null){
-            StoryTreeNode s= new StoryTreeNode(null);
-            return s;
+        if(storyNode == null){
+            return new StoryTreeNode(null);
         }
         return storyNode;
     }

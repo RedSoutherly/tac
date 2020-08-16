@@ -6,11 +6,11 @@ import java.util.Collections;
 
 
 /**
- * An instance of cinimatic contains a scenario and 2 related choices generated at random
+ * An instance of cinematic contains a scenario and 2 related choices generated at random
  */
 public class Cinematic implements Serializable {
     private int eventCode;
-    private static ArrayList<Integer> randChoice=new ArrayList<Integer>();
+    private static ArrayList<Integer> randChoice= new ArrayList<>();
     private String[] Choice1 = {"Pay for medication -$50", "Pay for home heating -$30", "Pay to fix the toilet -$70", "Book a psychologist appointment -$80", "Fulfill his wishes -$50", "Take your wife out to dinner -$75", "Get her phone fixed -$100", "Get a professional remove it -$75", "Hire an exterminator -$100"};
     private String[] Choice2 = {"Pray the sickness away", "Endure the cold", "Attempt to fix it yourself", "Grin and bear it", "Beat your son", "Get an earful", "Tell her to suck it up", "Attempt to clean it yourself", "Deal with your new pets"};
     private String[] Scenario = {"Your nephew is sick, do you;", "Winter is coming:", "Your toilet is broken, do you;", "Your mental health is at an all time low, do you;", "Your son asks for a new toy, do you;", "It is your wedding anniversary, do you;", "Your daughter's phone breaks, do you;", "You find suspicious mold growing in your bathroom, do you;", "Rats are found infesting your home, do you;"};
@@ -18,7 +18,7 @@ public class Cinematic implements Serializable {
     private String secondChoice;
     private String scenarioChoice;
     private int [] cost = new int[3];
-    private int [] randcost = {50,30,70,80,50,75,100,75,100};//TODO support this lazy implimentation with a test
+    private int [] randcost = {50,30,70,80,50,75,100,75,100};//TODO support this lazy implementation with a test
 
 
     /**

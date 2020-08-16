@@ -24,7 +24,6 @@ public class CinematicActivity extends AppCompatActivity {
     private TextView message1;
     private Button choice1;
     private Button choice2;
-    private Button varsButton;
     private boolean flipBtn =false;
 
     @Override
@@ -46,11 +45,11 @@ public class CinematicActivity extends AppCompatActivity {
             flipBtn=true;
         }
 
-        message1 = (TextView) findViewById(R.id.message1);
-        choice1 = (Button) findViewById(R.id.choice1);
-        choice2 = (Button) findViewById(R.id.choice2);
+        message1 = findViewById(R.id.message1);
+        choice1 = findViewById(R.id.choice1);
+        choice2 = findViewById(R.id.choice2);
 
-        varsButton = findViewById(R.id.varsButton);
+        Button varsButton = findViewById(R.id.varsButton);
 
         if (controller.getPlayerName().equals("debug")) {
             varsButton.setVisibility(View.VISIBLE);

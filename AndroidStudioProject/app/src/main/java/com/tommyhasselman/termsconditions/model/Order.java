@@ -9,12 +9,12 @@ import java.util.Random;
 /**
  *  The Order class describes a order and a package of items to be displayed to the player.
  */
+@SuppressWarnings("unused")
 public class Order {
-
 
     private ArrayList<OrderItem> ordered = new ArrayList<>(); // Array of items on the order.
     private ArrayList<OrderItem> packed = new ArrayList<>(); // Array of items that have been packed.
-    private ArrayList<OrderItem> packedShuff;
+    private ArrayList<OrderItem> packedShuff = new ArrayList<>();
     private boolean correctlyPacked;
     private boolean validated;
 
@@ -38,17 +38,18 @@ public class Order {
             double chance = r.nextDouble();
             if (chance > c.incorrectItemChance) {
                 packed.add(i);
+                packedShuff.add(i);
             } else {
                 // If the chance is less than missingItemChance the item will be skipped.
                 if (chance > c.missingItemChance) {
-                    packed.add(new Item(comp)); // There is a small chance that this item will happen to be the same at the moment.
+                    Item item = new Item(comp);
+                    packed.add(item); // There is a small chance that this item will happen to be the same at the moment.
+                    packedShuff.add(item);
                 }
             }
         }
 
         correctlyPacked = (getOrderedCodes().equals(getPackedCodes()));
-
-        packedShuff = (ArrayList<OrderItem>) packed.clone();
         Collections.shuffle(packedShuff);
 
     }
@@ -58,11 +59,11 @@ public class Order {
      * @return Returns a String of OrderItem codes.
      */
     public String getOrderedCodes() {
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (OrderItem i : ordered) {
-            s += i.getCode();
+            s.append(i.getCode());
         }
-        return s;
+        return s.toString();
     }
 
     /**
@@ -70,11 +71,11 @@ public class Order {
      * @return Returns a String of OrderItem codes.
      */
     public String getPackedCodes() {
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (OrderItem i : packed) {
-            s += i.getCode();
+            s.append(i.getCode());
         }
-        return s;
+        return s.toString();
     }
 
     public ArrayList<OrderItem> getPacked() {

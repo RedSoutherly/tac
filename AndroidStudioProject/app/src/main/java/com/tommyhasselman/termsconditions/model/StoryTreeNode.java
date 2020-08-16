@@ -3,6 +3,7 @@ package com.tommyhasselman.termsconditions.model;
 import java.io.Serializable;
 import java.util.Random;
 
+@SuppressWarnings("unused")
 public class StoryTreeNode implements Serializable {
 
     private StoryTreeNode left;

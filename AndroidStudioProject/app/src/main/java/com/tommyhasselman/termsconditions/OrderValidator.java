@@ -1,5 +1,6 @@
 package com.tommyhasselman.termsconditions;
 
+@SuppressWarnings("unused")
 public class OrderValidator {
     private int rules;
 
@@ -25,7 +26,7 @@ public class OrderValidator {
         return false;
     }
     public OrderValidator(int rules){
-        if(rules>5){//5 is arbitrry at this point
+        if(rules>5){//5 is arbitrary at this point
             this.rules=0;
         }
         this.rules=rules;
