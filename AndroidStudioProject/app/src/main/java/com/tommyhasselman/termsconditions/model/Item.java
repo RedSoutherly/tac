@@ -5,15 +5,8 @@ import androidx.annotation.NonNull;
 import java.util.Random;
 
 /**
- * The Basic Item class is the first level of difficulty
- * for matching product collections visually.
- *
- * There are three aspects to each product of this type:
- *  Size, Colour, and Product.
- *
- * The possible values for these fields are defined in the super class.
- *
- * @author Tommy Hasselman
+ * The Item class defines any single item in the game for possible combinations.
+ * It has one constructor which takes a complexity value. And seven data fields.
  */
 public class Item extends OrderItem {
 
@@ -27,8 +20,14 @@ public class Item extends OrderItem {
     private int drawable;
 
     /**
-     * Default constructor for Basic Item.
-     * Constructs an instance with all fields randomised.
+     * Constructor for Item.
+     * Constructs an instance of Item using randomly picked indexes bases on a complexity.
+     * Complexity ranges from 0 to 3 with 0 being the default. A Complexity of zero means the item
+     * will be a plain product with a labelled drawable. Level 1 gives a plain product with an
+     * unlabelled drawable. Level 2 gives the opportunity for a flavoured product with a labelled
+     * drawable. And 3 also gives the opportunity for a flavoured product with a unlabelled
+     * drawable.
+     * @param complexity The given complexity level for this item.
      */
     public Item(int complexity) {
         Random r = new Random();
@@ -37,8 +36,6 @@ public class Item extends OrderItem {
         boolean labelled = true;
 
         switch (complexity) {
-            case 0:
-                break;
             case 1:
                 rProductRange = plainProductBoundary;
                 labelled = false;
@@ -72,7 +69,7 @@ public class Item extends OrderItem {
         colour = colours[rc];
         argbColour = argbColours[rc];
 
-        code = "SCP" + rs + rc + rProductIndex;
+        code = "S" + rs + "C" + rc + "P" + rProductIndex;
     }
 
     /**
@@ -85,20 +82,36 @@ public class Item extends OrderItem {
     }
 
     /**
-     * Method for accessing the code field.
-     * @return Returns code String
+     * Method for accessing the code field. The code for an item is the a String of "S" followed
+     * by the random size index, "C" followed by the random colour index and "P" followed by the
+     * random product index. E.G S2C4P10
+     * @return Returns code String value.
      */
     public String getCode() {
         return code;
     }
 
+    /**
+     * Getter for the ARGB value of the item.
+     * @return Returns an int ARGB value.
+     */
     public int getArgbColour() {
         return argbColour;
     }
 
+    /**
+     * Getter for the size of the item.
+     * @return Returns an int value for the item size.
+     */
     public int getIntSize() {
         return intSize;
     }
 
-    public int getDrawable() { return  drawable; }
+    /**
+     * Getter for the item drawable.
+     * @return Returns the int value for a drawable resource.
+     */
+    public int getDrawable() {
+        return  drawable;
+    }
 }
