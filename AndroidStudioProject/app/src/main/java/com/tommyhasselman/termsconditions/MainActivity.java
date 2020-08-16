@@ -14,8 +14,7 @@ import android.widget.TextView;
 import com.tommyhasselman.termsconditions.model.Order;
 
 /**
- * Responsible for the buttons and listeners of the main game, also keeps a timer in order to track
- * length of a "work day".
+ * This is a Javadoc CI test.
  */
 
 public class MainActivity extends AppCompatActivity {

@@ -33,6 +33,7 @@ script:
     - chmod +x gradlew
     - ./gradlew build check
     - ./gradlew test
+    - ./gradlew javadoc
     - ./gradlew build jacocoTestReport assembleAndroidTest
     - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
     - emulator -avd test -no-skin -no-audio -no-window &
