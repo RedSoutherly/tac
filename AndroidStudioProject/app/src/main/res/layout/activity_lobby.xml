@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/amazonfont"
-        android:text="Packages screened Correctly"
+        android:text="NET Packages screened Correctly"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
