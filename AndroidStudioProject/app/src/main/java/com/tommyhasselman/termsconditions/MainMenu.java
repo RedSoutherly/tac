@@ -9,7 +9,7 @@ import android.widget.Button;
 
 /**
  * main menu is resposible for creating and listening to all the buttons in the main menu
- * and entering a save game if one exists or creating a new one
+ * and entering a save game if one exists or creating a new one.
  */
 public class MainMenu extends AppCompatActivity {
 
