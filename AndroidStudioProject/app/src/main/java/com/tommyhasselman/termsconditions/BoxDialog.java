@@ -8,7 +8,6 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.tommyhasselman.termsconditions.model.OrderItem;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class BoxDialog extends AppCompatActivity {
 

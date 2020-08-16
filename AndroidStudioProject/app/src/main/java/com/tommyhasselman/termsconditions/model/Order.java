@@ -3,14 +3,13 @@ package com.tommyhasselman.termsconditions.model;
 import com.tommyhasselman.termsconditions.Controller;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
  *  The Order class describes a order and a package of items to be displayed to the player.
  */
-public class Order extends GameObject {
+public class Order {
 
 
     private ArrayList<OrderItem> ordered = new ArrayList<>(); // Array of items on the order.

@@ -223,6 +223,10 @@ public class Controller extends Application {
         balanceEarnt = (ordersComplete * payRate);
         balance += balanceEarnt;
         roundsPlayed++;
+        
+        if (orderItemComplexity < 4 && (roundsPlayed % 5) == 0) {
+            orderItemComplexity++;
+        }
     }
 
     public StoryTreeNode getStoryNode() {

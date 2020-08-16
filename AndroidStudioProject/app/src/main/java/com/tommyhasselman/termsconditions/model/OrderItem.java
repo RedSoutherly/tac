@@ -1,8 +1,6 @@
 package com.tommyhasselman.termsconditions.model;
 
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 
 import com.tommyhasselman.termsconditions.R;
 

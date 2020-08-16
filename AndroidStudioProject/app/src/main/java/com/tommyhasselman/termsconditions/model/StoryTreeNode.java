@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class StoryTreeNode implements Serializable {
 
-    StoryTreeNode left;
-    StoryTreeNode right;
-    Cinematic scenario;
+    private StoryTreeNode left;
+    private StoryTreeNode right;
+    private Cinematic scenario;
 
     public StoryTreeNode(Cinematic scenario){
         this.left=null;
