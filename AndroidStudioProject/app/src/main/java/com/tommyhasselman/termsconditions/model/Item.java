@@ -51,6 +51,8 @@ public class Item extends OrderItem {
                 rProductRange = productTypes.length;
                 labelled = false;
                 break;
+            default:
+                break;
         }
 
         int rProductIndex = r.nextInt(rProductRange);
