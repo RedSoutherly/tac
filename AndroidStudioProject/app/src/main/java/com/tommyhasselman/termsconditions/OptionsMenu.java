@@ -2,12 +2,14 @@ package com.tommyhasselman.termsconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -17,6 +19,9 @@ import android.widget.Toast;
  */
 public class OptionsMenu extends AppCompatActivity {
 
+    EditText nameField;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +31,9 @@ public class OptionsMenu extends AppCompatActivity {
 
         Button resetButton = findViewById(R.id.resetButton);
         Button doneButton = findViewById(R.id.goBackButton);
-        final EditText nameField = findViewById(R.id.editTextTextPersonName);
-        nameField.setText(cont.getPlayerName());
+        nameField = findViewById(R.id.editTextTextPersonName);
+
+        nameField.setText(""+cont.getPlayerName(), TextView.BufferType.EDITABLE);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

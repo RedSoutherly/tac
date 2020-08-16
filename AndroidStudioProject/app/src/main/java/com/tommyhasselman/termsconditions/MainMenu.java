@@ -24,7 +24,7 @@ public class MainMenu extends AppCompatActivity {
             cont.readSave(this);
             System.out.println("read save on create");
         } else {
-            cont.createSave(this);
+            cont.resetSave();
         }
 
         Button playButton = findViewById(R.id.playButton);

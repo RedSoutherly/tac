@@ -24,7 +24,11 @@ public class LobbyActivity extends AppCompatActivity {
 
         Controller cont = ((Controller) this.getApplication());
 
-        cont.createSave(this);
+        if (cont.saveExists(getBaseContext())) {
+            cont.createSave(this);
+        } else {
+            cont.resetSave();
+        }
 
         Button workButton = findViewById(R.id.workButton);
         Button mmButton = findViewById(R.id.mmButton);
