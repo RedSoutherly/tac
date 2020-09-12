@@ -3,6 +3,7 @@ package com.tommyhasselman.termsconditions;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -25,7 +26,7 @@ public class ConveyorActivity extends AppCompatActivity {
 
     private TextView countdownTextField;
     private TextView scoreTextView;
-    private ImageView bezosImageView;
+    private ImageView lightImageView;
     private Button correctButton;
     private Button incorrectButton;
     private Button finButton;
@@ -36,15 +37,15 @@ public class ConveyorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_conveyor);
+        setContentView(R.layout.activity_conveyor_new);
 
         ordersCompleted = 0;
 
         controller = ((Controller) this.getApplication());
 
-        countdownTextField = findViewById(R.id.countdownTextField);
-        scoreTextView = findViewById(R.id.scoreTextView);
-        bezosImageView = findViewById(R.id.bezosImageView);
+        countdownTextField = findViewById(R.id.timeText);
+        scoreTextView = findViewById(R.id.scoreText);
+        lightImageView = findViewById(R.id.light);
         correctButton = findViewById(R.id.correctButton);
         incorrectButton = findViewById(R.id.incorrectButton);
         ImageButton boxButton = findViewById(R.id.boxButton);
@@ -80,10 +81,10 @@ public class ConveyorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(order.isCorrectlyPacked()) {
                     ordersCompleted++;
-                    bezosImageView.setImageResource(R.drawable.correct_bezos);
+                    lightImageView.setColorFilter(Color.argb(50,0,255,0));
                 } else {
                     ordersCompleted--;
-                    bezosImageView.setImageResource(R.drawable.incorrect_bezos);
+                    lightImageView.setColorFilter(Color.argb(50,255,0,0));
                 }
                 updateScore();
 
@@ -95,10 +96,10 @@ public class ConveyorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!order.isCorrectlyPacked()) {
                     ordersCompleted++;
-                    bezosImageView.setImageResource(R.drawable.correct_bezos);
+                    lightImageView.setColorFilter(Color.argb(50,0,255,0));
                 } else {
                     ordersCompleted--;
-                    bezosImageView.setImageResource(R.drawable.incorrect_bezos);
+                    lightImageView.setColorFilter(Color.argb(50,255,0,0));
                 }
                 updateScore();
 
@@ -119,6 +120,7 @@ public class ConveyorActivity extends AppCompatActivity {
         if (controller.getPlayerName().equals("debug")) {
             countdownLength = 999999999;
             finButton.setVisibility(View.VISIBLE);
+            finButton.setEnabled(true);
         }
 
         new CountDownTimer(countdownLength, 1000) {
@@ -126,21 +128,16 @@ public class ConveyorActivity extends AppCompatActivity {
             int i = 0;
 
             public void onTick(long millisUntilFinished) {
-                String message = ("seconds remaining: " + millisUntilFinished / 1000);
+                String message = ((millisUntilFinished / 1000) + "s");
                 countdownTextField.setText(message);
 
-                if (i > 2) {
-                    bezosImageView.setImageResource(R.drawable.question_bezos);
-                    i = 0;
-                } else {
-                    i++;
-                }
             }
 
             public void onFinish() {
                 correctButton.setVisibility(View.GONE);
                 incorrectButton.setVisibility(View.GONE);
                 finButton.setVisibility(View.VISIBLE);
+                finButton.setEnabled(true);
             }
         }.start();
 
