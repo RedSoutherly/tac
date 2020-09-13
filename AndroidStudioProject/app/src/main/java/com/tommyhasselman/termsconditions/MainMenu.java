@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 /**
  * main menu is resposible for creating and listening to all the buttons in the main menu
@@ -13,12 +15,18 @@ import android.widget.Button;
  */
 public class MainMenu extends AppCompatActivity {
 
+    ImageView head;
+    Boolean eyebrowsDown;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_main_menu_new);
 
         Controller cont = ((Controller) this.getApplication());
+
+        head = findViewById(R.id.head);
+        eyebrowsDown = true;
 
         if (cont.saveExists(this)) {
             cont.readSave(this);
@@ -26,9 +34,22 @@ public class MainMenu extends AppCompatActivity {
         } else {
             cont.resetSave();
         }
-
+        ImageButton titleB =findViewById(R.id.titleButton);
         Button playButton = findViewById(R.id.playButton);
         Button optionsButton = findViewById(R.id.optionsButton);
+
+        titleB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(eyebrowsDown) {
+                    head.setImageResource(R.drawable.bezoesup);
+                    eyebrowsDown = false;
+                } else {
+                    head.setImageResource(R.drawable.bezos);
+                    eyebrowsDown = true;
+                }
+            }
+        });
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override

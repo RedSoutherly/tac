@@ -102,7 +102,7 @@ public class Controller extends Application {
         payRate = 5;
         daysInDebt = 0;
         orderSize = 3;
-        incorrectItemChance = 0.1;
+        incorrectItemChance = 0.25;
         missingItemChance = 0.01;
         orderItemComplexity = 0;
         storyNode = null;
