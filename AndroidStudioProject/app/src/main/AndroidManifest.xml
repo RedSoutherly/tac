@@ -5,29 +5,37 @@
     <application
         android:name=".Controller"
         android:allowBackup="true"
-        android:icon="@mipmap/icon"
+        android:icon="@mipmap/icon2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/icon"
+        android:roundIcon="@mipmap/icon2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LossActivity"></activity>
         <activity
             android:name=".VarsActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeDialog" />
         <activity
             android:name=".BoxDialog"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeDialog" />
         <activity
             android:name=".OrderDialog"
+            android:screenOrientation="portrait"
             android:theme="@style/ThemeDialog" />
         <activity
             android:name=".OptionsMenu"
+            android:screenOrientation="portrait"
             android:label="Options"
             android:theme="@style/ThemeDialog" />
-        <activity android:name=".LobbyActivity" />
-        <activity android:name=".ConveyorActivity" />
-        <activity android:name=".CinematicActivity" />
-        <activity android:name=".MainMenu">
+        <activity android:name=".LobbyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ConveyorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CinematicActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainMenu"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

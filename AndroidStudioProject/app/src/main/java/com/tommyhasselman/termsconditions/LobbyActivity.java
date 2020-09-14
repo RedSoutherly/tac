@@ -20,7 +20,7 @@ public class LobbyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lobby);
+        setContentView(R.layout.activity_lobby_new);
 
         Controller cont = ((Controller) this.getApplication());
 
@@ -32,19 +32,19 @@ public class LobbyActivity extends AppCompatActivity {
 
         Button workButton = findViewById(R.id.workButton);
         Button mmButton = findViewById(R.id.mmButton);
-        TextView balanceTextView = findViewById(R.id.balanceTextView);
-        TextView screenedTextView = findViewById(R.id.screenedTextView);
-        TextView welcomeTextView = findViewById(R.id.welcomeTextView);
-        TextView roundsTV = findViewById(R.id.roundsTV);
+        TextView balanceTextView = findViewById(R.id.balanceText);
+        TextView screenedTextView = findViewById(R.id.screenText);
+        TextView welcomeTextView = findViewById(R.id.nameText);
+        TextView roundsTV = findViewById(R.id.daysText);
         Button varsButton = findViewById(R.id.varsButton);
 
-        String playerBalance = "$"+cont.getBalance();
+        String playerBalance = ""+cont.getBalance();
         String screened = ""+cont.getLifetimeScore();
-        String welcome = "Welcome back " + cont.getPlayerName();
+        String welcome = cont.getPlayerName();
         String rounds = ""+cont.getRoundsPlayed();
 
         if (cont.getPlayerName().equals("debug")) {
-            welcome = "UwU ~ hewwo mr debugu ***";
+            welcome = "~DEBUG~";
             varsButton.setVisibility(View.VISIBLE);
             varsButton.setEnabled(true);
         }
