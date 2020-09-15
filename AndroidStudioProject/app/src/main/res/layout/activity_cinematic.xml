@@ -6,17 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".CinematicActivity">
 
-    <TextView
-        android:id="@+id/message1"
+    <ImageView
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:fontFamily="@font/amazonfont"
-        android:textSize="24sp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/phone" />
+
+    <TextView
+        android:id="@+id/message1"
+        android:layout_width="235dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="196dp"
+        android:fontFamily="@font/amazonfont"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/phone"
+        app:layout_constraintTop_toTopOf="@+id/phone" />
 
     <Button
         android:id="@+id/choice2"
@@ -55,4 +82,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
