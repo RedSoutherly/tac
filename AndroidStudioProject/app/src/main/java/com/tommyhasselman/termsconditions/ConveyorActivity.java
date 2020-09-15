@@ -82,9 +82,11 @@ public class ConveyorActivity extends AppCompatActivity {
                 if(order.isCorrectlyPacked()) {
                     ordersCompleted++;
                     lightImageView.setColorFilter(Color.argb(50,0,255,0));
+                    controller.IncrementIncorrectItemChance();
                 } else {
                     ordersCompleted--;
                     lightImageView.setColorFilter(Color.argb(50,255,0,0));
+                    //controller.DecrementIncorrectItemChance();
                 }
                 updateScore();
 
@@ -97,9 +99,11 @@ public class ConveyorActivity extends AppCompatActivity {
                 if(!order.isCorrectlyPacked()) {
                     ordersCompleted++;
                     lightImageView.setColorFilter(Color.argb(50,0,255,0));
+                    controller.DecrementIncorrectItemChance();
                 } else {
                     ordersCompleted--;
                     lightImageView.setColorFilter(Color.argb(50,255,0,0));
+                    //controller.DecrementIncorrectItemChance();
                 }
                 updateScore();
 

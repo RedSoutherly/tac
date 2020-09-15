@@ -89,8 +89,8 @@ public abstract class OrderItem {
      * String array of size values.
      */
     protected String[] sizes = {
-            "Small",
-            "Medium",
+           // "Small",
+           // "Medium",
             "Large"
     };
 
@@ -98,8 +98,8 @@ public abstract class OrderItem {
      * int array of size values.
      */
     protected int[] intSizes = {
-            250,
-            350,
+            //250,
+            //350,
             450
     };
 

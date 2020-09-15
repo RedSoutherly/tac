@@ -102,7 +102,7 @@ public class Controller extends Application {
         payRate = 5;
         daysInDebt = 0;
         orderSize = 3;
-        incorrectItemChance = 0.25;
+        incorrectItemChance = 0.1;
         missingItemChance = 0.01;
         orderItemComplexity = 0;
         storyNode = null;
@@ -217,6 +217,8 @@ public class Controller extends Application {
         if ((roundsPlayed % 10) == 0) {
             orderSize++;
         }
+
+        incorrectItemChance = 0.1;
     }
 
     public StoryTreeNode getStoryNode() {
@@ -335,5 +337,17 @@ public class Controller extends Application {
 
     public void setDaysInDebt(int daysInDebt) {
         this.daysInDebt = daysInDebt;
+    }
+
+    public void IncrementIncorrectItemChance() {
+        if (incorrectItemChance < 0.95) {
+            incorrectItemChance += 0.05;
+        }
+    }
+
+    public void DecrementIncorrectItemChance() {
+        if (incorrectItemChance > 0.05) {
+            incorrectItemChance -= 0.05;
+        }
     }
 }

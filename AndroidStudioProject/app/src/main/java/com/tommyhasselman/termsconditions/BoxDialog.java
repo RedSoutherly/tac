@@ -25,14 +25,22 @@ public class BoxDialog extends AppCompatActivity {
         FlexboxLayout cl = findViewById(R.id.boxFlex);
         ArrayList<OrderItem> boxed = cont.getCurrentOrder().getPackedShuff();
 
-        for (OrderItem item : boxed) {
+        if (boxed.size() > 0) {
+            for (OrderItem item : boxed) {
+                ImageView img = new ImageView(getBaseContext());
+                img.setImageResource(item.getDrawable());
+                FlexboxLayout.LayoutParams lp = new FlexboxLayout.LayoutParams(item.getIntSize(), item.getIntSize());
+                img.setLayoutParams(lp);
+                img.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                img.setColorFilter(item.getArgbColour());
+                img.setPadding(20, 20, 20, 20);
+                cl.addView(img);
+            }
+        } else {
             ImageView img = new ImageView(getBaseContext());
-            img.setImageResource(item.getDrawable());
-            FlexboxLayout.LayoutParams lp = new FlexboxLayout.LayoutParams(item.getIntSize(),item.getIntSize());
-            img.setLayoutParams(lp);
+            img.setImageResource(R.drawable.bezos);
             img.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            img.setColorFilter(item.getArgbColour());
-            img.setPadding(20,20,20,20);
+            img.setPadding(20, 20, 20, 20);
             cl.addView(img);
         }
 

@@ -36,18 +36,28 @@ public class Order {
 
         // Fills the packed array with matching or mismatching items.
         Random r = new Random();
-        for (OrderItem i : ordered) {
-            double chance = r.nextDouble();
-            if (chance > c.incorrectItemChance) {
-                packed.add(i);
-                packedShuff.add(i);
-            } else {
-                // If the chance is less than missingItemChance the item will be skipped.
-                if (chance > c.missingItemChance) {
-                    Item item = new Item(comp);
-                    packed.add(item); // There is a small chance that this item will happen to be the same at the moment.
-                    packedShuff.add(item);
+        double chance = r.nextDouble();
+        if (chance <= c.incorrectItemChance) {
+            int amountWrong = r.nextInt(c.orderSize)+1;
+            int i = 1;
+            for (OrderItem oi : ordered) {
+                if (i <= amountWrong) {
+                    // If the chance is less than missingItemChance the item will be skipped.
+                    if (chance > c.missingItemChance) {
+                        Item item = new Item(comp);
+                        packed.add(item); // There is a small chance that this item will happen to be the same at the moment.
+                        packedShuff.add(item);
+                    }
+                } else {
+                    packed.add(oi);
+                    packedShuff.add(oi);
                 }
+                i++;
+            }
+        } else {
+            for (OrderItem oi : ordered) {
+                packed.add(oi);
+                packedShuff.add(oi);
             }
         }
 
