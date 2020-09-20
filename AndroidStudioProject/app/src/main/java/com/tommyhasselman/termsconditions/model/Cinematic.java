@@ -65,7 +65,7 @@ public class Cinematic implements Serializable {
                 break;
             case 12:
                 this.eventCode = event;
-                this.setFirstChoice("have your house professionally cleaned -150$");
+                this.setFirstChoice("Have your house professionally cleaned -150$");
                 this.setSecondChoice("Turn to the bottle in stress -10$");
                 this.setScenarioChoice("Your toilet overflows pouring raw sewage into your home.");
                 this.cost[0]=150;
@@ -77,12 +77,57 @@ public class Cinematic implements Serializable {
                 this.setSecondChoice("Take it out on your wife and kids.");
                 this.setScenarioChoice("Your mental health begins to spiral out of control.");
                 break;
+            case 14:
+                this.eventCode = event;
+                this.setFirstChoice("Bribe the inspector -100$.");
+                this.setSecondChoice("Say goodbye to your son .");
+                this.setScenarioChoice("child protection hear about you beating your son from his school.");
+                this.cost[0]=100;
+                break;
             case 20:
                 this.eventCode = event;
                 this.setFirstChoice("Continue working hard.");
                 this.setSecondChoice("Go home via the bar to celebrate -5$.");
                 this.setScenarioChoice("Your boss is impressed with your how hardy uou've been and gives you a certificate .");
                 this.cost[1]=5;
+                break;
+            case 21:
+                this.eventCode = event;
+                this.setFirstChoice("Have your buddy do it .");
+                this.setSecondChoice("Have a doctor do it  -50$.");
+                this.setScenarioChoice("Your frostbitten fingers need amputating  .");
+                this.cost[1]=50;
+                break;
+            case 22:
+                this.eventCode = event;
+                this.setFirstChoice("Lie about having it cleaned .");
+                this.setSecondChoice("Pay up 200$.");
+                this.setScenarioChoice("Your landlord inspects and insists you pay for cleaning.");
+                this.cost[1]=200;
+                break;
+            case 30:
+                this.eventCode = event;
+                this.setFirstChoice("Pay a defense lawyer -350$");
+                this.setSecondChoice("Pay the owner of the bar you trashed -300$.");
+                this.setScenarioChoice("After days of hard work bottling your feelings up you go on a drink fueled rage.");
+                this.cost[0]=350;
+                this.cost[1]=300;
+                break;
+            case 31:
+                this.eventCode = event;
+                this.setFirstChoice("Numb the pain and fever with more medication -80$");
+                this.setSecondChoice("Take the day off and ask your cousin to cover for you -100$.");
+                this.setScenarioChoice("Your finger stubs get infected and you have to buy anti-biotics -40$.");
+                this.cost[0]=80;
+                this.cost[1]=100;
+                this.cost[2]=40;
+                break;
+            case 32:
+                this.eventCode = event;
+                this.setFirstChoice("Stay in the red motel 300$.");
+                this.setSecondChoice("Stay in the blue motel 300$.");
+                this.setScenarioChoice("Your landlord catches you in your cleaning lie and kicks you out");
+                this.cost[1]=200;
                 break;
             default:
                 if(randChoice.size()==0){
