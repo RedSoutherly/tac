@@ -2,6 +2,8 @@ package com.tommyhasselman.termsconditions;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.fonts.FontStyle;
+import android.media.MediaPlayer;
 
 import com.tommyhasselman.termsconditions.model.Order;
 import com.tommyhasselman.termsconditions.model.StoryTreeNode;
@@ -24,6 +26,7 @@ import java.util.HashMap;
  */
 @SuppressWarnings("unused")
 public class Controller extends Application {
+
 
     private final String SAVE_FILE = "tncSaveFile.ser";
 
@@ -50,6 +53,8 @@ public class Controller extends Application {
 
     //order validator(keeps track of rules number of additional rules active)
     public OrderValidator validator = new OrderValidator(0);
+
+    private MediaPlayer mp;
 
     /**
      * @return Returns a HashMap of gameplay variables. Keyed by their variable name.
@@ -349,5 +354,11 @@ public class Controller extends Application {
         if (incorrectItemChance > 0.05) {
             incorrectItemChance -= 0.05;
         }
+    }
+
+    public void playSound(int resID) {
+        if (mp != null) mp.release();
+        mp = MediaPlayer.create(this,resID);
+        mp.start();
     }
 }

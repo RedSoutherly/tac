@@ -58,6 +58,7 @@ public class CinematicActivity extends AppCompatActivity {
 
         String s = ("Congratulations you packed " + score + " boxes,\nyou've earn't $" + controller.getBalanceEarnt() + ".");
         message1.setText(s);
+        controller.playSound(R.raw.iphone_message_tone);
        //onoller.setStoryNode(controller.getStoryNode().getRandomNode());
         controller.setBalance(controller.getBalance() - controller.getStoryNode().getCinematic().getCost()[2]);
 
@@ -124,6 +125,7 @@ public class CinematicActivity extends AppCompatActivity {
 
                 }else {
                     message1.setText(c.getScenarioChoice());
+                    controller.playSound(R.raw.iphone_message_tone);
                     if(flipBtn){
                         choice1.setText(c.getSecondChoice());
                         choice2.setText(c.getFirstChoice());

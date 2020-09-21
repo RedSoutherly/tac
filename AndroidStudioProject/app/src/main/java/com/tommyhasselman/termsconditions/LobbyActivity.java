@@ -1,6 +1,7 @@
 package com.tommyhasselman.termsconditions;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +17,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LobbyActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby_new);
 
-        Controller cont = ((Controller) this.getApplication());
+        final Controller cont = ((Controller) this.getApplication());
 
         if (cont.saveExists(getBaseContext())) {
             cont.createSave(this);
@@ -65,6 +65,7 @@ public class LobbyActivity extends AppCompatActivity {
         mmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cont.playSound(R.raw.angry_boat_1);
                 startActivity(new Intent(LobbyActivity.this, MainMenu.class));
                 finish();
             }
