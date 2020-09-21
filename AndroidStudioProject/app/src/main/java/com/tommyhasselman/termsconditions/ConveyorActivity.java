@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -60,10 +61,14 @@ public class ConveyorActivity extends AppCompatActivity {
 
         order = controller.getNewOrder();
 
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.industrialcomplex4);
+        mp.start();
+
 
         boxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                controller.playSound(R.raw.box_open);
                 startActivity(new Intent(ConveyorActivity.this, BoxDialog.class));
             }
         });
@@ -71,6 +76,7 @@ public class ConveyorActivity extends AppCompatActivity {
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                controller.playSound(R.raw.open_button_2);
                 startActivity(new Intent(ConveyorActivity.this, OrderDialog.class));
             }
         });
