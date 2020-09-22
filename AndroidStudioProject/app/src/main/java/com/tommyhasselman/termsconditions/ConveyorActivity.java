@@ -35,6 +35,8 @@ public class ConveyorActivity extends AppCompatActivity {
 
     private int ordersCompleted;
 
+    MediaPlayer mp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +63,7 @@ public class ConveyorActivity extends AppCompatActivity {
 
         order = controller.getNewOrder();
 
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.industrialcomplex4);
+        mp = MediaPlayer.create(this, R.raw.industrialcomplex4);
         mp.start();
 
 
@@ -86,10 +88,12 @@ public class ConveyorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(order.isCorrectlyPacked()) {
+                    controller.playSound(R.raw.correct);
                     ordersCompleted++;
                     lightImageView.setColorFilter(Color.argb(50,0,255,0));
                     controller.IncrementIncorrectItemChance();
                 } else {
+                    controller.playSound(R.raw.wrong);
                     ordersCompleted--;
                     lightImageView.setColorFilter(Color.argb(50,255,0,0));
                     //controller.DecrementIncorrectItemChance();
@@ -103,10 +107,12 @@ public class ConveyorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!order.isCorrectlyPacked()) {
+                    controller.playSound(R.raw.correct);
                     ordersCompleted++;
                     lightImageView.setColorFilter(Color.argb(50,0,255,0));
                     controller.DecrementIncorrectItemChance();
                 } else {
+                    controller.playSound(R.raw.wrong);
                     ordersCompleted--;
                     lightImageView.setColorFilter(Color.argb(50,255,0,0));
                     //controller.DecrementIncorrectItemChance();
@@ -121,6 +127,7 @@ public class ConveyorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 controller.endRound(ordersCompleted);
                 startActivity(new Intent(ConveyorActivity.this,CinematicActivity.class));
+                mp.release();
                 finish();
             }
         });
