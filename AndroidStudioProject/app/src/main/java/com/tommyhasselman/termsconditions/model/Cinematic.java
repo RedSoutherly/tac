@@ -58,7 +58,7 @@ public class Cinematic implements Serializable {
                 break;
             case 11:
                 this.eventCode = event;
-                this.setFirstChoice("See a Docter -90$");
+                this.setFirstChoice("See a Doctor -90$");
                 this.setSecondChoice("Tough it out like your forefathers.");
                 this.setScenarioChoice("Two of your fingers become frostbitten.");
                 this.cost[0]=90;
@@ -88,7 +88,7 @@ public class Cinematic implements Serializable {
                 this.eventCode = event;
                 this.setFirstChoice("Continue working hard.");
                 this.setSecondChoice("Go home via the bar to celebrate -5$.");
-                this.setScenarioChoice("Your boss is impressed with your how hardy uou've been and gives you a certificate .");
+                this.setScenarioChoice("Your boss is impressed with your how hardy you've been and gives you a certificate .");
                 this.cost[1]=5;
                 break;
             case 21:
@@ -117,7 +117,7 @@ public class Cinematic implements Serializable {
                 this.eventCode = event;
                 this.setFirstChoice("Numb the pain and fever with more medication -80$");
                 this.setSecondChoice("Take the day off and ask your cousin to cover for you -100$.");
-                this.setScenarioChoice("Your finger stubs get infected and you have to buy anti-biotics -40$.");
+                this.setScenarioChoice("Your finger stubs get infected and you have to buy antibiotics -40$.");
                 this.cost[0]=80;
                 this.cost[1]=100;
                 this.cost[2]=40;
