@@ -1,4 +1,4 @@
-package com.tommyhasselman.termsconditions.model;
+package com.tommyhasselman.termsandconditions.model;
 
 import androidx.annotation.NonNull;
 

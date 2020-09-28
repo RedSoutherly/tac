@@ -1,6 +1,6 @@
-package com.tommyhasselman.termsconditions.model;
+package com.tommyhasselman.termsandconditions.model;
 
-import com.tommyhasselman.termsconditions.Controller;
+import com.tommyhasselman.termsandconditions.Controller;
 
 
 import org.junit.Before;

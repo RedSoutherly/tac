@@ -1,4 +1,4 @@
-package com.tommyhasselman.termsconditions;
+package com.tommyhasselman.termsandconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.google.android.flexbox.FlexboxLayout;
-import com.tommyhasselman.termsconditions.model.OrderItem;
+import com.tommyhasselman.termsandconditions.model.OrderItem;
 
 import java.util.ArrayList;
 

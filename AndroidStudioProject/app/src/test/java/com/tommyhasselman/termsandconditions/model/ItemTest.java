@@ -1,8 +1,4 @@
-package com.tommyhasselman.termsconditions.model;
-import com.tommyhasselman.termsconditions.model.Item;
-
-import org.junit.Before;
-import org.junit.Test;
+package com.tommyhasselman.termsandconditions.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

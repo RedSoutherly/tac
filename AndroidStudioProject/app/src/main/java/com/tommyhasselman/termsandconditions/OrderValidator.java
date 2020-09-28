@@ -1,4 +1,4 @@
-package com.tommyhasselman.termsconditions;
+package com.tommyhasselman.termsandconditions;
 
 /**
  * the order validator class offloads the logic of validating boxes and orders as correct or
