@@ -1,4 +1,4 @@
-package com.tommyhasselman.termsconditions;
+package com.tommyhasselman.termsandconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.tommyhasselman.termsconditions.model.Cinematic;
-import com.tommyhasselman.termsconditions.model.StoryTreeNode;
+import com.tommyhasselman.termsandconditions.model.Cinematic;
+import com.tommyhasselman.termsandconditions.model.StoryTreeNode;
 
 import java.util.Random;
 

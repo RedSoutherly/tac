@@ -15,10 +15,10 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.tommyhasselman.termsconditions"
+        applicationId "com.tommyhasselman.termsandconditions"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 2
+        versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

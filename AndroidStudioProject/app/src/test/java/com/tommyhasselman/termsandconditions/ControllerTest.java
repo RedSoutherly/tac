@@ -1,6 +1,6 @@
-package com.tommyhasselman.termsconditions;
+package com.tommyhasselman.termsandconditions;
 
-import com.tommyhasselman.termsconditions.model.Order;
+import com.tommyhasselman.termsandconditions.model.Order;
 
 import org.junit.Before;
 import org.junit.Test;

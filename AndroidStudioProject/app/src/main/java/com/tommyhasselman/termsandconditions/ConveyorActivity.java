@@ -1,4 +1,4 @@
-package com.tommyhasselman.termsconditions;
+package com.tommyhasselman.termsandconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.tommyhasselman.termsconditions.model.Order;
+import com.tommyhasselman.termsandconditions.model.Order;
 
 /**
  * ConveyorActivity is where the core gameplay happens. The player is presented with a graphically

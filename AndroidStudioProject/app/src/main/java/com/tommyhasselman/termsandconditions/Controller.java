@@ -1,12 +1,11 @@
-package com.tommyhasselman.termsconditions;
+package com.tommyhasselman.termsandconditions;
 
 import android.app.Application;
 import android.content.Context;
-import android.graphics.fonts.FontStyle;
 import android.media.MediaPlayer;
 
-import com.tommyhasselman.termsconditions.model.Order;
-import com.tommyhasselman.termsconditions.model.StoryTreeNode;
+import com.tommyhasselman.termsandconditions.model.Order;
+import com.tommyhasselman.termsandconditions.model.StoryTreeNode;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package com.tommyhasselman.termsconditions;
+package com.tommyhasselman.termsandconditions;
 
 import androidx.appcompat.app.AppCompatActivity;
 

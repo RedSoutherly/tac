@@ -1,8 +1,8 @@
-package com.tommyhasselman.termsconditions.model;
+package com.tommyhasselman.termsandconditions.model;
 
 import android.graphics.Color;
 
-import com.tommyhasselman.termsconditions.R;
+import com.tommyhasselman.termsandconditions.R;
 
 /**
  * Order Item is the abstract class that defines values for use in the Item class.
