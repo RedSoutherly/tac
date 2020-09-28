@@ -20,7 +20,7 @@ public abstract class OrderItem {
      */
     protected String[] productTypes = {
             "Ball",
-            "Dildo",
+            //"Dildo",
             "Hat",
             "Riot Shield",
             "Shirt",
@@ -35,7 +35,7 @@ public abstract class OrderItem {
             "Patterned Riot Shield",
 
             "BLM Shirt",
-            "Loli Shirt"
+            //"Loli Shirt"
     };
 
     /**
@@ -43,7 +43,7 @@ public abstract class OrderItem {
      */
     protected int[] drawables = {
             R.drawable.p_ball_plain,
-            R.drawable.p_dildo,
+            //R.drawable.p_dildo,
             R.drawable.p_hat_plain,
             R.drawable.p_riotshield,
             R.drawable.p_shirt_plain,
@@ -58,7 +58,7 @@ public abstract class OrderItem {
             R.drawable.p_riotshield_cute,
 
             R.drawable.p_shirt_blm,
-            R.drawable.p_shirt_loli
+            //R.drawable.p_shirt_loli
     };
 
     /**
@@ -67,7 +67,7 @@ public abstract class OrderItem {
      */
     protected int[] labbelledDrawables = {
             R.drawable.p_ball_plain_labelled,
-            R.drawable.p_dildo_labelled,
+            //R.drawable.p_dildo_labelled,
             R.drawable.p_hat_plain_labelled,
             R.drawable.p_riotshield_labelled,
             R.drawable.p_shirt_plain_labelled,
@@ -82,7 +82,7 @@ public abstract class OrderItem {
             R.drawable.p_riotshield_cute_labelled,
 
             R.drawable.p_shirt_blm_labelled,
-            R.drawable.p_shirt_loli_labelled
+            //R.drawable.p_shirt_loli_labelled
     };
 
     /**
