@@ -1,21 +1,25 @@
-# Build Status: [![Build Status](https://travis-ci.org/RedSoutherly/tac.svg?branch=master)](https://travis-ci.org/RedSoutherly/tac)
-
-# Codacy Quality Grade: [![Codacy Badge](https://api.codacy.com/project/badge/Grade/33aa73ec0a97462e9209fe6ef4c94abf)](https://app.codacy.com/manual/RedSoutherly/tac?utm_source=github.com&utm_medium=referral&utm_content=RedSoutherly/tac&utm_campaign=Badge_Grade_Dashboard)
-
-# CodeCov Test Coverage: [![codecov](https://codecov.io/gh/RedSoutherly/tac/branch/master/graph/badge.svg)](https://codecov.io/gh/RedSoutherly/tac)
-
-# Documentation Status: [![Documentation](https://codedocs.xyz/RedSoutherly/tac.svg)](https://codedocs.xyz/RedSoutherly/tac/annotated.html)
-
 # COSC345 Group Project - Terms and Conditions:
-Text based game with some graphical elements, Terms and Conditions places you in a dystopian American distribution centre where you have to check and form deliveries under increasing time restraints and scrutiny. The game plays homage to 'Papers Please' and pokes fun at a certain large American online retailer.
+This repository is for an android game developed as part of the COSC345 full year paper at the University of Otago, New Zealand.
+Our game is intended as a satirical view of wokring as an Amazon Distribution worker. You have to screen orders to earn money and then spend, or not spend, it on life choices.
+We developed it using Android Studio and the Java programming langauge.
 
-Written in Java using the Android Studio IDE.
+# Continuous Integration:
 
-# APK:
-There is an apk of the game available in the repository under 'apk/release'. This release of the games includes the Dildo and Lolita Shirt items. These had to be removed for the play store listing, in order to comply with googles standards.
+## Build Status: [![Build Status](https://travis-ci.org/RedSoutherly/tac.svg?branch=master)](https://travis-ci.org/RedSoutherly/tac)
 
-# Store listing:
+## Codacy Quality Grade: [![Codacy Badge](https://api.codacy.com/project/badge/Grade/33aa73ec0a97462e9209fe6ef4c94abf)](https://app.codacy.com/manual/RedSoutherly/tac?utm_source=github.com&utm_medium=referral&utm_content=RedSoutherly/tac&utm_campaign=Badge_Grade_Dashboard)
+
+## CodeCov Test Coverage: [![codecov](https://codecov.io/gh/RedSoutherly/tac/branch/master/graph/badge.svg)](https://codecov.io/gh/RedSoutherly/tac)
+
+## Documentation Status: [![Documentation](https://codedocs.xyz/RedSoutherly/tac.svg)](https://codedocs.xyz/RedSoutherly/tac/annotated.html)
+
+# Releases:
+
+## Store listing:
 You can find the game available for open testing on the Google Play Store here: https://play.google.com/store/apps/details?id=com.tommyhasselman.termsandconditions
+
+## APK:
+There is an apk of the game available in the repository under 'apk/release'. This release of the games includes the Dildo and Lolita Shirt items. These had to be removed for the play store listing, in order to comply with googles standards.
 
 # How to play:
 When you open up the game you will be presented with two buttons on the main screen; "Play" and "Options".
