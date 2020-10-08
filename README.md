@@ -1,5 +1,5 @@
 # COSC345 Group Project - Terms and Conditions:
-This repository is for an android game developed as part of the COSC345 full year paper at the University of Otago, New Zealand. The theme of the paper for 2020 was anarchy, ironically enough. And as such we were tasked with making an application that could aggitate someone or somthing. So to fit this theme, game is intended as a satirical view of working as an Amazon Distribution worker. You have to screen orders to earn money and then spend, or not spend, it on life choices. It features some dark humour and one of 2020's hot products, the riot shield.
+This repository is for an android game developed as part of the COSC345 full year paper at the University of Otago, New Zealand. The theme of the paper for 2020 was anarchy, ironically enough. And as such we were tasked with making an application that could aggitate someone or somthing. So to fit this theme, our game is intended as a satirical view of working as an Amazon Distribution worker. You have to screen orders to earn money and then spend, or not spend, it on life choices. It features some dark humour and one of 2020's hot products, the riot shield.
 
 We developed it using Android Studio and the Java programming langauge.
 
